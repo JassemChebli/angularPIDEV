@@ -1,11 +1,11 @@
 <section id="minimal-statistics">
   <div class="row text-left">
     <div class="col-12 mt-3 mb-1">
-      <div class="content-header">Students notification list</div>
+      <div class="content-header">Teachers notification list</div>
     </div>
   </div>
-  <div  class="row text-left" matchHeight="card">
-    <div *ngFor="let item of Notification" class="col-xl-3 col-lg-6 col-12">
+  <div *ngFor="let item of Notification" class="row text-left" matchHeight="card">
+    <div class="col-xl-3 col-lg-6 col-12">
       <div class="card bg-success">
         <div class="card-content">
           <div class="px-3 py-3">
@@ -15,7 +15,7 @@
               </div>
               <div class="media-body white text-right">
                 <h3>{{item.date | date}}</h3>
-                <span>{{item.student}}</span>
+                <span>{{item.id}}</span>
               </div>
             </div>
           </div>

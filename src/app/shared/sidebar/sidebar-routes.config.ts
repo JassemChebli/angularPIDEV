@@ -4,16 +4,17 @@ export const ROUTES: RouteInfo[] = [
 
     
     {
-        path: '', title: 'PFE file operations', icon: 'ft-align-left', class: 'has-sub', badge: '', badgeClass: 'badge badge-pill badge-danger float-right mr-1 mt-1', isExternalLink: false,
+        path: '', title: 'Notifications', icon: 'ft-align-left', class: 'has-sub', badge: '', badgeClass: 'badge badge-pill badge-danger float-right mr-1 mt-1', isExternalLink: false,
         submenu: [
-            { path: 'javascript:;', title: 'Add PFE File', icon: '', class: '', badge: '', badgeClass: '', isExternalLink: true, submenu: [] },
+            
             {
-                path: '', title: 'Affect Teacher-Role', icon: '', class: 'has-sub', badge: '', badgeClass: '', isExternalLink: false,
-                submenu: [
-                    { path: 'javascript:;', title: 'Affect Supervisor', icon: '', class: '', badge: '', badgeClass: '', isExternalLink: true, submenu: [] },
-                    { path: 'javascript:;', title: 'Affect Pre-validator', icon: '', class: '', badge: '', badgeClass: '', isExternalLink: true, submenu: [] },
-                ]
+                path: '/notification/students', title: 'Student', icon: '', class: '', badge: '', badgeClass: '', isExternalLink: false,
+                submenu: []
             },
+            {
+                path: '/notification/teachers', title: 'Teacher', icon: '', class: '', badge: '', badgeClass: '', isExternalLink: false,
+                submenu: []
+            }
         ]
     },
     {
@@ -23,7 +24,7 @@ export const ROUTES: RouteInfo[] = [
         path: '/full-layout', title: 'Operation 2', icon: 'ft-square', class: '', badge: '', badgeClass: '', isExternalLink: false, submenu: []
     },
     {
-        path: '/testt', title: 'Operation 3', icon: 'ft-folder', class: '', badge: '', badgeClass: '', isExternalLink: false, submenu: []
+        path: '/notification/student', title: 'Operation 3', icon: 'ft-folder', class: '', badge: '', badgeClass: '', isExternalLink: false, submenu: []
     }
     
 
