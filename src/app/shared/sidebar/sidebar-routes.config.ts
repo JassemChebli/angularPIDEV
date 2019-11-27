@@ -46,7 +46,7 @@ export const ROUTES: RouteInfo[] = [
         ]
     },
     {
-        path: '/full-layout', title: 'Operation 1', icon: 'ft-layout', class: '', badge: '', badgeClass: '', isExternalLink: false, submenu: []
+        path: '/supervisor/change/request', title: 'Request supervisor change', icon: 'ft-layout', class: '', badge: '', badgeClass: '', isExternalLink: false, submenu: []
     }
 
 

@@ -1,0 +1,30 @@
+<section class="basic-textarea">
+  <div class="row text-left">
+    <div class="col-md-12">
+      <div class="card">
+        <div class="card-header">
+          <h4 class="card-title mb-0">Textarea</h4>
+        </div>
+        <div class="card-content">
+          <div class="card-body">
+              <div class="form-body">
+                <div class="row">
+
+                  <div class="col-xl-12 col-lg-12 col-md-12">
+                    <fieldset class="form-group">
+                      <label for="placeTextarea">Why you want to request changing your supervisor</label>
+                      <textarea class="form-control" id="placeTextarea" rows="3"
+                        placeholder="Textarea with placeholder" [(ngModel)]="requestDetails.description"></textarea>
+                        <div class="mb-3">
+                          <button (click)="addRequest()" class="btn btn-raised gradient-pomegranate white big-shadow">Add request</button>
+                        </div>
+                    </fieldset>
+                  </div>
+                </div>
+              </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
