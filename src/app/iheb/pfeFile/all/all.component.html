@@ -1,0 +1,32 @@
+<section id="minimal-statistics">
+  <div class="row text-left">
+    <div class="col-12 mt-3 mb-1">
+      <div class="content-header">Title: {{item.title}}</div>
+    </div>
+  </div>
+  <div *ngFor="let item of all" class="row text-left" matchHeight="card">
+    <div class="col-xl-3 col-lg-6 col-12">
+      <div class="card bg-primary">
+        <div class="card-content">
+          <div class="px-3 py-3">
+            <div class="media">
+              <div class="media-left white align-self-center">
+                <span>Student: {{item.student.firstName}} {{item.student.lastName}}</span>
+              </div>
+              <div class="media-body white text-right">
+                <ul class="list-group">
+                  <li class="list-group-item">
+                    <span class="badge bg-primary float-right">{{item.gradeSupervisor}}</span> SuperVisor Grade
+                  </li>
+                  <li class="list-group-item">
+                    <span class="badge bg-info float-right">{{item.gradeReporter}}</span> Reporteur Grade
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

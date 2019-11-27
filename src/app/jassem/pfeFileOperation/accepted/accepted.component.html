@@ -1,0 +1,24 @@
+<div class="col-xl-3 col-lg-6 col-md-12">
+  <div class="card" *ngFor="let item of accepted">
+    <div class="card-header">
+      <h4 class="card-title">Title: {{item.title}}</h4>
+      <h6 class="card-subtitle text-muted">Student: {{item.student.firstName}} {{item.student.lastName}}</h6>
+    </div>
+    <div class="card-content">
+      <div class="card-body">
+
+        <p class="card-text mt-1">scription: {{item.description}}</p>
+      </div>
+    </div>
+    <div class="card-footer bg-success">
+      <ul class="list-group">
+        <li class="list-group-item">
+          <span class="badge bg-primary float-right">{{item.gradeSupervisor}}</span> SuperVisor Grade
+        </li>
+        <li class="list-group-item">
+          <span class="badge bg-info float-right">{{item.gradeReporter}}</span> Reporteur Grade
+        </li>
+      </ul>
+    </div>
+  </div>
+</div>
