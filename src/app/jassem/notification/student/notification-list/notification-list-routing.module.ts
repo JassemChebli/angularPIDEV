@@ -1,13 +1,14 @@
-import { NotificationListComponent } from './notification-list.component';
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
+
+import { NotificationListComponent } from './notification-list.component';
 
 const routes: Routes = [
     {
         path: '',
         component: NotificationListComponent,
         data: {
-            title: 'NotificationList'
+            title: 'Notifications List'
         },
 
     }
@@ -18,6 +19,4 @@ const routes: Routes = [
     exports: [RouterModule],
 })
 
-export class ChatRoutingModule { }
-
-export const routedComponents = [NotificationListComponent];
+export class NotificationListRoutingModule { }

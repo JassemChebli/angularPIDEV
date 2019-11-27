@@ -8,9 +8,9 @@ import { FullLayoutPageComponent } from './full-layout-page.component';
 @NgModule({
     imports: [
         CommonModule,
-        FullPagesRoutingModule   
+        FullPagesRoutingModule
     ],
-    declarations: [       
+    declarations: [
         FullLayoutPageComponent
     ]
 })

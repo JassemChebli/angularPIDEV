@@ -1,0 +1,11 @@
+{
+    "/api/*": {
+        "target": "http://localhost:9080/platformPfe-web/app/",
+        "secure": false,
+        "logLevel": "debug",
+        "changeOrigin": true,
+        "pathRewrite": {
+            "^/api": ""
+        }
+    }
+}

@@ -1,0 +1,26 @@
+<section id="minimal-statistics">
+  <div class="row text-left">
+    <div class="col-12 mt-3 mb-1">
+      <div class="content-header">Students notification list</div>
+    </div>
+  </div>
+  <div *ngFor="let item of Notification" class="row text-left" matchHeight="card">
+    <div class="col-xl-3 col-lg-6 col-12">
+      <div class="card bg-success">
+        <div class="card-content">
+          <div class="px-3 py-3">
+            <div class="media">
+              <div class="media-left white align-self-center">
+                <span>{{item.content}}</span>
+              </div>
+              <div class="media-body white text-right">
+                <h3>{{item.date | date}}</h3>
+                <span>{{item.id}}</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

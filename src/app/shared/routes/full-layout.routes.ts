@@ -9,5 +9,10 @@ export const Full_ROUTES: Routes = [
   {
     path: 'full-layout',
     loadChildren: './pages/full-layout-page/full-pages.module#FullPagesModule'
+  },
+  {
+    path: 'testt',
+    loadChildren: './jassem/notification/student/notification-list/notification-list.module#NotificationListModule'
   }
 ];
+//./jassem/notification/student/notification-list/notification-list.module#NotificationListModule

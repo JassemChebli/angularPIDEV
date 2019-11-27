@@ -23,7 +23,7 @@ export const ROUTES: RouteInfo[] = [
         path: '/full-layout', title: 'Operation 2', icon: 'ft-square', class: '', badge: '', badgeClass: '', isExternalLink: false, submenu: []
     },
     {
-        path: '/full-layout', title: 'Operation 3', icon: 'ft-folder', class: '', badge: '', badgeClass: '', isExternalLink: false, submenu: []
+        path: '/testt', title: 'Operation 3', icon: 'ft-folder', class: '', badge: '', badgeClass: '', isExternalLink: false, submenu: []
     }
     
 

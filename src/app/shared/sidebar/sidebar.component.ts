@@ -43,7 +43,7 @@ export class SidebarComponent implements OnInit, AfterViewInit {
     this.config = this.configService.templateConf;
     this.menuItems = ROUTES;
 
-    
+
 
     if (this.config.layout.sidebar.backgroundColor === 'white') {
       this.logoUrl = 'assets/img/logo-dark.png';
@@ -51,8 +51,8 @@ export class SidebarComponent implements OnInit, AfterViewInit {
     else {
       this.logoUrl = 'assets/img/logo.png';
     }
-   
-    
+
+
   }
 
   ngAfterViewInit() {
@@ -74,7 +74,7 @@ export class SidebarComponent implements OnInit, AfterViewInit {
       }
     }, 0);
 
-    
+
   }
 
   toggleSlideInOut() {
