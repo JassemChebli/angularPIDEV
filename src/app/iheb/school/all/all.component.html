@@ -1,3 +1,15 @@
-<p>
-  all works!
-</p>
+<div class="col-lg-4 col-md-12 col-sm-12">
+    <div class="card" *ngFor="let item of all">
+      <div class="card-content">
+        <div class="card-img">
+          <img class="card-img-top img-fluid" src="assets/img/photos/14.jpg" alt="Card image cap">
+          <h4 class="card-title">{{item.name}}</h4>
+          <a class="btn btn-floating halfway-fab bg-warning"><i class="ft-plus"></i></a>
+        </div>
+        <div class="card-body">
+          <p class="card-text">{{item.address}}</p>
+          <a class="btn btn-raised btn-warning">{{item.email}}</a>
+        </div>
+      </div>
+    </div>
+  </div>
