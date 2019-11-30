@@ -9,7 +9,7 @@ import { retry, catchError } from 'rxjs/operators';
 export class RestApiService {
 
     // Define API
-    apiURL = '/api/Categorie';
+    apiURL = '/api/categorie';
 
     // Http Options
     httpOptions = {
