@@ -33,6 +33,10 @@ export const Full_ROUTES: Routes = [
   {
     path: 'categorie/all',
     loadChildren: './wassim/categorie/all/all.module#AllModule'
+  },
+  {
+    path: 'supervisor/change/request',
+    loadChildren: './jassem/requestSupervisorChange/add/add.module#AddModule'
   }
 
 ];
