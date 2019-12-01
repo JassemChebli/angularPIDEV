@@ -32,7 +32,7 @@ export const Full_ROUTES: Routes = [
   },
   {
     path: 'categorie/all',
-    loadChildren: './wassim/categorie/all/all.module#AllModule'
+    loadChildren: './imene/categorie/all/all.module#AllModule'
   },
   {
     path: 'supervisor/change/request',
