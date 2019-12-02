@@ -1,0 +1,112 @@
+<section id="basic-form-layouts">
+    <div class="row">
+      <div class="col-sm-12">
+        <div class="content-header">Adding Student Form</div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-12">
+        <div class="card">
+          <div class="card-header">
+            <h4 class="card-title" id="bordered-layout-basic-form">Project Info</h4>
+          </div>
+          <div class="card-body">
+            <div class="px-3">
+              <form class="form form-horizontal form-bordered" [formGroup]="studentForm" (ngSubmit)="onSubmit()">
+                  {{ studentForm.value | json}}
+                <div class="form-body">
+                  <h4 class="form-section"><i class="ft-user"></i> Personal Info</h4>
+                  <div class="form-group row">
+                    <label class="col-md-3 label-control" for="projectinput1">First Name</label>
+                    <div class="col-md-9">
+                      <input type="text" id="projectinput1" class="form-control" placeholder="First Name" name="fname" formControlName="firstName">
+                    </div>
+                  </div>
+                  <div class="form-group row">
+                    <label class="col-md-3 label-control" for="projectinput2">Last Name</label>
+                    <div class="col-md-9">
+                      <input type="text" id="projectinput2" class="form-control" placeholder="Last Name" name="lname" formControlName="lastName">
+                    </div>
+                  </div>
+  
+                  <div class="form-group row">
+                    <label class="col-md-3 label-control" for="projectinput3">E-mail</label>
+                    <div class="col-md-9">
+                      <input type="text" id="projectinput3" class="form-control" placeholder="E-mail" name="email" formControlName="email">
+                    </div>
+                  </div>
+  
+                  <div class="form-group row">
+                    <label class="col-md-3 label-control" for="projectinput4">Contact Number</label>
+                    <div class="col-md-9">
+                      <input type="number" id="projectinput4" class="form-control" placeholder="Phone" name="phone" formControlName="tel">
+                    </div>
+                  </div>
+
+                  <div class="form-group row last">
+                    <label class="col-md-3 label-control" for="timesheetinput3">BirthDay Date</label>
+                    <div class="col-md-9">
+                      <div class="position-relative has-icon-left">
+                        <input type="date" id="projectinput4" class="form-control" name="date" formControlName="birthDate">
+                        <div class="form-control-position">
+                          <i class="ft-message-square"></i>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+  
+                  <h4 class="form-section"><i class="ft-file-text"></i> Administration</h4>
+                  <!--For Classes // (change)="changeClass($event)"-->
+                  <div class="form-group row" formGroupName = "classe">
+                    <label class="col-md-3 label-control" for="projectinput6">Interested in</label>
+                    <div class="col-md-9" >
+                      
+                      <select id="projectinput6" name="interested" class="form-control" formControlName="id"> 
+                          <option value="" disabled>Choose Student Class</option>
+                        <option *ngFor="let classe of classes"  value="{{ classe?.id }}"  >{{ classe?.label }}</option>
+                      </select>
+                    </div>
+                  </div>
+                  <!--For Classes-->
+                 <div class="form-group row">
+                    <label class="col-md-3 label-control">Select File</label>
+                    <div class="col-md-9">
+                      <label id="projectinput8" class="file">
+                        <input type="file" id="file">
+                        <span class="file-custom"></span>
+                      </label>
+                    </div>
+                  </div>
+                  
+                  <div class="form-group row last">
+                      <label class="col-md-3 label-control">Give Access: </label>
+                      <div class="col-md-9">
+                        <div class="input-group col-md-9">
+                          <div class="custom-control custom-radio d-inline-block ml-1">
+                            <input type="radio" id="customRadioInline1" name="customRadioInline1" class="custom-control-input" name="status" value="true" formControlName="status">
+                            <label class="custom-control-label" for="customRadioInline1">Yes</label>
+                          </div>
+                          <div class="custom-control custom-radio d-inline-block ml-2">
+                            <input type="radio" id="customRadioInline2" checked name="customRadioInline1" class="custom-control-input" name="status" value="false" formControlName="status">
+                            <label class="custom-control-label" for="customRadioInline2">No</label>
+                          </div>
+                        </div>
+                      </div>
+                  </div>
+                </div>
+  
+                <div class="form-actions">
+                  <button type="button" class="btn btn-raised btn-warning mr-1">
+                    <i class="ft-x"></i> Cancel
+                  </button>
+                  <button type="submit" class="btn btn-raised btn-primary">
+                    <i class="fa fa-check-square-o"></i> Save
+                  </button>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+</section>

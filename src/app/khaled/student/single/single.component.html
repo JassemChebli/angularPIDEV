@@ -1,0 +1,28 @@
+<section id="basic-form-layouts">
+  <div class="row text-left">
+    <div class="col-12 mt-3 mb-1">
+      <div class="content-header">Student Details</div>
+    </div>
+  </div>
+  <div  class="row">
+      <div class="" >
+        <div class="card">
+          <div class="card-content">
+            <div class="card-header">
+              <h4 class="card-title">{{ student?.firstName }} {{ student?.lastName }}</h4>
+              <h6 class="card-subtitle text-muted">{{ student?.birthDate }}</h6>
+            </div>
+            <div class="card-content">
+              <div class="card-body">
+                <img class="img-fluid" src="../../../../assets/img/photos/09.jpg" alt="Card image cap">
+                <p class="card-text mt-1">Topping dessert marshmallow gummi bears chupa chups marzipan.</p>
+              </div>
+            </div>
+          </div>
+          <div class="card-footer">
+              {{ student?.classe.label }}
+          </div>
+        </div>
+      </div>
+    </div>
+</section>

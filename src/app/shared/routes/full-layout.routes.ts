@@ -33,6 +33,10 @@ export const Full_ROUTES: Routes = [
   {
     path: 'categorie/all',
     loadChildren: './wassim/categorie/all/all.module#AllModule'
-  }
+  },
+  {
+    path: 'student',
+    loadChildren: './khaled/student/student.module#StudentModule'
+  },
 
 ];
