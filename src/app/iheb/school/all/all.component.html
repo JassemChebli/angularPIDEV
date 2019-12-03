@@ -1,15 +1,66 @@
-<div class="col-lg-4 col-md-12 col-sm-12">
-    <div class="card" *ngFor="let item of all">
-      <div class="card-content">
-        <div class="card-img">
-          <img class="card-img-top img-fluid" src="assets/img/photos/14.jpg" alt="Card image cap">
-          <h4 class="card-title">{{item.name}}</h4>
-          <a class="btn btn-floating halfway-fab bg-warning"><i class="ft-plus"></i></a>
+<div class="row mt-3">
+    <div class="col-7">
+        <div class="content-header text-left col-6">Schools Board
         </div>
-        <div class="card-body">
-          <p class="card-text">{{item.address}}</p>
-          <a class="btn btn-raised btn-warning">{{item.email}}</a>
-        </div>
-      </div>
     </div>
-  </div>
+    <div class="col-4">
+        <input type="text" name="search" id="search" class="form-control" placeholder="Search by school name..."
+               (keyup)="search()" [(ngModel)]="keyword">
+    </div>
+    <div class="col-1 text-right">
+        <button type="button" class="btn btn-raised btn-danger" (click)="addSchool()">
+            <i class="fa fa-plus-square d-lg-none d-block"></i>
+            <span class="d-lg-block d-none">Create</span>
+        </button>
+    </div>
+</div>
+
+<div class="row" [hidden]="searching">
+    <div class="col-md-3 col-3" *ngFor="let item of all">
+        <div class="card">
+            <div class="card-body pt-3 text-left">
+                <div class="clearfix">
+                    <!--<img src="assets/img/uploads/{{item.logo}}" class="rounded-circle width-50 mr-2">-->
+                    <div class="actions float-right">
+                        <i class="ft-edit cursor-pointer mr-1 info" (click)="editSchool(item.id);"></i>
+                        <i class="ft-trash-2 cursor-pointer danger" (click)="deleteSchool(item.id);"></i>
+                    </div>
+                    <br>
+                    <a routerLink="/school/details/{{item.id}}"><h5
+                            class="text-bold-500 primary float-left">{{item.name}}</h5></a>
+                </div>
+                <p>{{item.address}}</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="row" [hidden]="!searching">
+    <div class="col-md-3 col-3" *ngFor="let item of searched">
+        <div class="card">
+            <div class="card-body pt-3 text-left">
+                <div class="clearfix">
+                    <!--<img src="assets/img/uploads/{{item.logo}}" class="rounded-circle width-50 mr-2">-->
+                    <div class="actions float-right">
+                        <i class="ft-edit cursor-pointer mr-1 info" (click)="editSchool(item.id);"></i>
+                        <i class="ft-trash-2 cursor-pointer danger" (click)="deleteSchool(item.id);"></i>
+                    </div>
+                    <br>
+                    <a routerLink="/school/details/{{item.id}}"><h5
+                            class="text-bold-500 primary float-left">{{item.name}}</h5></a>
+                </div>
+                <p>{{item.address}}</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div *ngIf='!all.length > 0 && !searching'>
+    <br><br>
+    <p class="text-muted text-center text-uppercase font-large-1">There is no schools to show ... </p>
+</div>
+<div *ngIf='!searched.length > 0 && searching'>
+    <br><br>
+    <p class="text-muted text-center text-uppercase font-large-1">There is no schools to show ... </p>
+</div>
+

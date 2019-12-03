@@ -1,0 +1,73 @@
+<div class="modal-header">
+    <h4 class="modal-title">{{ModalTitle}}</h4>
+    <button type="button" class="close" aria-label="Close" (click)="activeModal.dismiss()">
+        x
+    </button>
+</div>
+
+<div class="card">
+    <div class="card-content">
+        <div class="px-3">
+            <form class="form form-horizontal striped-rows" [formGroup]="myForm" (ngSubmit)="submitForm()">
+                <div class="form-body">
+                    <div class="form-group row">
+                        <label class="col-md-3 label-control" for="siteName">Name</label>
+                        <div class="col-md-9">
+                            <input type="text" id="siteName" class="form-control" placeholder="nom" name="nom"
+                                   [formControl]="myForm.controls['nom']" formControlName="nom">
+                            <small class="form-text text-muted danger"
+                                   *ngIf="!myForm.get('nom').valid && (myForm.get('nom').dirty || myForm.get('nom').touched)">Please
+                                enter the site name!</small>
+                        </div>
+                    </div>
+
+                    <div class="form-group row">
+                        <label class="col-md-3 label-control" for="siteAddress">Address</label>
+                        <div class="col-md-9">
+                            <input type="text" id="siteAddress" class="form-control" placeholder="address"
+                                   name="address" [formControl]="myForm.controls['address']" formControlName="address">
+                            <small class="form-text text-muted danger"
+                                   *ngIf="!myForm.get('address').valid && (myForm.get('address').dirty || myForm.get('address').touched)">Please
+                                enter the site address!</small>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label for="dateStart" class="label-control">Session Start</label>
+                                <input type="date" id="dateStart" class="form-control" name="dateStart"
+                                       data-toggle="tooltip" [formControl]="myForm.controls['dateOfSessionStarts']"
+                                       formControlName="dateOfSessionStarts"
+                                       data-trigger="hover" data-placement="top" data-title="Start Date">
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label for="dateEnds" class="label-control">Session Ends</label>
+                                <input type="date" id="dateEnds" class="form-control" name="dateEnds"
+                                       data-toggle="tooltip" [formControl]="myForm.controls['dateOfSessionEnds']"
+                                       formControlName="dateOfSessionEnds"
+                                       data-trigger="hover" data-placement="top" data-title="End Date">
+                                <small class="form-text text-muted danger"
+                                       *ngIf="!myForm.get('dateOfSessionEnds').valid && (myForm.get('dateOfSessionEnds').dirty || myForm.get('dateOfSessionEnds').touched)">Please
+                                    enter a valid date!</small>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+
+                <div class="form-actions center">
+                    <button type="button" class="btn btn-raised btn-warning mr-1">
+                        <i class="ft-x"></i> Cancel
+                    </button>
+                    <button type="submit" class="btn btn-raised btn-success" [disabled]="!myForm.valid">
+                        <i class="fa fa-check-square-o"></i> Save
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+

@@ -27,16 +27,21 @@ export const Full_ROUTES: Routes = [
     loadChildren: './iheb/pfeFile/all/all.module#AllModule'
   },
   {
-    path: 'school/all',
-    loadChildren: './iheb/school/all/all.module#AllModule'
-  },
-  {
     path: 'categorie/all',
     loadChildren: './wassim/categorie/all/all.module#AllModule'
   },
   {
     path: 'supervisor/change/request',
     loadChildren: './jassem/requestSupervisorChange/add/add.module#AddModule'
+  },
+  {
+    path: 'school',
+    loadChildren: './iheb/school/school.module#SchoolModule'
+  },
+  {
+    path: 'site',
+    loadChildren: './iheb/site/site.module#SiteModule'
   }
+
 
 ];

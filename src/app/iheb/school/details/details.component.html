@@ -1,0 +1,103 @@
+<!--<p>
+ {{school?.name}}
+ <br/>
+ {{school?.id}}
+ <br/>
+ <span *ngFor="let item of school?.sites">
+   {{item.nom}}
+ </span>
+</p>-->
+
+<div class="row text-left">
+    <div class="col-md-12">
+        <div class="card">
+            <div class="card-header pb-2">
+                <div class="row">
+                    <div class="float-left col-6">
+                        <h4 class="card-title" id="horz-layout-basic">{{school?.name}}</h4>
+                    </div>
+                    <div class="col-6 text-right">
+                        <i class="ft-edit cursor-pointer mr-1 info" (click)="editSchool(school?.id);"></i>
+                        <i class="ft-trash-2 cursor-pointer danger" (click)="deleteSchool(school?.id);"></i>
+                    </div>
+                </div>
+            </div>
+            <div class="card-content">
+                <div class="px-3">
+                    <form class="form form-horizontal">
+                        <div class="form-body">
+                            <h4 class="form-section"><i class="ft-user"></i> General Info</h4>
+                            <div class="form-group row">
+                                <label class="col-md-3 label-control">Slogan: </label>
+                                <div class="col-md-9">
+                                    <p class="mb-0">{{school?.slogon}}</p>
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <label class="col-md-3 label-control">Email: </label>
+                                <div class="col-md-9">
+                                    <p class="mb-0">{{school?.email}}</p>
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <label class="col-md-3 label-control">Contact Number: </label>
+                                <div class="col-md-9">
+                                    <p class="mb-0">{{school?.tel}}</p>
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <label class="col-md-3 label-control">Address: </label>
+                                <div class="col-md-9">
+                                    <p class="mb-0">{{school?.address}}</p>
+                                </div>
+                            </div>
+                            <h4 class="form-section"><i class="ft-file-text"></i> Sites</h4>
+                            <section id="extended">
+                                <div class="row text-left">
+                                    <div class="col-sm-12">
+                                        <div class="card">
+                                            <div class="card-content">
+                                                <div class="card-body">
+                                                    <table class="table table-responsive-md text-center">
+                                                        <thead>
+                                                        <tr>
+                                                            <th>Name</th>
+                                                            <th>Address</th>
+                                                            <th>Actions</th>
+                                                        </tr>
+                                                        </thead>
+                                                        <tbody>
+                                                        <tr *ngFor="let item of sites">
+                                                            <td>{{item.nom}}</td>
+                                                            <td>{{item.address}}</td>
+                                                            <td>
+                                                                <a class="info p-0" data-original-title="" title="">
+                                                                    <i class="ft-user font-medium-3 mr-2"></i>
+                                                                </a>
+                                                                <a class="success p-0" data-original-title="" title="">
+                                                                    <i class="ft-edit-2 font-medium-3 mr-2" (click)="editSite(item.id);"></i>
+                                                                </a>
+                                                                <a class="danger p-0" data-original-title="" title="">
+                                                                    <i class="ft-x font-medium-3 mr-2" (click)="deleteSite(item.id);"></i>
+                                                                </a>
+                                                            </td>
+                                                        </tr>
+                                                        </tbody>
+                                                    </table>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </section>
+
+                        </div>
+
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+

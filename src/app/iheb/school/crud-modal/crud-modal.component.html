@@ -1,0 +1,97 @@
+<div class="modal-header">
+    <h4 class="modal-title">{{ModalTitle}}</h4>
+    <button type="button" class="close" aria-label="Close" (click)="activeModal.dismiss('Cross click')">
+        x
+    </button>
+</div>
+
+<div class="card">
+    <div class="card-content">
+        <div class="px-3">
+            <form class="form form-horizontal striped-rows" [formGroup]="myForm" (ngSubmit)="submitForm()">
+                <div class="form-body">
+                    <div class="form-group row">
+                        <label class="col-md-3 label-control" for="schoolName">Name</label>
+                        <div class="col-md-9">
+                            <input type="text" id="schoolName" class="form-control" placeholder="name" name="name"
+                                   [formControl]="myForm.controls['name']" formControlName="name">
+                            <small class="form-text text-muted danger"
+                                   *ngIf="!myForm.get('name').valid && (myForm.get('name').dirty || myForm.get('name').touched)">Please
+                                enter the school name!</small>
+                        </div>
+                    </div>
+
+                    <div class="form-group row">
+                        <label class="col-md-3 label-control" for="schoolAddress">Address</label>
+                        <div class="col-md-9">
+                            <input type="text" id="schoolAddress" class="form-control" placeholder="address"
+                                   name="address" [formControl]="myForm.controls['address']" formControlName="address">
+                            <small class="form-text text-muted danger"
+                                   *ngIf="!myForm.get('address').valid && (myForm.get('address').dirty || myForm.get('address').touched)">Please
+                                enter the school address!</small>
+                        </div>
+                    </div>
+
+                    <div class="form-group row">
+                        <label class="col-md-3 label-control" for="schoolSlogon">Slogan</label>
+                        <div class="col-md-9">
+                            <input type="text" id="schoolSlogon" class="form-control" placeholder="slogan" name="slagon"
+                                   [formControl]="myForm.controls['slogon']" formControlName="slogon">
+                            <small class="form-text text-muted danger"
+                                   *ngIf="!myForm.get('slogon').valid && (myForm.get('slogon').dirty || myForm.get('slogon').touched)">Please
+                                enter the school slogan!</small>
+                        </div>
+                    </div>
+
+                    <div class="form-group row">
+                        <label class="col-md-3 label-control" for="schoolEmail">Email</label>
+                        <div class="col-md-9">
+                            <input type="email" id="schoolEmail" class="form-control" placeholder="email" name="email"
+                                   [formControl]="myForm.controls['email']" formControlName="email">
+                            <small class="form-text text-muted danger"
+                                   *ngIf="!myForm.get('email').valid && (myForm.get('email').dirty || myForm.get('email').touched)">Please
+                                enter a valid email!</small>
+                        </div>
+                    </div>
+
+                    <div class="form-group row">
+                        <label class="col-md-3 label-control" for="schoolTel">Contact Number</label>
+                        <div class="col-md-9">
+                            <input type="number" id="schoolTel" class="form-control" name="contact"
+                                   placeholder="contact number" [formControl]="myForm.controls['tel']"
+                                   formControlName="tel">
+                            <small class="form-text text-muted danger"
+                                   *ngIf="!myForm.get('tel').valid && (myForm.get('tel').dirty || myForm.get('tel').touched)">Please
+                                enter the school contact number!</small>
+                        </div>
+                    </div>
+
+                    <!--<div class="form-group row">
+                        <label class="col-md-3 label-control" for="schoolLogo">Logo</label>
+                        <div class="col-md-9 ">
+                            <div class="custom-file mx-auto d-block">
+
+                                <input type="file" [formControl]="myForm.controls['logo']" formControlName="logo"
+                                       class="form-control" id="schoolLogo" accept="image/*" #logo>
+                                <label class="custom-file-label" for="schoolLogo">Choose file</label>
+                                <small class="form-text text-muted danger"
+                                       *ngIf="!myForm.get('logo').valid && (myForm.get('logo').dirty || myForm.get('logo').touched)">Please
+                                    upload the school logo!</small>
+                            </div>
+                        </div>
+                    </div>-->
+                </div>
+
+                <div class="form-actions center">
+                    <button type="button" class="btn btn-raised btn-warning mr-1">
+                        <i class="ft-x"></i> Cancel
+                    </button>
+                    <button type="submit" class="btn btn-raised btn-success" [disabled]="!myForm.valid">
+                        <i class="fa fa-check-square-o"></i> Save
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
