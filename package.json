@@ -34,6 +34,7 @@
     "gulp": "4.0.0",
     "intl": "1.2.5",
     "ng2-validation": "4.2.0",
+    "ngx-cookie-service": "^2.2.0",
     "ngx-perfect-scrollbar": "5.3.5",
     "node-sass": "4.9.4",
     "prismjs": "1.15.0",
