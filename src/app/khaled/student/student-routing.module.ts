@@ -3,6 +3,7 @@ import { Routes, RouterModule } from '@angular/router';
 import { AllComponent } from './all/all.component'
 import { SingleComponent } from './single/single.component';
 import { AddComponent } from './add/add.component';
+import { UpdateComponent } from './update/update.component';
 
 const routes: Routes = [
   {
@@ -28,7 +29,14 @@ const routes: Routes = [
         data: {
           title: 'Student Info'
         }
-      }
+      },
+      {
+        path: 'update/:id',
+        component: UpdateComponent,
+        data: {
+          title: 'Student Detail Modifitcation'
+        }
+      },
     ]
   }
 ];
