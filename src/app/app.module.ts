@@ -7,7 +7,7 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { HttpClientModule, HttpClient } from "@angular/common/http";
 import { TranslateModule, TranslateLoader } from "@ngx-translate/core";
 import { TranslateHttpLoader } from "@ngx-translate/http-loader";
-
+import { CookieService } from 'ngx-cookie-service';
 import {
   PerfectScrollbarModule,
   PERFECT_SCROLLBAR_CONFIG,
@@ -20,6 +20,8 @@ import { FullLayoutComponent } from "./layouts/full/full-layout.component";
 
 import { AuthService } from './shared/auth/auth.service';
 import { AuthGuard } from './shared/auth/auth-guard.service';
+import { Ng2SearchPipeModule } from 'ng2-search-filter';
+
 
 const DEFAULT_PERFECT_SCROLLBAR_CONFIG: PerfectScrollbarConfigInterface = {
   suppressScrollX: true,
@@ -37,6 +39,7 @@ export function createTranslateLoader(http: HttpClient) {
     BrowserAnimationsModule,
     AppRoutingModule,
     SharedModule,
+     Ng2SearchPipeModule,
     HttpClientModule,
     NgbModule.forRoot(),
     TranslateModule.forRoot({
@@ -50,6 +53,7 @@ export function createTranslateLoader(http: HttpClient) {
   ],
   providers: [
     AuthService,
+    CookieService ,
     AuthGuard,
     {
       provide: PERFECT_SCROLLBAR_CONFIG,

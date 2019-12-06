@@ -31,8 +31,8 @@ export const Full_ROUTES: Routes = [
     loadChildren: './iheb/school/all/all.module#AllModule'
   },
   {
-    path: 'categorie/all',
-    loadChildren: './imene/categorie/all/all.module#AllModule'
+    path: 'categorie',
+    loadChildren: './imene/categorie/categorie.module#CategorieModule'
   },
   {
     path: 'supervisor/change/request',
