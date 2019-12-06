@@ -30,9 +30,13 @@ export const Full_ROUTES: Routes = [
     path: 'school/all',
     loadChildren: './iheb/school/all/all.module#AllModule'
   },
+ {
+    path: 'chart',
+    loadChildren: './dorsaf/charts/charts.module#ChartsModule'
+  },
   {
-    path: 'categorie/all',
-    loadChildren: './wassim/categorie/all/all.module#AllModule'
+    path: 'template/add',
+    loadChildren: './dorsaf/template/template.module#TemplateModule'
   }
 
 ];

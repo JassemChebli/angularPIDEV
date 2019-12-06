@@ -1,4 +1,3 @@
-import { Notification } from './../notification';
 import { Component, OnInit } from '@angular/core';
 import { RestApiService } from '../rest-api.service';
 

@@ -1,16 +1,17 @@
 import { Injectable } from '@angular/core';
-import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { HttpHeaders, HttpClient } from '@angular/common/http';
 import { Observable, throwError } from 'rxjs';
 import { retry, catchError } from 'rxjs/operators';
 
 @Injectable({
-    providedIn: 'root'
+  providedIn: 'root'
 })
 export class RestApiService {
 
+  
     // Define API
-    apiURL = '/api/Categorie';
-
+    apiURL = '/api/stat/Categorie';
+    apiURL2 = '/api/stat/evolution/';
     // Http Options
     httpOptions = {
         headers: new HttpHeaders({
@@ -34,6 +35,15 @@ export class RestApiService {
             )
     }
 
+    getCategoryByYear(category:string): Observable<Object> {
+        return this.http.get<Object>(this.apiURL2+category)
+            .pipe(
+                retry(1),
+                catchError(this.handleError)
+            )
+    }
+
+
     // Error handling
     handleError(error) {
         let errorMessage = '';
@@ -47,5 +57,4 @@ export class RestApiService {
         window.alert(errorMessage);
         return throwError(errorMessage);
     }
-
 }

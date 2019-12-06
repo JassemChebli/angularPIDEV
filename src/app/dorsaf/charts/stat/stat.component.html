@@ -1,0 +1,42 @@
+<p>
+  stat works!
+</p>
+
+<div class="row text-left">
+  <div class="col-sm-12">
+      <div class="card">
+          <div class="card-header">
+              <h4 class="card-title">Top Categories</h4>
+          </div>
+          <div class="card-content">
+              <div class="card-body">
+                  <div id="pie-chart1" class="height-400" *ngIf="chartReady">
+                      <canvas baseChart class="chart" [data]="pieChartData" [labels]="pieChartLabels"
+                          [options]="pieChartOptions" [chartType]="pieChartType" (chartHover)="chartHovered($event)"
+                          [colors]="pieChartColors" (chartClick)="chartClicked($event)"></canvas>
+                  </div>
+              </div>
+          </div>
+      </div>
+  </div>
+</div>
+
+
+<div class="row text-left">
+    <div class="col-sm-12">
+        <div class="card">
+            <div class="card-header">
+                <h4 class="card-title">Bar Chart</h4>
+                <input type="text" class="form-control" #val (keyup.enter)="loadAll2(val.value)" >
+            </div>
+            <div class="card-content">
+                <div class="card-body">
+                    <div id="bar-bar1" class="height-400">
+                        <canvas baseChart class="chart" [datasets]="barChartData" [labels]="barChartLabels" [options]="barChartOptions" [colors]="barChartColors" [legend]="barChartLegend"
+                            [chartType]="barChartType" (chartHover)="chartHovered($event)" (chartClick)="chartClicked($event)"></canvas>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

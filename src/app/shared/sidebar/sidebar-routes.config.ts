@@ -16,6 +16,23 @@ export const ROUTES: RouteInfo[] = [
         ]
     },
     {
+        path: '', title: 'Statistic', icon: 'ft-align-left', class: 'has-sub', badge: '', badgeClass: 'badge badge-pill badge-danger float-right mr-1 mt-1', isExternalLink: false,
+        submenu: [
+             {
+                path: '/chart/all', title: 'statistic', icon: '', class: '', badge: '', badgeClass: '', isExternalLink: false, submenu: []
+            }
+        ]
+    },
+    {
+        path: '', title: 'Template', icon: 'ft-align-left', class: 'has-sub', badge: '', badgeClass: 'badge badge-pill badge-danger float-right mr-1 mt-1', isExternalLink: false,
+        submenu: [
+
+            {
+                path: '/template/add', title: 'CreateTemplate', icon: '', class: '', badge: '', badgeClass: '', isExternalLink: false, submenu: []
+            }
+        ]
+    },
+    {
         path: '', title: 'PfeFile', icon: 'ft-align-left', class: 'has-sub', badge: '', badgeClass: 'badge badge-pill badge-danger float-right mr-1 mt-1', isExternalLink: false,
         submenu: [
 
@@ -33,15 +50,6 @@ export const ROUTES: RouteInfo[] = [
 
             {
                 path: '/school/all', title: 'All', icon: '', class: '', badge: '', badgeClass: '', isExternalLink: false, submenu: []
-            }
-        ]
-    },
-    {
-        path: '', title: 'Categorie', icon: 'ft-align-left', class: 'has-sub', badge: '', badgeClass: 'badge badge-pill badge-danger float-right mr-1 mt-1', isExternalLink: false,
-        submenu: [
-
-            {
-                path: '/categorie/all', title: 'All', icon: '', class: '', badge: '', badgeClass: '', isExternalLink: false, submenu: []
             }
         ]
     },

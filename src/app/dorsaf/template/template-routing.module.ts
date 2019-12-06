@@ -1,13 +1,13 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-import { AllComponent } from './all.component';
+import { AddComponent } from './add/add.component';
 
-const routes: Routes = [
-  {
+
+const routes: Routes = [{
   path: '',
-  component: AllComponent,
+  component: AddComponent,
   data: {
-    title: 'All Categories'
+      title: 'template'
   },
 
 }];
@@ -16,4 +16,4 @@ const routes: Routes = [
   imports: [RouterModule.forChild(routes)],
   exports: [RouterModule]
 })
-export class AllRoutingModule { }
+export class TemplateRoutingModule { }

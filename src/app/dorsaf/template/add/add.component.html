@@ -1,3 +1,36 @@
-<p>
-  add works!
-</p>
+<div class="row">
+  <div class="col-sm-4">
+    <div class="card">
+      <div class="card-content" style="z-index: 1;" id="myElement">
+        <img src="../../../../assets/img/logo.png" cdkDrag (cdkDragEnded)="dragEnd($event)" id="a"  />
+      </div>
+    </div>
+  </div>
+
+  <div class="col-sm-4">
+    <div class="card">
+      <div class="card-content" cdkDrag style="z-index: 1;">
+        Nom :<input type="text" class="form-control">
+      </div>
+    </div>
+  </div>
+
+
+  <div class="col-sm-4">
+    <div class="card">
+      <div class="card-content" cdkDrag style="z-index: 1;">
+        Prenom :<input type="text" class="form-control">
+      </div>
+    </div>
+  </div>
+
+
+  
+</div>
+
+<div  class="card" style="width:1000px;height:1200px;"  id="one" #target ></div>
+<div id="one" class="card" style="width: max-content;"></div>
+
+
+
+<button type="button" class="btn btn-outline-primary" (click)="getElement()">Save</button>

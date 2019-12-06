@@ -7,7 +7,7 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { HttpClientModule, HttpClient } from "@angular/common/http";
 import { TranslateModule, TranslateLoader } from "@ngx-translate/core";
 import { TranslateHttpLoader } from "@ngx-translate/http-loader";
-
+import { ChartsModule } from 'ng2-charts';
 import {
   PerfectScrollbarModule,
   PERFECT_SCROLLBAR_CONFIG,
@@ -20,7 +20,9 @@ import { FullLayoutComponent } from "./layouts/full/full-layout.component";
 
 import { AuthService } from './shared/auth/auth.service';
 import { AuthGuard } from './shared/auth/auth-guard.service';
-import { AddComponent } from './dorsaf/template/add/add.component';
+
+
+
 
 const DEFAULT_PERFECT_SCROLLBAR_CONFIG: PerfectScrollbarConfigInterface = {
   suppressScrollX: true,
@@ -33,12 +35,14 @@ export function createTranslateLoader(http: HttpClient) {
 
 
 @NgModule({
-  declarations: [AppComponent, FullLayoutComponent, ContentLayoutComponent, AddComponent],
+  declarations: [AppComponent, FullLayoutComponent, ContentLayoutComponent],
   imports: [
     BrowserAnimationsModule,
     AppRoutingModule,
     SharedModule,
     HttpClientModule,
+    ChartsModule,
+    
     NgbModule.forRoot(),
     TranslateModule.forRoot({
       loader: {
@@ -47,8 +51,11 @@ export function createTranslateLoader(http: HttpClient) {
         deps: [HttpClient]
       }
     }),
-    PerfectScrollbarModule
+    PerfectScrollbarModule,
+    
   ],
+  
+
   providers: [
     AuthService,
     AuthGuard,
