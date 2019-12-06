@@ -1,7 +1,19 @@
 <section id="minimal-statistics">
   <div class="row text-left">
-    <div class="col-12 mt-3 mb-1">
+    <div class="col-sm">
       <div class="content-header">Students list</div>
+    </div>
+    <div class="text-left">
+      <div class="col-sm ">
+        <div class="card">
+          <div class="card-footer">
+            <div>
+              <tag-input [(ngModel)]="items" (onAdd)="onItemAdded($event)" (onRemove)="onItemRemoved($event)" [modelAsStrings]="true" placeholder="+ A year">
+              </tag-input>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
   </div>
   <div  class="row text-left" matchHeight="card">
@@ -20,8 +32,9 @@
             </div>
           </div>
           <div class="card-footer">
+            <a class="card-link info darken-2" [routerLink]="['/student/details', student.id]">Details</a>
             <a class="card-link info darken-2" (click)="delete(student.id)">Delete</a>
-            <a class="card-link info darken-2" [routerLink]="['/student/details', student.id]">Convention link</a>
+            <a class="card-link info darken-2" [routerLink]="['/student/update', student.id]">Update</a>
           </div>
         </div>
       </div>

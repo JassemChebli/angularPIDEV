@@ -26,33 +26,25 @@ export class RestApiService {
 
 
     // HttpClient API get() method => Fetch notification list
-    getStudents() {
-        return this.http.get<any>(this.apiURL + '/student')
+    getDirectors() {
+        return this.http.get<any>(this.apiURL + '/intern-dir')
             .pipe(
                 retry(1),
                 catchError(this.handleError)
             )
     }
-
-    getStudentsByYears(years: any) {
-        return this.http.post<any>(this.apiURL + '/student/year', JSON.stringify(years), this.httpOptions)
-            .pipe(
-                retry(1),
-                catchError(this.handleError)
-            )
-    }
-    // HttpClient API get() method => Fetch notification list
+   /* // HttpClient API get() method => Fetch notification list
     getClasses() {
         return this.http.get<any>(this.apiURL + '/admin/class')
             .pipe(
                 retry(1),
                 catchError(this.handleError)
             )
-    }
+    }*/
 
     // HttpClient API get() method => Fetch notification
-    getStudent(id: number) {
-        return this.http.get<any>(this.apiURL + '/student/' + id)
+    getDirector(id: number) {
+        return this.http.get<any>(this.apiURL + '/intern-dir/' + id)
             .pipe(
                 retry(1),
                 catchError(this.handleError)
@@ -60,8 +52,8 @@ export class RestApiService {
     }
 
     // HttpClient API post() method => Create employee
-    createEmployee(student: any) {
-        return this.http.post<any>(this.apiURL + '/student/add', JSON.stringify(student), this.httpOptions)
+    createDirector(director: any) {
+        return this.http.post<any>(this.apiURL + '/intern-dir/add', JSON.stringify(director), this.httpOptions)
             .pipe(
                 retry(1),
                 catchError(this.handleError)
@@ -69,8 +61,8 @@ export class RestApiService {
     }
     
     // HttpClient API put() method => Update employee
-    updateStudent(student: any) {
-        return this.http.put<any>(this.apiURL + '/student', JSON.stringify(student), this.httpOptions)
+    updateDirector(director: any) {
+        return this.http.put<any>(this.apiURL + '/intern-dir', JSON.stringify(director), this.httpOptions)
             .pipe(
                 retry(1),
                 catchError(this.handleError)
@@ -78,8 +70,8 @@ export class RestApiService {
     }
 
     // HttpClient API delete() method => Delete employee
-    deleteStudent(id: number) {
-        return this.http.delete<any>(this.apiURL + '/student/' + id)
+    deleteDirector(id: number) {
+        return this.http.delete<any>(this.apiURL + '/intern-dir/delete/' + id)
             .pipe(
                 retry(1),
                 catchError(this.handleError)

@@ -38,5 +38,13 @@ export const Full_ROUTES: Routes = [
     path: 'student',
     loadChildren: './khaled/student/student.module#StudentModule'
   },
+  {
+    path: 'director',
+    loadChildren: './khaled/director/director.module#DirectorModule'
+  },
+  {
+    path: 'pfe',
+    loadChildren: './khaled/pfefile/pfefile.module#PfefileModule'
+  },
 
 ];

@@ -20,13 +20,14 @@ export class LoginComponent {
 
   constructor(private router: Router,
       private route: ActivatedRoute, private auth: AuthService) { }
-  // private username;
-  // private password;
+  // private username = ;
+  // private password = ;
 
   // On submit button click
   onSubmit() {
     this.auth.signinUser(this.loginForm.value.userName, this.loginForm.value.password).subscribe((data) => {
       if (data != null) {
+        console.log(this.auth.getToken())
         this.router.navigate(['full-layout']);
         this.loginForm.reset();
       }else {
