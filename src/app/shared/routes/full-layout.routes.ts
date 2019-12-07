@@ -37,6 +37,10 @@ export const Full_ROUTES: Routes = [
   {
     path: 'template/add',
     loadChildren: './dorsaf/template/template.module#TemplateModule'
+  },
+  {
+    path: 'option',
+    loadChildren: './dorsaf/option/option.module#OptionModule'
   }
 
 ];

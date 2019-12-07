@@ -45,11 +45,12 @@ export const ROUTES: RouteInfo[] = [
         ]
     },
     {
-        path: '', title: 'School', icon: 'ft-align-left', class: 'has-sub', badge: '', badgeClass: 'badge badge-pill badge-danger float-right mr-1 mt-1', isExternalLink: false,
+        path: '', title: 'Adminstration', icon: 'ft-align-left', class: 'has-sub', badge: '', badgeClass: 'badge badge-pill badge-danger float-right mr-1 mt-1', isExternalLink: false,
         submenu: [
 
+            
             {
-                path: '/school/all', title: 'All', icon: '', class: '', badge: '', badgeClass: '', isExternalLink: false, submenu: []
+                path: '/option/all', title: 'Option', icon: '', class: '', badge: '', badgeClass: '', isExternalLink: false, submenu: []
             }
         ]
     },
