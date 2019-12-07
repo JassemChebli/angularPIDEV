@@ -70,6 +70,24 @@ export class RestApiService {
                 catchError(this.handleError)
             )
     }
+
+     // HttpClient API get() method => Fetch pfe list
+     denyAnnulation(reason: any) {
+        return this.http.post<any>(this.apiURL + '/student/annulation/denial', JSON.stringify(reason), this.httpOptions)
+            .pipe(
+                retry(1),
+                catchError(this.handleError)
+            )
+    }
+
+     // HttpClient API get() method => Fetch pfe list
+     approveAnnulation(id: any) {
+        return this.http.post<any>(this.apiURL + '/student/annulation/approval', JSON.stringify({id: id}), this.httpOptions)
+            .pipe(
+                retry(1),
+                catchError(this.handleError)
+            )
+    }
  
     // Error handling
     handleError(error) {

@@ -19,7 +19,7 @@ export class AuthService {
   }
 
   logout() {   
-    this.token = null;
+    this._cookieService.delete('access_token','/','localhost');
   }
 
   getToken() {    
