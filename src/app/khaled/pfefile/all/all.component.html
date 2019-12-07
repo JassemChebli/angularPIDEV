@@ -34,6 +34,7 @@
                   <h6 class="card-subtitle text-muted"> {{ project?.description }} </h6>
                   <button class="uk-button uk-button-danger" (click)="deny(project.id)"> Deny</button>
                   <button class="uk-button uk-button-primary" (click)="approve(project.id)"> Approve</button>
+                  <button class="uk-button uk-button-primary" [routerLink]="['/pfe/details', project.id]"> details</button>
               </div>
           </div>
         </div>

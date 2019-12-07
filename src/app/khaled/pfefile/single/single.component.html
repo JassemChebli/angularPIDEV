@@ -1,0 +1,37 @@
+<section id="minimal-statistics">
+  <div class="row text-left">
+    <div class="col-sm">
+      <div style="margin-bottom: 1.5em; margin-top: 1.2em; font-size: 1.8em; font-weight: 400; color:#4C4B65;">Graduation Projects</div>
+    </div>  
+  </div>  
+</section>
+{{ project | json}}
+<div class="wrapper bg-white">
+  <h4 style="margin-left: 1.5em; padding-top: 1.2em; font-weight: 500; color:#4C4B65;">Demande Details</h4>
+  <div class="card-block">
+    <div class="card-header" style="margin-left: 1em; margin-right: 1em; border: 1.5px solid whitesmoke;">
+      <div class="row">
+        <div class="col col-lg-2 col-sm-2">
+            <img src="https://cdn.dodowallpaper.com/full/516/black-and-yellow-8.jpg" style="margin-left: 2.2em;" width="74px" height="74px" class="rounded-circle" alt="">
+        </div>
+        <div class="col col-lg-8 col-sm-8">
+            <h4 class="text-dark font-medium-5 text-bold-500">{{ project?.student?.firstName }} {{ project?.student?.lastName }}</h4>
+            <h6 class="text-muted">{{ project?.student?.classe?.label }}/{{ project?.student?.classe?.scholarYear }}
+              - {{ project?.entreprise?.country}}, {{ project?.entreprise?.address}}.</h6>
+            <h6 class="text-muted">Mobile : (+216) 23375472</h6>
+        </div>  
+        <div class="col col-lg-2 col-sm-2">
+            <h2 class="float-right font-medium-3" style="color: #A4AFB7 !important; padding-left: 5em;"  ><a class="ft-x" style="cursor: pointer;" title="close" [routerLink]="['/pfe/all']"></a></h2>
+            <span class="badge badge-pill float-right" style="margin-top: 1.8em; padding: 0.5rem 1.4rem; background-color: #FFC96C; color: #fff;">Pending</span>
+        </div>  
+      </div>
+    </div>
+    <div class="card-body" style="margin-left: 1em; margin-right: 1em; border: 1.5px solid whitesmoke;">
+      <div class="row">
+        <div class="col col-lg-5 col-sm-5">Internship Details</div>
+        <div class="col col-lg-5 col-sm-5">Entreprise Details</div>
+        <div class="col col-lg-2 col-sm-2">Status</div>
+      </div>
+    </div>
+  </div>
+</div>

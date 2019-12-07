@@ -19,10 +19,10 @@ export class AllComponent implements OnInit {
     this.loadStudents();
   }
 
-  // Delete item 
+  // Delete item
 
   delete (id: number) {
-    //const clicked = confirm('Would you delete the record for ' + id);
+    // const clicked = confirm('Would you delete the record for ' + id);
     Swal.fire({
       title: 'Are you sure?',
       text: "You won't be able to revert this!",
@@ -72,7 +72,7 @@ export class AllComponent implements OnInit {
   onItemRemoved() {
     console.log(this.items.length)
     if ( Array.isArray(this.items) && this.items.length ) {
-      this.api.getStudentsByYears(this.items).subscribe((data)=>{
+      this.api.getStudentsByYears(this.items).subscribe( (data) => {
         this.students = data;
       })
     }else {

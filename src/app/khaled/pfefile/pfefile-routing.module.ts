@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { AllComponent } from './all/all.component';
+import { SingleComponent } from './single/single.component';
 
 const routes: Routes = [
   {
@@ -11,6 +12,13 @@ const routes: Routes = [
         component: AllComponent,
         data: {
           title: 'GPs List'
+        }
+      },
+      {
+        path: 'details/:id',
+        component: SingleComponent,
+        data: {
+          title: 'GP details'
         }
       },
     ]

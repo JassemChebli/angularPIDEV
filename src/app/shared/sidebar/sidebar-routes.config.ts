@@ -98,8 +98,10 @@ import { RouteInfo } from './sidebar.metadata';
         },    
     ]    
      
+    const directorRoutes = []
 export const ROUTES: RouteInfo[] =  khaledRoutes;
 export const ROUTESADMIN: RouteInfo[] = adminRoutes;
+export const ROUTESDirector: RouteInfo[] = directorRoutes;
 
 /*[
 

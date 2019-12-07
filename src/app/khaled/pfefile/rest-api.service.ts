@@ -35,6 +35,14 @@ export class RestApiService {
             )
     }
 
+    getProject(id: number) {
+        return this.http.get<any>(this.apiURL + '/pfe/'+id)
+            .pipe(
+                retry(1),
+                catchError(this.handleError)
+            )
+    }
+
     // HttpClient API get() method => Fetch pfe list
     getNonTreateds() {
         return this.http.get<any>(this.apiURL + '/pfe/NonTreated')
