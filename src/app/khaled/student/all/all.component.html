@@ -1,14 +1,14 @@
 <section id="minimal-statistics">
   <div class="row text-left">
     <div class="col-sm">
-      <div class="content-header">Students list</div>
+      <div class="content-header font-medium-5 text-bold-700">Students list</div>
     </div>
     <div class="text-left">
-      <div class="col-sm ">
+      <div class="col-sm">
         <div class="card">
-          <div class="card-footer">
+          <div class="">
             <div>
-              <tag-input [(ngModel)]="items" (onAdd)="onItemAdded($event)" (onRemove)="onItemRemoved($event)" [modelAsStrings]="true" placeholder="+ A year">
+              <tag-input [(ngModel)]="items" theme='dark' (onAdd)="onItemAdded($event)" (onRemove)="onItemRemoved($event)" [modelAsStrings]="true" placeholder="+ A year">
               </tag-input>
             </div>
           </div>
@@ -16,8 +16,9 @@
       </div>
     </div>
   </div>
+  <hr class="uk-divider-icon">
   <div  class="row text-left" matchHeight="card">
-      <div class="col-xl-3 col-lg-6 col-md-12" *ngFor="let student of students">
+      <div class="col-xl-3 col-lg-6 col-md-12 hoverable" *ngFor="let student of students">
         <div class="card">
           <div class="card-content">
             <div class="card-header">
@@ -38,5 +39,6 @@
           </div>
         </div>
       </div>
-    </div>
+  </div>
 </section>
+<hr class="uk-divider-icon">

@@ -1,7 +1,46 @@
 <section id="minimal-statistics">
     <div class="row text-left">
       <div class="col-sm">
-        <div class="content-header">Graduation Projects list</div>
-      </div>
+        <div class="content-header font-medium-5 text-bold-900">Graduation Projects list</div>
+        <button class="uk-button uk-button-primary" (click)="nonTreated()">Non Treated Requests</button>
+        <div class="text-left">
+                <div class="col-sm">
+                  <div class="card">
+                    <div class="">
+                      <div>
+                        <tag-input [(ngModel)]="items" theme='dark' (onAdd)="onItemAdded($event)" (onRemove)="onItemRemoved($event)" [modelAsStrings]="true" placeholder="+ A year">
+                        </tag-input>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+        </div>
+      </div>  
     </div>
-</section>      
+    <hr class="uk-divider-icon">
+    <div class="row text-left" matchHeight="card">
+        <div class="col-xl-3 col-lg-6 col-md-12" *ngFor="let project of projects">
+          <div class="uk-card uk-card-default uk-card-hover">
+              <div class="uk-card-header">
+                      <div class="">
+                          <img class="img-fluid rounded-circle float-right" width="74px" height="74px" src="../../../../assets/img/photos/12.jpg">
+                      </div>
+                      <div class="uk-width-expand">
+                          <h3 class="uk-card-title uk-margin-remove-bottom">{{ project?.student?.firstName }} - {{ project?.student?.lastName }}</h3>
+                          <p class="uk-text-meta uk-margin-remove-top"><time datetime="2016-04-01T19:00">{{ project?.createdAt }}</time></p>
+                      </div>
+              </div>
+              <div class="uk-card-footer">
+                  <h6 class="card-subtitle text-muted"> {{ project?.description }} </h6>
+                  <button class="uk-button uk-button-danger" (click)="deny(project.id)"> Deny</button>
+                  <button class="uk-button uk-button-primary" (click)="approve(project.id)"> Approve</button>
+              </div>
+          </div>
+        </div>
+    </div>
+    <hr class="uk-divider-icon">
+    <ul class="uk-pagination">
+        <li><a href="#"><span class="uk-margin-small-right" uk-pagination-previous></span> Previous</a></li>
+        <li class="uk-margin-auto-left"><a href="#">Next <span class="uk-margin-small-left" uk-pagination-next></span></a></li>
+    </ul>
+</section>

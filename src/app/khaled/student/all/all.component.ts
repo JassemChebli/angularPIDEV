@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { RestApiService } from './../rest-api.service';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-all',
@@ -21,12 +22,35 @@ export class AllComponent implements OnInit {
   // Delete item 
 
   delete (id: number) {
-    const clicked = confirm('Would you delete the record for ' + id);
-    if ( clicked === true ) {
-      this.api.deleteStudent(id).subscribe();
-      setTimeout( () => {this.loadStudents()}, 100);
-    }else {
-    }
+    //const clicked = confirm('Would you delete the record for ' + id);
+    Swal.fire({
+      title: 'Are you sure?',
+      text: "You won't be able to revert this!",
+      icon: 'warning',
+      showCancelButton: true,
+      confirmButtonText: 'Yes, delete it!',
+      cancelButtonText: 'No, cancel!',
+      reverseButtons: true
+    }).then((result) => {
+      if (result.value) {
+        this.api.deleteStudent(id).subscribe();
+        Swal.fire(
+          'Deleted!',
+          'Your file has been deleted.',
+          'success'
+        )
+        setTimeout( () => {this.loadStudents()}, 10);
+      } else if (
+        /* Read more about handling dismissals below */
+        result.dismiss === Swal.DismissReason.cancel
+      ) {
+        Swal.fire(
+          'Cancelled',
+          'The student record is safe :)',
+          'error'
+        )
+      }
+    })
   }
 
   // Fetch Data
@@ -41,7 +65,6 @@ export class AllComponent implements OnInit {
   onItemAdded(event) {
     console.log(this.items)
     this.api.getStudentsByYears(this.items).subscribe((data)=>{
-      console.log(data)
       this.students = data;
     })
   }
@@ -50,7 +73,6 @@ export class AllComponent implements OnInit {
     console.log(this.items.length)
     if ( Array.isArray(this.items) && this.items.length ) {
       this.api.getStudentsByYears(this.items).subscribe((data)=>{
-        console.log(data)
         this.students = data;
       })
     }else {
