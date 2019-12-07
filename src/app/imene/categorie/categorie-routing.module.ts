@@ -3,6 +3,7 @@ import { Routes, RouterModule } from '@angular/router';
 import { AllComponent } from './all/all.component';
 import { OneComponent } from './one/one.component';
 
+
 const routes: Routes = [
   {
     path:'',
@@ -20,6 +21,7 @@ const routes: Routes = [
         data: {
           title: 'All Categories'
         },
+       
       }
     ]
   }

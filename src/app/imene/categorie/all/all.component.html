@@ -1,117 +1,410 @@
-<!--<div class="col-xl-3 col-lg-6 col-12">
-    <div class="card" *ngFor="let item of all">
-      <div class="card-content">
-        <div class="px-3 py-3">
-          <div class="media">
-            <div class="media-body text-left">
-              <h3 class="mb-1 danger">{{item.label}}</h3>
-          <span> {{item.status}}</span>
-            </div>
-            <div class="media-right align-self-center">
-              <i class="icon-rocket danger font-large-2 float-right"></i>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-
-<section id="minimal-statistics">
-  <div class="row text-left">
-    <div class="col-12 mt-3 mb-1">
-      <div class="content-header">Students list</div>
-    </div>
-  </div>
-  <div  class="row text-left" matchHeight="card">
-      <div class="col-xl-3 col-lg-6 col-md-12" *ngFor="let item of all">
-        <div class="card">
-          <div class="card-content">
-            <div class="card-header">
-              <h4 class="card-title">{{item.label}}</h4>
-              <h6 class="card-subtitle text-muted">{{item.label}}</h6>
-            </div>
-            <div class="card-content">
-              <div class="card-body">
-                <img class="img-fluid" src="../../../../assets/img/photos/09.jpg" alt="Card image cap">
-                <p class="card-text mt-1">{{item.label}}</p>
+<!--User Profile Starts-->
+<!--Basic User Details Starts-->
+<section id="user-profile">
+  <div class="row">
+      <div class="col-12">
+          <div class="card profile-with-cover">
+              <div class="card-img-top img-fluid bg-cover height-300" style="background: url('assets/img/gallery/light-bg.jpg') 50%;"></div>
+              <div class="media profil-cover-details row">
+                  <div class="col-5">
+                      <div class="align-self-start halfway-fab pl-3 pt-2">
+                          <div class="text-left">
+                              <h3 class="card-title white">Jose Diaz</h3>
+                          </div>
+                      </div>
+                  </div>
+                  <div class="col-2">
+                      <div class="align-self-center halfway-fab text-center">
+                          <a class="profile-image">
+                              <img src="assets/img/portrait/avatars/avatar-08.png" class="rounded-circle img-border gradient-summer width-100" alt="Card image">
+                          </a>
+                      </div>
+                  </div>
+                  <div class="col-5">                        
+                  </div>                    
               </div>
-            </div>
+     
+              <div class="profile-section">
+                  <div class="row">
+                      <div class="col-lg-5 col-md-5 ">
+                          <ul class="profile-menu no-list-style">
+                              <li>
+                                  <a (click)="showPage('About')" [ngClass]="currentPage === 'About' ? 'primary font-medium-2 font-weight-600 active' : 'primary font-medium-2 font-weight-600'">About</a>
+                              </li>
+                      
+                              <li>
+                                  <a (click)="showPage('TimeLine')" [ngClass]="currentPage === 'TimeLine' ? 'primary font-medium-2 font-weight-600 active' : 'primary font-medium-2 font-weight-600'">Manage Files</a>
+                              </li>
+                          </ul>
+                      </div>
+                      <div class="col-lg-2 col-md-2 text-center">
+                          <span class="font-medium-2 text-uppercase">Jose Diaz</span>
+                          <p class="grey font-small-2">Ninja Developer</p>
+                      </div>
+                      <div class="col-lg-5 col-md-5">
+                          <ul class="profile-menu no-list-style">
+                              <li>
+                                  <a (click)="showPage('Friends')" [ngClass]="currentPage === 'Friends' ? 'primary font-medium-2 font-weight-600 active' : 'primary font-medium-2 font-weight-600'">Manage Categories</a>
+                              </li>
+                              <li>
+                                  <a (click)="showPage('Photos')" [ngClass]="currentPage === 'Photos' ? 'primary font-medium-2 font-weight-600 active' : 'primary font-medium-2 font-weight-600'">Photos</a>
+                              </li>
+                          </ul>
+                      </div>
+                  </div>
+              </div>
           </div>
-          <div class="card-footer">
-         -- <a class="card-link info darken-2" (click)="delete(student.id)">Delete</a>
-             <a class="card-link info darken-2" [routerLink]="['/categorie/details', item.id]">Show details</a>
-          </div>
-        </div>
       </div>
-    </div>
+  </div>
 </section>
--->
-<div class="row mt-3">
-  <div class="col-7">
-      <div class="content-header text-left col-6">Categories
+<!--Basic User Details Ends-->
+
+<!--About section starts-->
+<section id="about" *ngIf="currentPage === 'About'">
+  <div class="row">
+      <div class="col-12">
+          <div class="content-header">About</div>
       </div>
   </div>
+  <div class="row">
+      <div class="col-sm-12">
+          <div class="card">
+              <div class="card-header">
+                  <h5>Personal Information</h5>
+              </div>
+              <div class="card-content">
+                  <div class="card-body">
+                      <div class="mb-3">
+                          <span class="text-bold-500 primary">About Me:</span>
+                          <span class="d-block overflow-hidden">Hi, I’m Jose, I’m 29 and I work as a Ninja Developer for the
+                              “PIXINVENT” Creative Studio. In my research, I follow the flow of early medieval slavery from viking 
+                              raids in the west, through the booming ports of the Scandinavian north, and out into the Islamic world.
+                              Reading texts against the grain and seeing artifacts as traces of the past can make their lives once 
+                              again visible to us today. This website documents my efforts to do just that, and I hope it will prove 
+                              a resource and an inspiration for others in similar pursuits.
+                          </span>
+                      </div>
+                      <hr>
+                      <div class="row">
+                          <div class="col-12 col-md-6 col-lg-4">
+                              <ul class="no-list-style">
+                                  <li class="mb-2">
+                                      <span class="text-bold-500 primary"><a><i class="icon-present font-small-3"></i> Birthday:</a></span>
+                                      <span class="d-block overflow-hidden">June 10th, 1988</span>
+                                  </li>
+                                  <li class="mb-2">
+                                      <span class="text-bold-500 primary"><a><i class="ft-map-pin font-small-3"></i> Birthplace:</a></span>
+                                      <span class="d-block overflow-hidden">New Jersey, USA</span>
+                                  </li>
+                                  <li class="mb-2">
+                                      <span class="text-bold-500 primary"><a><i class="ft-globe font-small-3"></i> Lives in:</a></span>
+                                      <span class="d-block overflow-hidden">Denver, USA</span>
+                                  </li>
+                              </ul>
+                          </div>
+                          <div class="col-12 col-md-6 col-lg-4">
+                              <ul class="no-list-style">
+                                  <li class="mb-2">
+                                      <span class="text-bold-500 primary"><a><i class="ft-user font-small-3"></i> Gender:</a></span>
+                                      <span class="d-block overflow-hidden">Male</span>
+                                  </li>
+                                  <li class="mb-2">
+                                      <span class="text-bold-500 primary"><a><i class="ft-mail font-small-3"></i> Email:</a></span>
+                                      <a class="d-block overflow-hidden">jose@yourmail.com</a>
+                                  </li>
+                                  <li class="mb-2">
+                                      <span class="text-bold-500 primary"><a><i class="ft-monitor font-small-3"></i> Website:</a></span>
+                                      <a class="d-block overflow-hidden">pixinvent.com</a>
+                                  </li>
+                              </ul>
+                          </div>
+                          <div class="col-12 col-md-6 col-lg-4">
+                              <ul class="no-list-style">
+                                  <li class="mb-2">
+                                      <span class="text-bold-500 primary"><a><i class="ft-smartphone font-small-3"></i> Phone Number:</a></span>
+                                      <span class="d-block overflow-hidden">(012) 345 - 678 - 9910</span>
+                                  </li>
+                                  <li class="mb-2">
+                                      <span class="text-bold-500 primary"><a><i class="ft-briefcase font-small-3"></i> Occupation:</a></span>
+                                      <span class="d-block overflow-hidden">Ninja Developer</span>
+                                  </li>
+                                  <li class="mb-2">
+                                      <span class="text-bold-500 primary"><a><i class="ft-book font-small-3"></i> Joined:</a></span>
+                                      <span class="d-block overflow-hidden">April 1st, 2012</span>
+                                  </li>
+                              </ul>
+                          </div>
+                      </div>
+                      <hr>
+                      <div class="mt-3">
+                          <span class="text-bold-500 primary">Hobbies:</span>
+                          <span class="d-block overflow-hidden">I like to ride the cycle to work, swimming, listning music and 
+                              working out. I also like reading magazines, go to museums, watching good movies and eat spicy food while 
+                              it’s raining outside.Twin siblings Dipper and Mabel Pines spend the summer at their uncle's tourist trap 
+                              in the enigmatic town of Gravity Falls.A mysterious Hollywood stuntman and mechanic moonlights as a 
+                              getaway driver.Scuba Diving, Skiing, Surfing, Photography, Long drive.
+                          </span>
+                      </div>
+                      <div class="mt-2 overflow-hidden">
+                          <span class="mr-3 mt-2 text-center float-left width-100"> <i class="icon-plane danger font-large-2"></i> <div class="mt-2">Travelling</div></span>
+                          <span class="mr-3 mt-2 text-center float-left width-100"> <i class="icon-speedometer danger font-large-2"></i> <div class="mt-2">Driving</div></span>
+                          <span class="mr-3 mt-2 text-center float-left width-100"> <i class="icon-camera danger font-large-2"></i> <div class="mt-2">Photography</div></span>
+                          <span class="mr-3 mt-2 text-center float-left width-100"> <i class="icon-game-controller danger font-large-2"></i> <div class="mt-2">Gaming</div></span>
+                          <span class="mr-3 mt-2 text-center float-left width-100"> <i class="icon-music-tone-alt danger font-large-2"></i> <div class="mt-2">Music</div></span>
+                          <span class="mr-3 mt-2 text-center float-left width-100"> <i class="ft-monitor danger font-large-2"></i> <div class="mt-2">Surfing</div></span>
+                          <span class="mr-3 mt-2 text-center float-left width-100"> <i class="ft-pie-chart danger font-large-2"></i> <div class="mt-2">Foodie</div></span>
+                          <span class="mr-3 mt-2 text-center float-left width-100"> <i class="ft-tv danger font-large-2"></i> <div class="mt-2">TV</div></span>
+                          <span class="mr-3 mt-2 text-center float-left width-100"> <i class="icon-basket-loaded danger font-large-2"></i> <div class="mt-2">Shopping</div></span>
+                      </div>
+                  </div>
+              </div>
+          </div>
+      </div>
+      <div class="col-sm-12">
+          <div class="card">
+              <div class="card-header">
+                  <h5>Educational Information</h5>
+              </div>
+              <div class="card-content">
+                  <div class="card-body">
+                      <div class="row">
+                          <div class="col-lg-6 col-md-6 col-sm-12 col-12">
+                              <ul class="no-list-style">
+                                  <li class="mb-2">
+                                      <span class="primary text-bold-500"><a><i class="ft-home font-small-3"></i> Broklin Institute</a></span>
+                                      <span class="grey line-height-0 d-block mb-2 font-small-2">2008 - 2009</span>
+                                      <span class="line-height-2 d-block overflow-hidden">Professor: Leonardo Stagg. Six months of best Developing tools course.</span>
+                                  </li>
+                                  <li class="mb-2">
+                                      <span class="primary text-bold-500"><a><i class="ft-home font-small-3"></i> The Ninja College </a></span>
+                                      <span class="grey line-height-0 d-block mb-2 font-small-2">2012 - 2013</span>
+                                      <span class="line-height-2 d-block overflow-hidden">Professor: Steve Ustreil. Gave me the best educational information for Ninja.</span>
+                                  </li>
+                              </ul>
+                          </div>
+                          <div class="col-lg-6 col-md-6 col-sm-12 col-12">
+                              <ul class="no-list-style">
+                                  <li class="mb-2">
+                                      <span class="primary text-bold-500"><a><i class="ft-home font-small-3"></i> Ninja Developer</a></span>
+                                      <span class="grey line-height-0 d-block mb-2 font-small-2">2009-2011</span>
+                                      <span class="line-height-2 d-block overflow-hidden">Ninja Developer for the “PIXINVENT” creative studio. </span>
+                                  </li>
+                                  <li class="mb-2">
+                                      <span class="primary text-bold-500"><a><i class="ft-home font-small-3"></i> Senior Ninja Developer</a></span>
+                                      <span class="grey line-height-0 d-block mb-2 font-small-2">2014-Now</span>
+                                      <span class="line-height-2 d-block overflow-hidden">Senior Ninja Developer for the “PIXINVENT” creative studio.</span>
+                                  </li>
+                              </ul>
+                          </div>
+                      </div>
+                  </div>
+              </div>
+          </div>
+      </div>
+  </div>
+</section>
+<!--About section ends-->
+
+<!--User Timeline section starts-->
+<section *ngIf="currentPage === 'TimeLine'">   
+  <div class="row">
+      <div class="col-12">
+          <div class="content-header">User Timeline</div>
+      </div>
+  </div>
+<div class="row">
+  <div class="col-xl-4 col-lg-6 col-md-12">
+      <fieldset class="form-group">
+          <label for="customSelect">Select year</label>
+          <select class="custom-select d-block w-100" id="customSelect" #val2>
+              <option selected>Open this select menu</option>
+              <option value="2019">2019</option>
+              <option value="2018">2018</option>
+              <option value="2017">2017</option>
+              <option value="2015">2015</option>
+          </select>
+      
+          <label for="customSelect">Select Role</label>
+          <select class="custom-select d-block w-100" id="customSelect" #val1>
+              <option selected>Open this select menu</option>
+              <option value="Reporter">Reporter</option>
+              <option value="SUPERVISOR">Supervisor</option>
+              <option value="Prevalidator">Prevalidator</option>
+              
+          </select>
+          <div class="col-1 text-right">
+              <button type="button" class="btn btn-raised btn-danger" (click)="loadbyyearrole(2,val2.value,val1.value);">
+                  <i class="fa fa-plus-square d-lg-none d-block"></i>
+                  <span class="d-lg-block d-none">show</span>
+              </button>
+          </div>
+      </fieldset>         
+
+                  
+  </div>
+</div>
+  <div class="row" >
+  <div class="col-lg-4 col-md-6" *ngFor="let p of pfefile">
+      <div class="card" >
+        <div class="card-header">
+          <h4 class="card-title"></h4>
+          <h6>{{p.title}}</h6>
+        </div>
+        <div class="card-content">
+          <div class="card-img">
+            <img class="img-fluid" src="assets/img/photos/09.jpg" alt="Card image cap">
+            <a class="btn btn-floating halfway-fab btn-large bg-danger"><i class="ft-plus"></i></a>
+          </div>
+          <div class="card-body">
+            <p class="card-text">{{p.description}}</p>
+            <a class="card-link danger">Card link</a>
+            <a class="card-link danger">Another link</a>
+          </div>
+        </div>
+        <div class="card-footer text-muted">
+          <span class="float-left">1 day ago</span>
+          <span class="tags float-right">
+            <span class="badge bg-success white mr-1" (click)="Noter(p.id);">Technology</span>
+            <span class="badge bg-warning white">Gaming</span>
+          </span>
+        </div>
+      </div>
+    </div>          
+  </div>
+</section>
+<!--User Timeline section ends-->
+
+<!--User's friend section starts-->
+<section id="friends" *ngIf="currentPage === 'Friends'">
+  <div class="row">
+      <div class="col-12">
+          <div class="content-header">Categories</div>
+      </div>
+  </div>
+  <!------EDITING STARTS SEARCH + ADD BRO-->
+
   <div class="col-4">
-      <input type="text" name="search" id="search" class="form-control" placeholder="Search by categorie name..."
-      (keyup)="searchCategories()" [(ngModel)]="keyword" [(ngModel)]="term">
-      <div *ngFor = "let item of items |filter:term" >
-        <p>
-          {{item.label}}
-        </p>
-      </div>
-  </div>
-  <div class="col-1 text-right">
-      <button type="button" class="btn btn-raised btn-danger" (click)="addC()">
-          <i class="fa fa-plus-square d-lg-none d-block"></i>
-          <span class="d-lg-block d-none">Create</span>
-      </button>
-  </div>
+    <input type="text" name="search" id="search" class="form-control" placeholder="Search by categorie name..."
+    (keyup)="searchCategories()" [(ngModel)]="keyword" [(ngModel)]="term">
+    <div *ngFor = "let item of items |filter:term" >
+      <p>
+        {{item.label}}
+      </p>
+    </div>
+</div>
+<div class="col-1 text-right">
+    <button type="button" class="btn btn-raised btn-danger" (click)="addC()">
+        <i class="fa fa-plus-square d-lg-none d-block"></i>
+        <span class="d-lg-block d-none">Create</span>
+    </button>
 </div>
 
-<div class="row" [hidden]="searching">
-  <div class="col-md-3 col-3" *ngFor="let item of all">
-      <div class="card">
-          <div class="card-body pt-3 text-left">
-              <div class="clearfix">
-                  <div class="actions float-right">
-                      <i class="ft-edit cursor-pointer mr-1 info" (click)="editC(item.id);"></i>
-                      <i class="ft-trash-2 cursor-pointer danger" (click)="deleteC(item.id);"></i>
-                  </div>
-                  <br>
-                  <!-- <a routerLink="/school/details/{{item.id}}"><h5
-                           class="text-bold-500 primary float-left">{{item.name}}</h5></a> -->
+
+
+  <div class="row" [hidden]="searching">
+      <div class="col-12 col-md-6 col-lg-4" *ngFor="let item of all">
+          <div class="card">
+              <div class="card-header text-center">
+                  <img src="./assets/img/ico/category.png" alt="Brek" width="150" class="rounded-circle gradient-mint">
               </div>
-              <p>{{item.label}}</p>
+              <div class="card-content">
+                  <div class="card-body text-center">
+                      <h4 class="card-title">{{item.label}}</h4>
+                      <p class="category text-gray font-small-4">{{item.status}}</p>
+                      <a class="btn btn-lg gradient-mint font-small-2 white p-2 mr-2" (click)="editC(item.id);">Edit</a>
+                      <a class="btn btn-lg btn-outline-grey font-small-2 p-2" (click)="deleteC(item.id);">Delete</a>
+                      <hr class="grey">
+                      <div class="row grey">
+                          <div class="col-4">
+                              <a><i class="ft-star mr-1"></i> <span>4.9</span></a>
+                          </div>
+                          <div class="col-4">
+                              <a><i class="ft-globe mr-1"></i> <span>USA</span></a>
+                          </div>
+                          <div class="col-4">
+                              <a><i class="ft-book mr-1"></i> <span>21</span></a>
+                          </div>
+                      </div>
+                  </div>
+              </div>
           </div>
       </div>
   </div>
-</div>
-
-<div class="row" [hidden]="!searching">
-  <div class="col-md-3 col-3" *ngFor="let item of searched">
-      <div class="card">
-          <div class="card-body pt-3 text-left">
-              <div class="clearfix">
-                
-                  <div class="actions float-right">
-                      <i class="ft-edit cursor-pointer mr-1 info" (click)="editC(item.id);"></i>
-                      <i class="ft-trash-2 cursor-pointer danger" (click)="deleteC(item.id);"></i>
-                  </div>
-                  <br>
-                
-              </div>
-              <p>{{item.label}}</p>
-          </div>
+      <div class="row" [hidden]="!searching">
+        <div class="col-12 col-md-6 col-lg-4" *ngFor="let item of searched">
+            <div class="card">
+                <div class="card-header text-center">
+                    <img src="./assets/img/portrait/small/avatar-s-2.png" alt="Brek" width="150" class="rounded-circle gradient-mint">
+                </div>
+                <div class="card-content">
+                    <div class="card-body text-center">
+                        <h4 class="card-title">{{item.label}}</h4>
+                        <p class="category text-gray font-small-4">{{item.status}}</p>
+                        <a class="btn btn-lg gradient-mint font-small-2 white p-2 mr-2" (click)="editC(item.id);">Edit</a>
+                        <a class="btn btn-lg btn-outline-grey font-small-2 p-2" (click)="deleteC(item.id);">Delete</a>
+                        <hr class="grey">
+                        <div class="row grey">
+                            <div class="col-4">
+                                <a><i class="ft-star mr-1"></i> <span>4.9</span></a>
+                            </div>
+                            <div class="col-4">
+                                <a><i class="ft-globe mr-1"></i> <span>USA</span></a>
+                            </div>
+                            <div class="col-4">
+                                <a><i class="ft-book mr-1"></i> <span>21</span></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
       </div>
-  </div>
-</div>
+        <div *ngIf='!all.length > 0 && !searching'>
+          <br><br>
+          <p class="text-muted text-center text-uppercase font-large-1">There is no categories to show ... </p>
+        </div>
+        <div *ngIf='!searched.length > 0 && searching'>
+          <br><br>
+          <p class="text-muted text-center text-uppercase font-large-1">There is no categories to show ... </p>
+        </div>
+      
+ 
+  
 
-<div *ngIf='!all.length > 0 && !searching'>
-  <br><br>
-  <p class="text-muted text-center text-uppercase font-large-1">There is no categories to show ... </p>
-</div>
-<div *ngIf='!searched.length > 0 && searching'>
-  <br><br>
-  <p class="text-muted text-center text-uppercase font-large-1">There is no categories to show ... </p>
-</div>
+</section>
+<!--User's friend section starts-->
 
+<!--User's uploaded photos section starts-->
+<section id="photos" *ngIf="currentPage === 'Photos'">
+    <div class="row" >
+        <div class="col-lg-4 col-md-6" *ngFor="let pv of prevpfefile">
+            <div class="card" >
+              <div class="card-header">
+                <h4 class="card-title"></h4>
+                <h6>{{pv.title}}</h6>
+              </div>
+              <div class="card-content">
+                <div class="card-img">
+                  <img class="img-fluid" src="assets/img/photos/09.jpg" alt="Card image cap">
+                  <a class="btn btn-floating halfway-fab btn-large bg-danger"><i class="ft-plus"></i></a>
+                </div>
+                <div class="card-body">
+                  <p class="card-text">{{pv.description}}</p>
+                  <a class="card-link danger">Card link</a>
+                  <a class="card-link danger">Another link</a>
+                </div>
+              </div>
+              <div class="card-footer text-muted">
+                <span class="float-left">1 day ago</span>
+                <span class="tags float-right">
+                  <span class="badge bg-success white mr-1" (click)="Prevalidate(pv.id);">Technology</span>
+                  <span class="badge bg-warning white">Gaming</span>
+                </span>
+              </div>
+            </div>
+          </div>          
+        </div>
+  
+</section>
+<!--User's uploaded photos section starts-->
+<!--User Profile Starts-->

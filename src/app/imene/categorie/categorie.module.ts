@@ -9,19 +9,25 @@ import {ConfirmationDialogCategorieService} from './crud/confirmation-dialog-cat
 import { CrudComponent } from './crud/crud.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { Ng2SearchPipeModule } from 'ng2-search-filter';
+import { PrevalidateComponent } from './prevalidate/prevalidate.component';
+
+
+
 @NgModule({
-  declarations: [AllComponent, OneComponent, ConfirmationDialogCategorieComponent, CrudComponent],
+  declarations: [AllComponent, OneComponent, ConfirmationDialogCategorieComponent, CrudComponent, PrevalidateComponent],
   imports: [
     CommonModule,
     CategorieRoutingModule, 
     FormsModule,
     ReactiveFormsModule,
     NgbModule,
-   Ng2SearchPipeModule
+   Ng2SearchPipeModule,
+ 
   ],
   entryComponents: [
     CrudComponent,
-    ConfirmationDialogCategorieComponent
+    ConfirmationDialogCategorieComponent,
+    PrevalidateComponent
 ],
 providers: [
   ConfirmationDialogCategorieService

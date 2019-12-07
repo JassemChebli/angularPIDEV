@@ -1,0 +1,48 @@
+<div class="modal-header">
+    <h4 class="modal-title">Prevalidate file</h4>
+    <button type="button" class="close" aria-label="Close" (click)="activeModal.dismiss()">
+        x
+    </button>
+</div>
+
+<div class="card">
+    <div class="card-content">
+        <div class="px-3">
+            <form class="form form-horizontal striped-rows" [formGroup]="myForm" (ngSubmit)="submitForm()">
+                <div class="form-body">
+                    <div class="form-group row">
+                        <label class="col-md-3 label-control" for="status">Label</label>
+                        <div class="col-md-9">
+                         
+                            <input type="text" id="siteName" class="form-control" placeholder="status" name="st"
+                                   [formControl]="myForm.controls['status']" formControlName="status">
+                            <small class="form-text text-muted danger"
+                                   *ngIf="!myForm.get('status').valid && (myForm.get('status').dirty || myForm.get('status').touched)">Please
+                                enter the Label!</small>
+                        </div>
+                    </div>
+
+                    <div class="form-group row">
+                        <label class="col-md-3 label-control" for="msg">Status</label>
+                        <div class="col-md-9">
+                            <input type="text" id="siteAddress" class="form-control" placeholder="msg"
+                                   name="m" [formControl]="myForm.controls['msg']" formControlName="msg">
+                            <small class="form-text text-muted danger"
+                                   *ngIf="!myForm.get('msg').valid && (myForm.get('msg').dirty || myForm.get('msg').touched)">Please
+                                enter the site address!</small>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-actions center">
+                    <button type="button" class="btn btn-raised btn-warning mr-1">
+                        <i class="ft-x"></i> Cancel
+                    </button>
+                    <button type="submit" class="btn btn-raised btn-success" [disabled]="!myForm.valid">
+                        <i class="fa fa-check-square-o"></i> Save
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

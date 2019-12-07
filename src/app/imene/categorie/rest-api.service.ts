@@ -3,6 +3,8 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable, throwError } from 'rxjs';
 import { retry, catchError } from 'rxjs/operators';
 import { Categorie } from '../Models/Categorie';
+import { PfeFile } from '../Models/PfeFile';
+
 
 @Injectable({
     providedIn: 'root'
@@ -11,6 +13,7 @@ export class RestApiService {
 
     // Define API
     apiURL = '/api/categorie';
+    apiURLp = '/api/pfefichier';
 
     // Http Options
     httpOptions = {
@@ -42,7 +45,27 @@ export class RestApiService {
                 catchError(this.handleError)
             )
     }
+    getFilebyyearandrole(id: number,year:number,role:string): Observable<PfeFile> {
+        return this.http.get<PfeFile>(this.apiURLp + '/one/' + id+ '/' +year + '/' +role)
+            .pipe(
+                retry(1),
+                catchError(this.handleError)
+            )
+    }
 
+    getAllprevfiles(): Observable<PfeFile[]> {
+        return this.http.get<PfeFile[]>(this.apiURLp + '/prevalidated/PREVALIDER')
+            .pipe(
+                retry(1),
+                catchError(this.handleError)
+            )
+    }
+    prevalidate(index: number,spf:string,msg:string,pf:PfeFile): Observable<PfeFile> {
+        return this.http.put<PfeFile>(this.apiURLp + '/modify/'+ index + '/' + spf + '/' + msg, pf)
+            .pipe(
+                catchError(this.handleError)
+            )
+    }
     // Error handling
     handleError(error) {
         let errorMessage = '';
