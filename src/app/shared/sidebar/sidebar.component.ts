@@ -1,15 +1,15 @@
 import { Component, OnInit, ViewChild, ElementRef, Renderer2, AfterViewInit } from "@angular/core";
 
-import { ROUTES, ROUTESADMIN } from './sidebar-routes.config';
-import { Router, ActivatedRoute } from "@angular/router";
+import { ROUTES, ROUTESADMIN, ROUTESSUTDENT } from './sidebar-routes.config';
+import { Router, ActivatedRoute } from '@angular/router';
 import { TranslateService } from '@ngx-translate/core';
-import { customAnimations } from "../animations/custom-animations";
+import { customAnimations } from '../animations/custom-animations';
 import { ConfigService } from '../services/config.service';
 import { AuthService } from '../auth/auth.service';
 
 @Component({
-  selector: "app-sidebar",
-  templateUrl: "./sidebar.component.html",
+  selector: 'app-sidebar',
+  templateUrl: './sidebar.component.html',
   animations: customAnimations
 })
 export class SidebarComponent implements OnInit, AfterViewInit {
@@ -45,17 +45,15 @@ export class SidebarComponent implements OnInit, AfterViewInit {
   ngOnInit() {
     this.config = this.configService.templateConf;
     this.role = this.authService.getToken()['role'];
-    if (this.role === 'admin'){
+    if (this.role === 'admin') {
       this.menuItems = ROUTES;
-    }else if(this.role === 'student') {
-      this.menuItems = ROUTESADMIN;
+    }else if (this.role === 'student') {
+      this.menuItems = ROUTESSUTDENT;
     }
-    
 
     if (this.config.layout.sidebar.backgroundColor === 'white') {
       this.logoUrl = 'assets/img/logo-dark.png';
-    }
-    else {
+    }else {
       this.logoUrl = 'assets/img/logo.png';
     }
 

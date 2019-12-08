@@ -28,8 +28,17 @@ export class LoginComponent {
     this.auth.signinUser(this.loginForm.value.userName, this.loginForm.value.password).subscribe((data) => {
       if (data != null) {
         console.log(this.auth.getToken())
-        this.router.navigate(['full-layout']);
-        this.loginForm.reset();
+        if (this.auth.getToken()['role'] === 'student') {
+          if ( data.status == true ) {
+            this.router.navigate(['full-layout']);
+            this.loginForm.reset();
+          }else {
+            alert('You don\'t have access!')
+          }
+        }else {
+          this.router.navigate(['full-layout']);
+          this.loginForm.reset();
+        }
       }else {
         this.logged = false;
         console.log('not working');

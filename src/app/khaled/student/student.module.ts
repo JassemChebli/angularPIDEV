@@ -9,9 +9,10 @@ import { AllComponent } from './all/all.component';
 import { SingleComponent } from './single/single.component';
 import { AddComponent } from './add/add.component';
 import { UpdateComponent } from './update/update.component';
+import { ProjectComponent } from './project/project.component';
 
 @NgModule({
-  declarations: [AllComponent, SingleComponent, AddComponent, UpdateComponent],
+  declarations: [AllComponent, SingleComponent, AddComponent, UpdateComponent, ProjectComponent],
   imports: [
     CommonModule,
     StudentRoutingModule,

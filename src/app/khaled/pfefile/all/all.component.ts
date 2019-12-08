@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { RestApiService } from '../rest-api.service';
 import { FormGroup, FormControl } from '@angular/forms';
-import Swal  from 'sweetalert2';
+import Swal from 'sweetalert2';
 @Component({
   selector: 'app-all',
   templateUrl: './all.component.html',

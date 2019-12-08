@@ -4,6 +4,7 @@ import { AllComponent } from './all/all.component'
 import { SingleComponent } from './single/single.component';
 import { AddComponent } from './add/add.component';
 import { UpdateComponent } from './update/update.component';
+import { ProjectComponent } from './project/project.component';
 
 const routes: Routes = [
   {
@@ -21,6 +22,13 @@ const routes: Routes = [
         component: SingleComponent,
         data: {
           title: 'Student Detail'
+        }
+      },
+      {
+        path: 'project',
+        component: ProjectComponent,
+        data: {
+          title: 'Student GP'
         }
       },
       {

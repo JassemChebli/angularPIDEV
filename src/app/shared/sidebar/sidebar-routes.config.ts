@@ -98,10 +98,14 @@ import { RouteInfo } from './sidebar.metadata';
         },    
     ]    
      
-    const directorRoutes = []
+    const studentRoutes = [
+        {
+        path: '/student/project', title: 'My Graduation Project', icon: 'icon-notebook', class: '', badge: '', badgeClass: '', isExternalLink: false, submenu: []
+    }, 
+ ]
 export const ROUTES: RouteInfo[] =  khaledRoutes;
 export const ROUTESADMIN: RouteInfo[] = adminRoutes;
-export const ROUTESDirector: RouteInfo[] = directorRoutes;
+export const ROUTESSUTDENT: RouteInfo[] = studentRoutes;
 
 /*[
 

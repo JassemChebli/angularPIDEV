@@ -18,16 +18,16 @@ export class AuthService {
       return this.logins.getLogin(email, password);
   }
 
-  logout() {   
-    this._cookieService.delete('access_token','/','localhost');
+  logout() {
+    this._cookieService.delete('access_token', '/', 'localhost');
   }
 
-  getToken() {    
+  getToken() {
     return  this.token = this.parseJwt(this._cookieService.get('access_token'));
   }
 
   isAuthenticated() {
-    // here you can check if user is authenticated or not through his token 
+    // here you can check if user is authenticated or not through his token
     return true;
   }
 
