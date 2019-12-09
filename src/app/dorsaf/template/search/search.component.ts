@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { RestApiService } from '../rest-api.service';
-import {DatePipe} from '@angular/common';
+import { DatePipe } from '@angular/common';
 import { Router, ActivatedRoute } from '@angular/router';
 
 @Component({
@@ -11,8 +11,13 @@ import { Router, ActivatedRoute } from '@angular/router';
 
 
 export class SearchComponent implements OnInit {
-  all: any=[];
-  
+  all: any = [];
+ 
+  searched: any = [];
+
+  searching = false;
+  currentPage: string = "About"
+  keyword: string;
   constructor(public restApi: RestApiService) { }
 
   ngOnInit() {
@@ -25,6 +30,18 @@ export class SearchComponent implements OnInit {
     })
   }
 
+  searchStudents() {
+    if (this.keyword != null && this.keyword != '') {
+      this.searching = true;
+      console.log(this.all)
+    this.searched = this.all.filter(x => x.firstName.toUpperCase().includes(this.keyword.toUpperCase()));
+        console.log(this.searched)
+      console.log(this.searched);
+    } else {
+     this.searching = false;
+      this.loadAll();
+    }
+  }
+ 
 
-  
 }
