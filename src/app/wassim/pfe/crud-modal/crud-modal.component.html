@@ -1,0 +1,75 @@
+<div class="modal-header">
+  <h4 class="modal-title">Entreprise</h4>
+  <button type="button" class="close" aria-label="Close" (click)="activeModal.dismiss('Cross click')">
+    x
+  </button>
+</div>
+<form [formGroup]="myForm" (ngSubmit)="submitForm()">
+  <div class="modal-body taskboard-modal">
+    <div class="container">
+      <fieldset class="form-group position-relative has-icon-left">
+        <div class="form-control-position">
+          <i class="icon-emoticon-smile"></i>
+        </div>
+        <input type="text" [formControl]="myForm.controls['nom']" formControlName="nom" class="form-control" id="todoTitle"
+          placeholder="nom" (keydown.enter)="$event.preventDefault()" required #todoTitle>
+        <div class="form-control-position control-position-right">
+        </div>
+      </fieldset>
+      <fieldset class="form-group position-relative has-icon-left">
+        <div class="form-control-position">
+        </div>
+        <input type="text" [formControl]="myForm.controls['website']" formControlName="website" class="form-control" id="todoMessage"
+          placeholder="website" (keydown.enter)="$event.preventDefault()" required #todoMessage>
+        <div class="form-control-position control-position-right">
+        </div>
+      </fieldset>
+      <fieldset class="form-group position-relative has-icon-left">
+          <div class="form-control-position">
+          </div>
+          <input type="text" [formControl]="myForm.controls['address']" formControlName="address" class="form-control" id="todoMessage"
+            placeholder="address" (keydown.enter)="$event.preventDefault()" required #todoMessage>
+          <div class="form-control-position control-position-right">
+          </div>
+        </fieldset>
+        <fieldset class="form-group position-relative has-icon-left">
+            <div class="form-control-position">
+            </div>
+            <input type="text" [formControl]="myForm.controls['country']" formControlName="country" class="form-control" id="todoMessage"
+              placeholder="country" (keydown.enter)="$event.preventDefault()" required #todoMessage>
+            <div class="form-control-position control-position-right">
+            </div>
+          </fieldset>
+          <fieldset class="form-group position-relative has-icon-left">
+              <div class="form-control-position">
+              </div>
+              <input type="text" [formControl]="myForm.controls['nameResponsable']" formControlName="nameResponsable" class="form-control" id="todoMessage"
+                placeholder="name Responsable" (keydown.enter)="$event.preventDefault()" required #todoMessage>
+              <div class="form-control-position control-position-right">
+              </div>
+            </fieldset>
+            <fieldset class="form-group position-relative has-icon-left">
+                <div class="form-control-position">
+                </div>
+                <input type="text" [formControl]="myForm.controls['emailResponsable']" formControlName="emailResponsable" class="form-control" id="todoMessage"
+                  placeholder="email Responsable" (keydown.enter)="$event.preventDefault()" required #todoMessage>
+                <div class="form-control-position control-position-right">
+                </div>
+              </fieldset>
+              <fieldset class="form-group position-relative has-icon-left">
+                  <div class="form-control-position">
+                  </div>
+                  <input type="text" [formControl]="myForm.controls['emailEncadrent']" formControlName="emailEncadrent" class="form-control" id="todoMessage"
+                    placeholder="email Encadrent" (keydown.enter)="$event.preventDefault()" required #todoMessage>
+                  <div class="form-control-position control-position-right">
+                  </div>
+                </fieldset>
+   
+    </div>
+  </div>
+  <div class="modal-footer taskboard-modal-footer" >
+    <button [disabled]="!myForm.valid">
+      Save
+    </button>
+  </div>
+</form>

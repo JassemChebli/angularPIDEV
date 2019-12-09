@@ -1,6 +1,6 @@
 import { Routes, RouterModule } from '@angular/router';
 
-//Route for content layout with sidebar, navbar and footer
+// Route for content layout with sidebar, navbar and footer
 export const Full_ROUTES: Routes = [
   {
     path: 'changelog',
@@ -35,8 +35,15 @@ export const Full_ROUTES: Routes = [
     loadChildren: './wassim/categorie/all/all.module#AllModule'
   },
   {
-    path: 'supervisor/change/request',
-    loadChildren: './jassem/requestSupervisorChange/add/add.module#AddModule'
+    path: 'entreprise/all',
+    loadChildren: './wassim/entreprise/entreprises/entreprises.module#EntreprisesModule'
+  },
+  {
+    path: 'pfe',
+    loadChildren: './wassim/pfe/pfe-file/pfe-file.module#PfeFileModule'
+  },
+  {
+    path: 'mypfe',
+    loadChildren: './wassim/pfe/pfe/my-pfe.module#MyPfeModule'
   }
-
 ];

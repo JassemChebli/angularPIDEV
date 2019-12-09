@@ -1,0 +1,220 @@
+<div class="row text-left">
+  <div class="col-md-12">
+    <div class="card">
+      <div class="card-header pb-2">
+        <h4 class="card-title" id="bordered-layout-icons">PFE</h4>
+        <!--- <p class="mb-0">Add <code>.form-bordered</code> to form tag to add striped rows. In this example icons are
+            used with form controls to show the bordered form functionality.</p> -->
+      </div>
+      <div class="card-content">
+        <div class="px-3">
+
+          <form class="form form-horizontal form-bordered" [formGroup]="myFormx" (ngSubmit)="save()">
+            <div class="form-body">
+              <!-- <div class="form-group row">
+                  <label class="col-md-3 label-control" for="timesheetinput1">Titre</label>
+                  <div class="col-md-9">
+                    <div class="position-relative has-icon-left">
+                      <input type="text" id="timesheetinput1" class="form-control">
+                      <div class="form-control-position">
+                        <i class="ft-user"></i>
+                      </div>
+                    </div>
+                  </div>
+                </div>-->
+              <div class="form-group row">
+                <label class="col-md-3 label-control" for="timesheetinput2">Title</label>
+                <div class="col-md-9">
+                  <div class="position-relative has-icon-left">
+                    <input type="text" id="timesheetinput2" class="form-control" placeholder="Titre" required
+                      formControlName="title" [(ngModel)]="pfe.title">
+                    <div class="form-control-position">
+                      <i class="fa fa-briefcase"></i>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="form-group row">
+                <label class="col-md-3 label-control" for="timesheetinput3">Description</label>
+                <div class="col-md-9">
+                  <div class="position-relative has-icon-left">
+                    <input type="text" id="timesheetinput3" class="form-control" placeholder="Description"
+                      formControlName="description" [(ngModel)]="pfe.description">
+                    <div class="form-control-position">
+                      <i class="ft-message-square"></i>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="form-group row last">
+                <label class="col-md-3 label-control" for="timesheetinput7">Problematic</label>
+                <div class="col-md-9">
+                  <div class="position-relative has-icon-left">
+                    <textarea id="timesheetinput7" rows="5" class="form-control" placeholder="Problematic"
+                      formControlName="problematic" [(ngModel)]="pfe.problematic"></textarea>
+                    <div class="form-control-position">
+                      <i class="ft-file"></i>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="form-group row last">
+                <label class="col-md-3 label-control" for="timesheetinput7">Functionnalities</label>
+                <div class="col-md-9">
+                  <div class="position-relative has-icon-left">
+                    <textarea id="timesheetinput7" rows="5" class="form-control" placeholder="Functionnalities"
+                      formControlName="functionnalities" [(ngModel)]="pfe.functionnalities"></textarea>
+                    <div class="form-control-position">
+                      <i class="ft-file"></i>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="form-group row last">
+                <label class="col-md-3 label-control" for="timesheetinput7">keywords</label>
+                <div class="col-md-9">
+                  <div class="position-relative has-icon-left">
+                    <textarea id="timesheetinput7" rows="5" class="form-control" placeholder="keywords"
+                      formControlName="keywords" [(ngModel)]="pfe.keywords"></textarea>
+                    <div class="form-control-position">
+                      <i class="ft-file"></i>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="form-group row">
+                <label class="col-md-3 label-control" for="timesheetinput2">Personal mail</label>
+                <div class="col-md-9">
+                  <div class="position-relative has-icon-left">
+                    <input type="text" id="timesheetinput2" class="form-control" placeholder="Personal mail"
+                      [(ngModel)]="pfe.emailPersonel" formControlName="emailPersonel">
+                    <div class="form-control-position">
+                      <i class="fa fa-briefcase"></i>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="form-group row">
+                <label class="col-md-3 label-control" for="timesheetinput2">Professional mail</label>
+                <div class="col-md-9">
+                  <div class="position-relative has-icon-left">
+                    <input type="text" id="timesheetinput2" [(ngModel)]="pfe.emailProfessionel" class="form-control"
+                      placeholder="Professional mail" formControlName="emailProfessionel">
+                    <div class="form-control-position">
+                      <i class="fa fa-briefcase"></i>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="form-group row">
+                <label class="col-md-3 label-control" for="timesheetinput2">Entreprise</label>
+                <div class="col-md-9">
+
+                  <section id="collapse">
+                    <div class="row text-left">
+
+                    </div>
+                    <div class="row text-left">
+                      <div class="input-group" _ngcontent-c6="">
+                        <div class="input-group-prepend" _ngcontent-c6=""> <button class="btn btn-raised btn-success"
+                            aria-label="Add" (click)="isCollapsed = !isCollapsed" [attr.aria-expanded]="!isCollapsed"
+                            type="button" _ngcontent-c6=""><i class="ft-plus" _ngcontent-c6=""></i></button><button
+                            class="btn btn-raised btn-danger" aria-label="Edit" type="button" (click)="addTask()"
+                            _ngcontent-c6="">
+                            <i class="ft-edit-2" _ngcontent-c6=""></i></button></div>
+                        <input class="form-control" [disabled]="true" type="text" _ngcontent-c6="" value="{{ent.nom}}">
+                      </div>
+
+
+
+                      <div id="collapseExample" [ngbCollapse]="isCollapsed">
+                        <ng2-smart-table (userRowSelect)='choose($event)' (createConfirm)="onCreateConfirm($event)"
+                          [settings]="settings" [source]="entreprises"></ng2-smart-table>
+                      </div>
+
+
+                    </div>
+                  </section>
+                  <div class="form-control-position">
+                  </div>
+                </div>
+              </div>
+              <!--
+                <div class="form-group row">
+                  <label class="col-md-3 label-control">Rate Per Hour</label>
+                  <div class="col-md-9">
+                    <div class="input-group">
+                      <div class="input-group-prepend">
+                        <span class="input-group-text">$</span>
+                      </div>
+                      <input type="number" class="form-control" placeholder="Rate Per Hour" aria-label="Amount (to the nearest dollar)"
+                        name="rateperhour">
+                      <div class="input-group-append">
+                        <span class="input-group-text">.00</span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="form-group row">
+                  <label class="col-md-3 label-control" for="timesheetinput5">Start Time</label>
+                  <div class="col-md-9">
+                    <div class="position-relative has-icon-left">
+                      <input type="time" id="timesheetinput5" class="form-control" name="starttime">
+                      <div class="form-control-position">
+                        <i class="ft-clock"></i>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="form-group row">
+                  <label class="col-md-3 label-control" for="timesheetinput6">End Time</label>
+                  <div class="col-md-9">
+                    <div class="position-relative has-icon-left">
+                      <input type="time" id="timesheetinput6" class="form-control" name="endtime">
+                      <div class="form-control-position">
+                        <i class="ft-clock"></i>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              -->
+             
+
+              <div class="form-group row last">
+                  <label class="col-md-3 label-control" for="timesheetinput7">Categories</label>
+                  <div class="col-md-9">
+                    <div class="position-relative has-icon-left">
+                      <ng-select [items]="categories" bindLabel="label" placeholder="Select item" appendTo="body"
+                        multiple="true" [(ngModel)]="selected" [ngModelOptions]="{standalone: true}">
+                      </ng-select>
+              
+                    </div>
+                  </div>
+                </div>
+            </div>
+           
+            <div class="form-actions right">
+              <button type="button" class="btn btn-raised btn-warning mr-1">
+                <i class="ft-x"></i> Cancel
+              </button>
+
+              <button type="submit" class="btn btn-raised btn-primary" [disabled]="!myFormx.valid">
+                <i class="fa fa-check-square-o"></i> Save
+              </button>
+
+
+            </div>
+
+          </form>
+
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<ng-snotify></ng-snotify>

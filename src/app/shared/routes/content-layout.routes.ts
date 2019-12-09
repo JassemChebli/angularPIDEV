@@ -6,9 +6,5 @@ export const CONTENT_ROUTES: Routes = [
   {
     path: 'content-layout',
     loadChildren: './pages/content-layout-page/content-pages.module#ContentPagesModule'
-  },
-  {
-    path: 'pages',
-    loadChildren: './pages/content-pages/content-pages.module#ContentPagesModule'
-  },
+  }
 ];

@@ -18,7 +18,8 @@ export const ROUTES: RouteInfo[] = [
     {
         path: '', title: 'PfeFile', icon: 'ft-align-left', class: 'has-sub', badge: '', badgeClass: 'badge badge-pill badge-danger float-right mr-1 mt-1', isExternalLink: false,
         submenu: [
-
+            {
+                path: '/pfe', title: 'My pfe', icon: '', class: '', badge: '', badgeClass: '', isExternalLink: false , submenu: []  },
             {
                 path: '/pfefile/all', title: 'All', icon: '', class: '', badge: '', badgeClass: '', isExternalLink: false, submenu: []
             },
@@ -37,16 +38,16 @@ export const ROUTES: RouteInfo[] = [
         ]
     },
     {
-        path: '', title: 'Categorie', icon: 'ft-align-left', class: 'has-sub', badge: '', badgeClass: 'badge badge-pill badge-danger float-right mr-1 mt-1', isExternalLink: false,
+        path: '', title: 'entreprise', icon: 'ft-align-left', class: 'has-sub', badge: '', badgeClass: 'badge badge-pill badge-danger float-right mr-1 mt-1', isExternalLink: false,
         submenu: [
 
             {
-                path: '/categorie/all', title: 'All', icon: '', class: '', badge: '', badgeClass: '', isExternalLink: false, submenu: []
+                path: '/entreprise/all', title: 'entreprises', icon: '', class: '', badge: '', badgeClass: '', isExternalLink: false, submenu: []
             }
         ]
     },
     {
-        path: '/supervisor/change/request', title: 'Request supervisor change', icon: 'ft-layout', class: '', badge: '', badgeClass: '', isExternalLink: false, submenu: []
+        path: '/full-layout', title: 'Operation 1', icon: 'ft-layout', class: '', badge: '', badgeClass: '', isExternalLink: false, submenu: []
     }
 
 

@@ -1,0 +1,40 @@
+<div class="modal-header">
+  <h4 class="modal-title">Modification</h4>
+  <button type="button" class="close" aria-label="Close" (click)="activeModal.dismiss('Cross click')">
+    x
+  </button>
+</div>
+<form [formGroup]="myForm" (ngSubmit)="submitForm()">
+  <div class="modal-body taskboard-modal">
+    <div class="container">
+        <fieldset class="form-group position-relative has-icon-left">
+            <div class="form-control-position">
+            </div>
+            <select placeholder="filed of Modification" [formControl]="myForm.controls['field']" formControlName="website" class="form-control" id="todoMessage"
+               (keydown.enter)="$event.preventDefault()" required>
+              <option value="F">Functionnalities</option>
+              <option value="P">Problematic</option>
+    
+            </select>
+    
+          </fieldset>
+    
+      <fieldset class="form-group position-relative has-icon-left">
+        <div class="form-control-position">
+        </div>
+        <textarea type="text"  placeholder="your modification" [formControl]="myForm.controls['content']" formControlName="content" class="form-control"
+          id="todoTitle"  (keydown.enter)="$event.preventDefault()" required #todoTitle>
+        </textarea>
+        <div class="form-control-position control-position-right">
+        </div>
+      </fieldset>
+
+
+    </div>
+  </div>
+  <div class="modal-footer taskboard-modal-footer">
+    <button [disabled]="!myForm.valid">
+      Save
+    </button>
+  </div>
+</form>
