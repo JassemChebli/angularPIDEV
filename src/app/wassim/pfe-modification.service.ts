@@ -38,4 +38,14 @@ createPfeMod(pfec): Observable<PfeFileChange > {
     retry(1),
     catchError(this.handleError)
   )
-}}
+}
+
+
+getPfeModification(): Observable<PfeFileChange[] > {
+  return this.http.get<PfeFileChange[]>(this.pfeUrl )
+      .pipe(
+          retry(1),
+          catchError(this.handleError)
+      )
+}
+}

@@ -1,0 +1,57 @@
+<div class="row text-left" _ngcontent-c7="">
+    <input class="form-control has-icon-left" type="text" name="search" [(ngModel)]="searchText" autocomplete="on" placeholder="&#61442;  Start searching ">
+   
+  <div class="col-lg-4 col-md-12" _ngcontent-c7="" *ngFor=" let x of mods | filter:searchText">
+    <div class="card" _ngcontent-c7="">
+      <div class="card-header" _ngcontent-c7="">
+        <h4 class="card-title info" _ngcontent-c7="">
+          <div *ngIf=" x.pfeFile != null">{{x.pfeFile.title}} </div>
+        </h4>
+        <div *ngIf="x.status === 'PROCESSING'"><span class="badge badge-warning" _ngcontent-c13="">Processing</span>
+        </div>
+
+        <div *ngIf="x.status === 'VALID'"><span class="badge badge-info" _ngcontent-c13="">Valid</span></div>
+        <div *ngIf="x.status === 'REFUSED'"><span class="badge badge-danger" _ngcontent-c13="">Refused</span></div>
+      </div>
+      <div class="card-content" _ngcontent-c7="">
+        <div class="card-body" _ngcontent-c7="">
+          <p class="card-text" _ngcontent-c7="">
+          </p>
+          <div *ngIf=" x.field ==='F'">Functionnalities</div>
+          <div *ngIf=" x.field ==='P'">Problematic</div>
+          <p class="card-text" _ngcontent-c7="">{{x.content}}</p>
+         
+        </div>
+        <div class="card-body">
+            <div ngbDropdown #myDrop1="ngbDropdown">
+              <button class="btn btn-outline-primary mr-1" id="dropdownMenu2" ngbDropdownToggle>Toggle dropdown</button>
+              <div ngbDropdownMenu class="dropdown-menu" aria-labelledby="dropdownMenu2">
+                <button class="dropdown-item" (click)="show(x)">Show the Pfe File</button>
+                <button class="dropdown-item">Validate</button>
+                <button class="dropdown-item">Refuse</button>
+              </div>
+            
+            </div>
+      </div>
+    </div>
+  </div>
+
+
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+<div>
+
+
+
+</div>

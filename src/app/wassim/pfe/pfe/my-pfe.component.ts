@@ -93,7 +93,7 @@ addTask() {
     this.change.content = result.content;
 
     this.change.field = result.field;
-
+     this.change.pfeFile = this.pfe;
 
     console.log(result);
     console.log(this.change);

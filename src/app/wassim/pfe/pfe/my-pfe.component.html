@@ -5,21 +5,25 @@
         <h4 class="card-title" id="bordered-layout-icons">PFE <div *ngIf="pfe.status === 'WAITING'"><span class="badge badge-primary" _ngcontent-c13="">Waiting</span></div>
           <div *ngIf="pfe.status === 'PROCESSING'"><span class="badge badge-warning" _ngcontent-c13="">Processing</span></div>
         
-        
+          <div *ngIf="pfe.status === 'VALID'"><span class="badge badge-info" _ngcontent-c13="">Valid</span></div>
+          <div *ngIf="pfe.status === 'REFUSED'"><span class="badge badge-info" _ngcontent-c13="">Refused</span></div>
+         
+
         </h4>
+        
         <!--- <p class="mb-0">Add <code>.form-bordered</code> to form tag to add striped rows. In this example icons are
             used with form controls to show the bordered form functionality.</p> -->
       </div>
       <div class="card-content">
-          <div class="form-actions top clearfix" _ngcontent-c9=""><div class="buttons-group float-left" _ngcontent-c9=""><button class="btn btn-raised btn-warning mr-1" type="button" _ngcontent-c9=""><i class="ft-x" _ngcontent-c9=""></i> Cancel </button><button class="btn btn-raised btn-primary mr-1" type="button" _ngcontent-c9=""><i class="fa fa-check-square-o" _ngcontent-c9=""></i> Save </button></div><div class="buttons-group float-right" _ngcontent-c9=""><button class="btn btn-raised btn-info mr-1" type="button" _ngcontent-c9="">Action 1</button><button class="btn btn-raised btn-danger mr-1" type="button" _ngcontent-c9="">Action 2</button><button class="btn btn-raised btn-success" type="button" _ngcontent-c9="">Action 3</button></div></div>
+          <div class="form-actions top clearfix" _ngcontent-c9="">
+            <div class="buttons-group float-left" _ngcontent-c9="">
+           </div><div class="buttons-group float-right" _ngcontent-c9="">
+              <button class="btn btn-raised btn-info mr-1" type="button" _ngcontent-c9="" (click)="edit()">
+                  Edit</button>
+              <button class="btn btn-raised btn-success" type="button" _ngcontent-c9="" (click)="addTask()">Big Modification</button></div></div>
         <div class="px-3">
           
-          <button class="btn btn-raised btn-primary" (click)="edit()">
-            <i class="fa fa-check-square-o"></i> Edit
-          </button>
-          <button class="btn btn-raised btn-primary" (click)="addTask()">
-            <i class="fa fa-check-square-o"></i> Big Change
-          </button>
+          
           <form class="form form-horizontal form-bordered" [formGroup]="myFormx" (ngSubmit)="save()">
             <div class="form-body">
               <!-- <div class="form-group row">
