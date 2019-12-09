@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { RestApiService } from '../rest-api.service'
+import { AuthService } from 'app/shared/auth/auth.service';
 
 @Component({
   selector: 'app-add',
@@ -11,6 +12,7 @@ export class AddComponent implements OnInit {
 
   classes = [];
   classe: any;
+  style: string;
   studentForm = new FormGroup({
     firstName: new FormControl('', Validators.required),
     lastName: new FormControl('', Validators.required),
@@ -23,10 +25,13 @@ export class AddComponent implements OnInit {
     })
   });
 
-  constructor(private api: RestApiService) { }
+  constructor(private api: RestApiService, private auth: AuthService) { }
+  // tslint:disable-next-line: member-ordering
+  role = this.auth.getToken()['role'];
 
   ngOnInit() {
     this.loadClasses();
+    if (this.role === 'admin') {this.style = 'last';}
   }
 
   loadClasses() {

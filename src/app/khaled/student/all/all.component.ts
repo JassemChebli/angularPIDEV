@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { RestApiService } from './../rest-api.service';
 import Swal from 'sweetalert2';
+import { AuthService } from 'app/shared/auth/auth.service';
 
 @Component({
   selector: 'app-all',
@@ -13,8 +14,9 @@ export class AllComponent implements OnInit {
   students = [];
   items = [];
 
-  constructor(private api: RestApiService) { }
-
+  constructor(private api: RestApiService, private auth: AuthService) { }
+  // tslint:disable-next-line: member-ordering
+  role = this.auth.getToken()['role'];
   ngOnInit() {
     this.loadStudents();
   }
@@ -36,7 +38,7 @@ export class AllComponent implements OnInit {
         this.api.deleteStudent(id).subscribe();
         Swal.fire(
           'Deleted!',
-          'Your file has been deleted.',
+          'Your student record has been deleted.',
           'success'
         )
         setTimeout( () => {this.loadStudents()}, 10);

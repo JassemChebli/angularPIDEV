@@ -13,7 +13,6 @@
           <div class="card-body">
             <div class="px-3">
               <form class="form form-horizontal form-bordered" [formGroup]="studentForm" (ngSubmit)="onSubmit()">
-                  {{ studentForm.value | json}}
                 <div class="form-body">
                   <h4 class="form-section"><i class="ft-user"></i> Personal Info</h4>
                   <div class="form-group row">
@@ -58,7 +57,7 @@
                   <h4 class="form-section"><i class="ft-file-text"></i> Administration</h4>
                   <!--For Classes // (change)="changeClass($event)"-->
                   <div class="form-group row" formGroupName = "classe">
-                    <label class="col-md-3 label-control" for="projectinput6">Interested in</label>
+                    <label class="col-md-3 label-control" for="projectinput6">Enroll in</label>
                     <div class="col-md-9" >
                       
                       <select id="projectinput6" name="interested" class="form-control" formControlName="id"> 
@@ -68,7 +67,7 @@
                     </div>
                   </div>
                   <!--For Classes-->
-                 <div class="form-group row">
+                 <div class="form-group row" [ngClass]="style">
                     <label class="col-md-3 label-control">Select File</label>
                     <div class="col-md-9">
                       <label id="projectinput8" class="file">
@@ -78,7 +77,7 @@
                     </div>
                   </div>
                   
-                  <div class="form-group row last">
+                  <div class="form-group row last" [hidden] = "role === 'admin'">
                       <label class="col-md-3 label-control">Give Access: </label>
                       <div class="col-md-9">
                         <div class="input-group col-md-9">

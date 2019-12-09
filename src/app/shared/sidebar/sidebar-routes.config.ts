@@ -41,6 +41,10 @@ import { RouteInfo } from './sidebar.metadata';
                     // tslint:disable-next-line: max-line-length
                     path: '/director/all', title: 'All', icon: 'ft-users', class: '', badge: '', badgeClass: '', isExternalLink: false, submenu: []
                 },
+                {
+                    // tslint:disable-next-line: max-line-length
+                    path: '/director/add', title: 'add', icon: 'ft-user-plus', class: '', badge: '', badgeClass: '', isExternalLink: false, submenu: []
+                },
             ]
         },
     ]

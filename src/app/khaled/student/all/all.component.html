@@ -32,10 +32,10 @@
               </div>
             </div>
           </div>
-          <div class="card-footer">
-            <a class="card-link info darken-2" [routerLink]="['/student/details', student.id]">Details</a>
-            <a class="card-link info darken-2" (click)="delete(student.id)">Delete</a>
-            <a class="card-link info darken-2" [routerLink]="['/student/update', student.id]">Update</a>
+          <div class="card-footer" style="padding-top: 1.5em; padding-bottom: 0.5em;">
+            <button class="btn btn-round btn-outline-danger" (click)="delete(student.id)" [hidden] = "role !== 'admin'">Delete</button>
+            <button class="btn btn-round btn-outline-success" style="margin-left: 0.5rem;" [routerLink]="['/student/update', student.id]">Update</button>
+            <button class="btn btn-round btn-outline-secondary" style="margin-left: 0.5rem;" [routerLink]="['/student/details', student.id]">Details</button>
           </div>
         </div>
       </div>

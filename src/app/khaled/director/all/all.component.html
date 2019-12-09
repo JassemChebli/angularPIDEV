@@ -2,7 +2,6 @@
     <div class="row text-left">
       <div class="col-12 mt-3 mb-1">
         <div class="content-header">Directors list</div>
-        <a class="card-link info darken-2" [routerLink]="['/director/add']">Add</a>
       </div>
     </div>
     <div  class="row text-left" matchHeight="card">
@@ -21,9 +20,9 @@
               </div>
             </div>
             <div class="card-footer">
-              <a class="card-link info darken-2" [routerLink]="['/director/details', director.id]">Details</a>
-              <a class="card-link info darken-2" (click)="delete(director.id)">Delete</a>
-              <a class="card-link info darken-2" [routerLink]="['/director/update', director.id]">Update</a>
+              <button class="btn btn-round btn-outline-danger" (click)="delete(director.id)">Delete</button>
+              <button class="btn btn-round btn-outline-success" style="margin-left: 0.5rem;" [routerLink]="['/director/update', director.id]">Update</button>
+              <button class="btn btn-round btn-outline-secondary" style="margin-left: 0.5rem;" [routerLink]="['/director/details', director.id]">Details</button> 
             </div>
           </div>
         </div>
