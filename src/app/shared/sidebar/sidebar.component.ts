@@ -46,9 +46,11 @@ export class SidebarComponent implements OnInit, AfterViewInit {
     this.config = this.configService.templateConf;
     this.role = this.authService.getToken()['role'];
     if (this.role === 'admin') {
-      this.menuItems = ROUTES;
+      this.menuItems = ROUTESADMIN;
     }else if (this.role === 'student') {
       this.menuItems = ROUTESSUTDENT;
+    }else if (this.role === 'int-dir') {
+      this.menuItems = ROUTES;
     }
 
     if (this.config.layout.sidebar.backgroundColor === 'white') {

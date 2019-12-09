@@ -68,7 +68,7 @@ export class RestApiService {
                 catchError(this.handleError)
             )
     }
-    
+
     // HttpClient API put() method => Update employee
     updateStudent(student: any) {
         return this.http.put<any>(this.apiURL + '/student', JSON.stringify(student), this.httpOptions)

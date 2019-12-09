@@ -25,7 +25,7 @@ export class AllComponent implements OnInit {
     // const clicked = confirm('Would you delete the record for ' + id);
     Swal.fire({
       title: 'Are you sure?',
-      text: "You won't be able to revert this!",
+      text: 'You won\'t be able to revert this!',
       icon: 'warning',
       showCancelButton: true,
       confirmButtonText: 'Yes, delete it!',

@@ -1,5 +1,5 @@
 import { NgModule } from '@angular/core';
-import { Routes, RouterModule } from '@angular/router';
+import { Routes, RouterModule, CanActivate } from '@angular/router';
 import { AllComponent } from './all/all.component'
 import { SingleComponent } from './single/single.component';
 import { AddComponent } from './add/add.component';

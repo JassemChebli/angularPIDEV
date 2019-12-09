@@ -36,7 +36,7 @@ export class RestApiService {
     }
 
     getProject(id: number) {
-        return this.http.get<any>(this.apiURL + '/pfe/'+id)
+        return this.http.get<any>(this.apiURL + '/pfe/' + id)
             .pipe(
                 retry(1),
                 catchError(this.handleError)

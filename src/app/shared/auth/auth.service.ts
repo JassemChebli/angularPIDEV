@@ -20,6 +20,9 @@ export class AuthService {
 
   logout() {
     this._cookieService.delete('access_token', '/', 'localhost');
+    // const date1 = new Date(1575883232 * 1000);
+    // alert(date1 > date )
+
   }
 
   getToken() {
@@ -28,7 +31,11 @@ export class AuthService {
 
   isAuthenticated() {
     // here you can check if user is authenticated or not through his token
-    return true;
+    if (this.getToken()) {
+      const date = new Date();
+      return (this.convertTime(this.getToken()).getTime() > date.getTime());
+    }
+    return false;
   }
 
   parseJwt = (token) => {
@@ -37,6 +44,9 @@ export class AuthService {
     } catch (e) {
       return null;
     }
+  }
+  convertTime(token) {
+    return new Date(token.exp * 1000);
   }
 }
 

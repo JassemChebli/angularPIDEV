@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { RestApiService } from '../rest-api.service';
 import { FormGroup, Validators, FormControl } from '@angular/forms';
+import { AuthService } from '../../../shared/auth/auth.service'
 
 @Component({
   selector: 'app-update',
@@ -12,6 +13,7 @@ export class UpdateComponent implements OnInit {
 
   student: any;
   classes = [];
+  style: string;
   studentForm = new FormGroup({
     id: new FormControl(''),
     firstName: new FormControl('', Validators.required),
@@ -24,11 +26,14 @@ export class UpdateComponent implements OnInit {
       id: new FormControl(''),
     })
   });
-  constructor(private router: Router,private route: ActivatedRoute, private api: RestApiService) { }
+  constructor(private router: Router,private route: ActivatedRoute, private api: RestApiService, private auth: AuthService) { }
+  // tslint:disable-next-line: member-ordering
+  role = this.auth.getToken()['role'];
 
   ngOnInit() {
     this.loadStudent();
     this.loadClasses();
+    if (this.role === 'admin') {this.style = 'last';}
   }
 
   loadStudent() {
