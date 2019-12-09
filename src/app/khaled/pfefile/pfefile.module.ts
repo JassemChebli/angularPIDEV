@@ -6,14 +6,15 @@ import { FormsModule } from '@angular/forms';
 import { PfefileRoutingModule } from './pfefile-routing.module';
 import { AllComponent } from './all/all.component';
 import { SingleComponent } from './single/single.component';
+import { MapComponent } from './map/map.component';
 
 @NgModule({
-  declarations: [AllComponent, SingleComponent],
+  declarations: [AllComponent, SingleComponent, MapComponent],
   imports: [
     CommonModule,
     PfefileRoutingModule,
     TagInputModule,
-    FormsModule
+    FormsModule,
   ]
 })
 export class PfefileModule { }

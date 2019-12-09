@@ -13,9 +13,10 @@ export class SingleComponent implements OnInit {
   constructor(private route: ActivatedRoute, private api: RestApiService) { }
 
   ngOnInit() {
+    this.loadDirector();
   }
 
-  loadStudent() {
+  loadDirector() {
     this.route.params.subscribe(params => {
       const id = +params['id'];
       if ( id != null) {

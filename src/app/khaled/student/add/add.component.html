@@ -54,7 +54,7 @@
                     </div>
                   </div>
   
-                  <h4 class="form-section"><i class="ft-file-text"></i> Administration</h4>
+                  <h4 class="form-section"><i class="ft-file-text"></i> Administrative Info</h4>
                   <!--For Classes // (change)="changeClass($event)"-->
                   <div class="form-group row" formGroupName = "classe">
                     <label class="col-md-3 label-control" for="projectinput6">Enroll in</label>
@@ -67,7 +67,7 @@
                     </div>
                   </div>
                   <!--For Classes-->
-                 <div class="form-group row" [ngClass]="style">
+                 <div class="form-group row">
                     <label class="col-md-3 label-control">Select File</label>
                     <div class="col-md-9">
                       <label id="projectinput8" class="file">
@@ -92,6 +92,13 @@
                         </div>
                       </div>
                   </div>
+                </div>
+
+                <div class="form-group row" [ngClass]="style" [hidden] = "role !== 'admin'">
+                    <label class="col-md-3 label-control" for="projectinput2">Password</label>
+                    <div class="col-md-9">
+                      <input type="password" id="projectinput2" class="form-control" placeholder="Password" name="lname" formControlName="password">
+                    </div>
                 </div>
   
                 <div class="form-actions">

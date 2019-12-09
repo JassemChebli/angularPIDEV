@@ -15,6 +15,10 @@ import { RouteInfo } from './sidebar.metadata';
                 // tslint:disable-next-line: max-line-length
                 path: '/pfe/all', title: 'Graduation Projects', icon: 'icon-notebook', class: '', badge: '', badgeClass: '', isExternalLink: false, submenu: []
             },
+            {
+                // tslint:disable-next-line: max-line-length
+                path: '/pfe/map', title: 'Students Locations', icon: 'ft-map', class: '', badge: '', badgeClass: '', isExternalLink: false, submenu: []
+            },
         ];
 
     const adminRoutes = [

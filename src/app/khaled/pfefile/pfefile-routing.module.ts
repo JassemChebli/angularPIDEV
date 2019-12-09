@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { AllComponent } from './all/all.component';
 import { SingleComponent } from './single/single.component';
+import { MapComponent } from './map/map.component';
 
 const routes: Routes = [
   {
@@ -19,6 +20,13 @@ const routes: Routes = [
         component: SingleComponent,
         data: {
           title: 'GP details'
+        }
+      },
+      {
+        path: 'map',
+        component: MapComponent,
+        data: {
+          title: 'GPs Location'
         }
       },
     ]
