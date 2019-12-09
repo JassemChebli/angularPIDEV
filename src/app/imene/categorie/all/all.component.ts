@@ -8,6 +8,7 @@ import {ConfirmationDialogCategorieService} from '../crud/confirmation-dialog-ca
 import { forEach } from '@angular/router/src/utils/collection';
 import { PfeFile } from 'app/imene/Models/PfeFile';
 import { PrevalidateComponent } from '../prevalidate/prevalidate.component';
+import { GradeComponent } from '../grade/grade.component';
 @Component({
   selector: 'app-all',
   templateUrl: './all.component.html',
@@ -21,13 +22,14 @@ export class AllComponent implements OnInit {
     searching = false;
     keyword: string;
     currentPage: string = "About"
-    pfefile: PfeFile[] = [];
+    pf: PfeFile[] = [];
     prevpfefile:PfeFile[] = [];
     id:number;;
     year:number;
     role:string;
     mssg:string;
     s:string;
+    grade:number;
   constructor(public restApi: RestApiService,private modalService: NgbModal,
     private confirmationDialogService: ConfirmationDialogCategorieService,) { }
 
@@ -54,10 +56,10 @@ getnames(){
   addC(){
     const modalRef = this.modalService.open(CrudComponent);
     modalRef.componentInstance.id = 0; // should be the id
-    modalRef.componentInstance.data = {nom: '', address: ''}; // should be the data
+    modalRef.componentInstance.data = {nom: ''}; // should be the data
 
     modalRef.result.then((result) => {
-        this.restApi.addSite(result.nom, result.address).subscribe(data => {
+        this.restApi.addSite(result.nom, false).subscribe(data => {
             this.loadAll();
         });
     }).catch((error) => {
@@ -73,13 +75,13 @@ getnames(){
     modalRef.componentInstance.id = id; // should be the id
     modalRef.componentInstance.data = {
         nom: c.label,
-        address: c.status,
+      
        
     }; // should be the data
 
     modalRef.result.then((result) => {
       c.label = result.nom;
-      c.status = result.address;
+    
         
         this.restApi.updateSite(id,c).subscribe(data => {
                 this.loadAll();
@@ -124,20 +126,6 @@ showPage(page: string) {
 ////////////////////////////////////PFE FILE ///////////////////
 
 
-loadbyyearrole(id:number,year:number,role:string) {
-
-
-  if ( id != null) {
-    this.restApi.getFilebyyearandrole(id,year,role).subscribe((data) => {
-      this.pfefile.push(data);
-      console.log(this.pfefile);
-    });
-  }else {
-    alert(' not found!!');
-  }
-
-}
-
 Prevalidate(id:number){
   let p = new PfeFile();
  
@@ -173,6 +161,84 @@ loadAllprevpfiles() {
   return this.restApi.getAllprevfiles().subscribe((data) => {
       this.prevpfefile = data;
   })
+}
+
+loadbyyearrole(id:number,year:number,role:string) {
+
+  // if ( id != null) {
+     return this.restApi.getFilebyyearandrole(id,year,role).subscribe((data) => {
+       this.pf=data;
+
+       console.log(this.pf);
+     })
+  // }else {
+    // alert(' not found!!');
+   //}
+ 
+ }
+ 
+
+Noterrep(id:number){
+  let p = new PfeFile();
+  console.log("hehehe");
+  console.log(this.pf);
+  p = this.pf.find(x => x.id === id);
+  const modalRef = this.modalService.open(GradeComponent);
+  modalRef.componentInstance.id = id; // should be the id
+  modalRef.componentInstance.data = {
+      grade: p.gradeReporter,
+  
+      
+     
+  }; // should be the data
+
+  modalRef.result.then((result) => {
+    p.gradeReporter = result.grade;
+   this.grade=result.grade;
+      
+      this.restApi.graderep(id,this.grade,p).subscribe(data => {
+              this.loadAllprevpfiles();
+          },
+          error => {
+              console.error(error);
+          });
+
+  }).catch((error: ExceptionInformation) => {
+      console.error(error.domain);
+  });
+
+
+}
+Notersup(id:number){
+  let p = new PfeFile();
+  console.log("hehehe");
+  console.log(this.pf);
+  p = this.pf.find(x => x.id === id);
+  const modalRef = this.modalService.open(GradeComponent);
+  modalRef.componentInstance.id = id; // should be the id
+  modalRef.componentInstance.data = {
+      grade: p.gradeSupervisor,
+  
+      
+     
+  }; // should be the data
+
+  modalRef.result.then((result) => {
+    p.gradeSupervisor = result.grade;
+   this.grade=result.grade;
+      
+      this.restApi.gradesuper(id,this.grade,p).subscribe(data => {
+              this.loadAllprevpfiles();
+          },
+          error => {
+              console.error(error);
+          });
+
+  }).catch((error: ExceptionInformation) => {
+      console.error(error.domain);
+  });
+
+
 }
 
 }

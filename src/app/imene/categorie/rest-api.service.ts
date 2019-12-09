@@ -45,8 +45,8 @@ export class RestApiService {
                 catchError(this.handleError)
             )
     }
-    getFilebyyearandrole(id: number,year:number,role:string): Observable<PfeFile> {
-        return this.http.get<PfeFile>(this.apiURLp + '/one/' + id+ '/' +year + '/' +role)
+    getFilebyyearandrole(id: number,year:number,role:string): Observable<PfeFile[]> {
+        return this.http.get<PfeFile[]>(this.apiURLp + '/one/' + id+ '/' +year + '/' +role)
             .pipe(
                 retry(1),
                 catchError(this.handleError)
@@ -62,6 +62,18 @@ export class RestApiService {
     }
     prevalidate(index: number,spf:string,msg:string,pf:PfeFile): Observable<PfeFile> {
         return this.http.put<PfeFile>(this.apiURLp + '/modify/'+ index + '/' + spf + '/' + msg, pf)
+            .pipe(
+                catchError(this.handleError)
+            )
+    }
+    graderep(index: number,g:number,pf:PfeFile): Observable<PfeFile> {
+        return this.http.put<PfeFile>(this.apiURLp + '/gradereporter/'+ index + '/' + g , pf)
+            .pipe(
+                catchError(this.handleError)
+            )
+    }
+    gradesuper(index: number,g:number,pf:PfeFile): Observable<PfeFile> {
+        return this.http.put<PfeFile>(this.apiURLp + '/gradesupervisor/'+ index + '/' + g , pf)
             .pipe(
                 catchError(this.handleError)
             )

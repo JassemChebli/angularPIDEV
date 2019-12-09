@@ -10,11 +10,12 @@ import { CrudComponent } from './crud/crud.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { Ng2SearchPipeModule } from 'ng2-search-filter';
 import { PrevalidateComponent } from './prevalidate/prevalidate.component';
+import { GradeComponent } from './grade/grade.component';
 
 
 
 @NgModule({
-  declarations: [AllComponent, OneComponent, ConfirmationDialogCategorieComponent, CrudComponent, PrevalidateComponent],
+  declarations: [AllComponent, OneComponent, ConfirmationDialogCategorieComponent, CrudComponent, PrevalidateComponent, GradeComponent],
   imports: [
     CommonModule,
     CategorieRoutingModule, 
@@ -27,7 +28,8 @@ import { PrevalidateComponent } from './prevalidate/prevalidate.component';
   entryComponents: [
     CrudComponent,
     ConfirmationDialogCategorieComponent,
-    PrevalidateComponent
+    PrevalidateComponent,
+    GradeComponent
 ],
 providers: [
   ConfirmationDialogCategorieService

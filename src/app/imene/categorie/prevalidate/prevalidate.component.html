@@ -11,11 +11,22 @@
             <form class="form form-horizontal striped-rows" [formGroup]="myForm" (ngSubmit)="submitForm()">
                 <div class="form-body">
                     <div class="form-group row">
-                        <label class="col-md-3 label-control" for="status">Label</label>
+                        <label class="col-md-3 label-control" for="status">Take Decision</label>
                         <div class="col-md-9">
-                         
-                            <input type="text" id="siteName" class="form-control" placeholder="status" name="st"
-                                   [formControl]="myForm.controls['status']" formControlName="status">
+
+                             
+                              <!----  <input type="text" id="siteName" class="form-control" placeholder="status" name="st"
+                                [formControl]="myForm.controls['status']" formControlName="status">-->
+
+                                <select class="custom-select d-block w-100" id="customSelect" [formControl]="myForm.controls['status']" formControlName="status">
+                                        <option selected>Open this select menu</option>
+                                        <option value="PREVALIDER">Accept</option>
+                                        <option value="REFUSED">Refuse</option>
+                                </select>
+                               
+
+                                   
+                               
                             <small class="form-text text-muted danger"
                                    *ngIf="!myForm.get('status').valid && (myForm.get('status').dirty || myForm.get('status').touched)">Please
                                 enter the Label!</small>
@@ -23,7 +34,7 @@
                     </div>
 
                     <div class="form-group row">
-                        <label class="col-md-3 label-control" for="msg">Status</label>
+                        <label class="col-md-3 label-control" for="msg">Message</label>
                         <div class="col-md-9">
                             <input type="text" id="siteAddress" class="form-control" placeholder="msg"
                                    name="m" [formControl]="myForm.controls['msg']" formControlName="msg">
@@ -46,3 +57,10 @@
         </div>
     </div>
 </div>
+<!--
+
+     <div class="form-group text-right">
+              <button type="button" class="btn btn-danger btn-raised mr-1">Cancel</button>
+              <button type="button" class="btn btn-success btn-raised" [disabled]="!regularForm.valid">Submit</button>
+            </div>
+-->

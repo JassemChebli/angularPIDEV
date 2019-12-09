@@ -1,0 +1,45 @@
+<div class="modal-header">
+  <h4 class="modal-title">Grade file</h4>
+  <button type="button" class="close" aria-label="Close" (click)="activeModal.dismiss()">
+      x
+  </button>
+</div>
+
+<div class="card">
+  <div class="card-content">
+      <div class="px-3">
+          <form class="form form-horizontal striped-rows" [formGroup]="myForm" (ngSubmit)="submitForm()">
+              <div class="form-body">
+                  <div class="form-group row">
+                      <label class="col-md-3 label-control" for="grade">Grade</label>
+                      <div class="col-md-9">
+                       
+                          <input type="text" id="siteName" class="form-control" placeholder="sgrade" name="st"
+                                 [formControl]="myForm.controls['grade']" formControlName="grade">
+                          <small class="form-text text-muted danger"
+                                 *ngIf="!myForm.get('grade').valid && (myForm.get('grade').dirty || myForm.get('grade').touched)">Please
+                              enter a grade!</small>
+                      </div>
+                  </div>
+
+              </div>
+
+              <div class="form-actions center">
+                  <button type="button" class="btn btn-raised btn-warning mr-1">
+                      <i class="ft-x"></i> Cancel
+                  </button>
+                  <button type="submit" class="btn btn-raised btn-success" [disabled]="!myForm.valid">
+                      <i class="fa fa-check-square-o"></i> Save
+                  </button>
+              </div>
+          </form>
+      </div>
+  </div>
+</div>
+<!--
+
+   <div class="form-group text-right">
+            <button type="button" class="btn btn-danger btn-raised mr-1">Cancel</button>
+            <button type="button" class="btn btn-success btn-raised" [disabled]="!regularForm.valid">Submit</button>
+          </div>
+-->

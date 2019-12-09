@@ -47,7 +47,7 @@
                                   <a (click)="showPage('Friends')" [ngClass]="currentPage === 'Friends' ? 'primary font-medium-2 font-weight-600 active' : 'primary font-medium-2 font-weight-600'">Manage Categories</a>
                               </li>
                               <li>
-                                  <a (click)="showPage('Photos')" [ngClass]="currentPage === 'Photos' ? 'primary font-medium-2 font-weight-600 active' : 'primary font-medium-2 font-weight-600'">Photos</a>
+                                  <a (click)="showPage('Photos')" [ngClass]="currentPage === 'Photos' ? 'primary font-medium-2 font-weight-600 active' : 'primary font-medium-2 font-weight-600'">Prevalidated files</a>
                               </li>
                           </ul>
                       </div>
@@ -209,11 +209,10 @@
 <section *ngIf="currentPage === 'TimeLine'">   
   <div class="row">
       <div class="col-12">
-          <div class="content-header">User Timeline</div>
+          <div class="content-header">Mange End of year project Files</div>
       </div>
   </div>
-<div class="row">
-  <div class="col-xl-4 col-lg-6 col-md-12">
+
       <fieldset class="form-group">
           <label for="customSelect">Select year</label>
           <select class="custom-select d-block w-100" id="customSelect" #val2>
@@ -238,11 +237,40 @@
                   <span class="d-lg-block d-none">show</span>
               </button>
           </div>
+
+          <div class="row" >
+                <div class="col-lg-4 col-md-6" *ngFor="let p of pf">
+                    <div class="card" >
+                      <div class="card-header">
+                        <h4 class="card-title"></h4>
+                        
+                        <h6>{{p.title}}</h6>
+                      </div>
+                      <div class="card-content">
+                        <div class="card-img">
+                          <img class="img-fluid" src="assets/img/photos/09.jpg" alt="Card image cap">
+                          <a class="btn btn-floating halfway-fab btn-large bg-danger"><i class="ft-plus"></i></a>
+                        </div>
+                        <div class="card-body">
+                          <p class="card-text">{{p.description}}</p>
+                        </div>
+                      </div>
+                      <div class="card-footer text-muted">
+                        <span class="float-left">1 day ago</span>
+                        <span class="tags float-right">
+                          <span class="badge bg-success white mr-1" (click)="Notersup(p.id);">Grade</span>
+                        </span>
+                      </div>
+                    </div>
+                  </div>          
+                </div>
+
       </fieldset>         
 
-                  
-  </div>
-</div>
+
+
+  
+<!---
   <div class="row" >
   <div class="col-lg-4 col-md-6" *ngFor="let p of pfefile">
       <div class="card" >
@@ -257,20 +285,26 @@
           </div>
           <div class="card-body">
             <p class="card-text">{{p.description}}</p>
-            <a class="card-link danger">Card link</a>
-            <a class="card-link danger">Another link</a>
+          
           </div>
         </div>
         <div class="card-footer text-muted">
           <span class="float-left">1 day ago</span>
           <span class="tags float-right">
-            <span class="badge bg-success white mr-1" (click)="Noter(p.id);">Technology</span>
-            <span class="badge bg-warning white">Gaming</span>
+              <div *ngIf="p.spf=='PREVALIDER'"> -->
+                 <!--- <span class="badge bg-success white mr-1" (click)="Notersup(p.id);">Grade</span>-->
+               <!-- </div>
+                <div *ngIf="p.spf=='ENCOURS'"> 
+                        <span class="badge bg-success white mr-1" (click)="Noterrep(p.id);">Grade</span>
+                      </div>-->
+            <!--
           </span>
         </div>
       </div>
     </div>          
   </div>
+
+-->
 </section>
 <!--User Timeline section ends-->
 
