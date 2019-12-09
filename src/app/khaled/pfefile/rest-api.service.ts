@@ -43,6 +43,15 @@ export class RestApiService {
             )
     }
 
+    // HttpClient API put() method => Update employee
+    cancelProject(project: any) {
+        return this.http.put<any>(this.apiURL + '/student/annulation', JSON.stringify(project), this.httpOptions)
+            .pipe(
+                retry(1),
+                catchError(this.handleError)
+            )
+    }
+
     // HttpClient API get() method => Fetch pfe list
     getNonTreateds() {
         return this.http.get<any>(this.apiURL + '/pfe/NonTreated')

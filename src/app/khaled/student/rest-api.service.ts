@@ -78,6 +78,7 @@ export class RestApiService {
             )
     }
 
+
     // HttpClient API delete() method => Delete employee
     deleteStudent(id: number) {
         return this.http.delete<any>(this.apiURL + '/student/' + id)
