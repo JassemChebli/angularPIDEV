@@ -35,7 +35,7 @@ export const Full_ROUTES: Routes = [
     loadChildren: './dorsaf/charts/charts.module#ChartsModule'
   },
   {
-    path: 'template/add',
+    path: 'template',
     loadChildren: './dorsaf/template/template.module#TemplateModule'
   },
   {

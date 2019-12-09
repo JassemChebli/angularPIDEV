@@ -28,8 +28,12 @@ export const ROUTES: RouteInfo[] = [
         submenu: [
 
             {
+                path: '/template/show', title: 'Students', icon: '', class: '', badge: '', badgeClass: '', isExternalLink: false, submenu: []
+            },
+            {
                 path: '/template/add', title: 'CreateTemplate', icon: '', class: '', badge: '', badgeClass: '', isExternalLink: false, submenu: []
             }
+
         ]
     },
     {

@@ -1,0 +1,41 @@
+<div class="row" matchHeight="card">
+
+  <div class="col-xl-8 col-lg-12 col-12">
+    <div class="card">
+     
+      <div class="card-content">
+        <table class="table table-responsive-sm text-center">
+          <thead>
+            <tr>
+              <th>Picture</th>
+              <th>First Name </th>
+              <th>Last Name </th>
+              <th>Option</th>
+              <th>Convention</th>
+              <th>PfeFile</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let item of all">
+              <td><img class="media-object round-media height-50" src="assets/img/elements/01.png"
+                  alt="Generic placeholder image" /></td>
+              <td>{{item.firstName}}</td>
+              <td>{{item.lastName}}</td>
+              <td>
+               {{item.classe.option.label}}
+        
+              </td>
+              <td><a  [routerLink]="['/template/add',item.id]" class="btn btn-raised btn-round btn-info">Print</a></td>
+              <td>
+                <a class="btn btn-raised btn-round btn-danger"  [routerLink]="['/template/addPfe',item.id]">Print</a>
+              </td>
+            </tr>
+           
+           
+           
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>
