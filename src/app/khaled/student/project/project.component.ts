@@ -48,7 +48,7 @@ export class ProjectComponent implements OnInit {
       text: 'You won\'t be able to revert this!',
       icon: 'warning',
       showCancelButton: true,
-      confirmButtonText: 'Yes, delete it!',
+      confirmButtonText: 'Yes, Proceed!',
       cancelButtonText: 'No, cancel!',
       reverseButtons: true
     }).then((result) => {

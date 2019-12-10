@@ -20,7 +20,11 @@
           </div>  
           <div class="col col-lg-2 col-sm-2">
               <h2 class="float-right font-medium-3" style="color: #EAEBEE !important; padding-left: 5em;"  ><a id="heffect" class="ft-x text-muted" title="close" [routerLink]="['/student/all']"></a></h2>
-              <span class="badge badge-pill float-right" style="margin-top: 1.8em; padding: 0.5rem 1.4rem; background-color: #FFC96C; color: #fff;">Pending</span>
+              <span class="text-muted float-left" style="margin-top: 4em;">Status:</span> 
+              <span class="badge badge-pill float-right" 
+              [ngStyle]="{'background-color': color}"
+              style="margin-top: 1.8em; padding: 0.5rem 1.4rem; color: #fff;"
+              [innerHTML]="student?.status ? 'Access' : 'Suspended'"></span>
           </div>  
         </div>
       </div>

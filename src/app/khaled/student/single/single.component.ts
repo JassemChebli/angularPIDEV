@@ -10,6 +10,7 @@ import { RestApiService } from '../rest-api.service';
 export class SingleComponent implements OnInit {
 
   student: any;
+  color: string;
   constructor(private route: ActivatedRoute, private api: RestApiService) { }
 
   ngOnInit() {
@@ -22,6 +23,11 @@ export class SingleComponent implements OnInit {
       if ( id != null) {
         this.api.getStudent(id).subscribe((data) => {
           this.student = data;
+          if (data.status === false) {
+            this.color = '#FF6565';
+          }else {
+            this.color = '#52E5BA';
+          }
         });
       }else {
         alert('Item not found!!');
