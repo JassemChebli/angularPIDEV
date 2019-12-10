@@ -1,4 +1,5 @@
 import {School} from './School';
+import {HeadDepartment} from './HeadDepartment';
 
 export class Site {
     public id: number;
@@ -11,6 +12,7 @@ export class Site {
     public dateOfSessionStarts: Date;
     public dateOfSessionEnds:Date;
     public school: School;
+    public internshipDirector: HeadDepartment;
 
     constructor() {
 

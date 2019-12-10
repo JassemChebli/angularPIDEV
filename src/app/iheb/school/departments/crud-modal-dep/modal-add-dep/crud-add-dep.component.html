@@ -1,0 +1,55 @@
+<div class="modal-header">
+    <h4 class="modal-title">{{ModalTitle}}</h4>
+    <button type="button" class="close" aria-label="Close" (click)="activeModal.dismiss()">
+        x
+    </button>
+</div>
+
+<div class="card">
+    <div class="card-content">
+        <div class="px-3">
+            <form class="form" [formGroup]="myForm" (ngSubmit)="submitForm()">
+                <div class="form-body">
+                    <div class="form-group">
+                        <label for="siteName">Name</label>
+                        <input type="text" id="siteName" class="form-control" name="issuetitle"
+                               data-toggle="tooltip" [formControl]="myForm.controls['label']" formControlName="label"
+                               data-trigger="hover" data-placement="top" data-title="Issue Title">
+                        <small class="form-text text-muted danger"
+                               *ngIf="!myForm.get('label').valid && (myForm.get('label').dirty || myForm.get('label').touched)">Please
+                            enter the department name!</small>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="issueinput5">Department Head</label>
+                        <select id="issueinput5" name="priority" class="form-control" data-toggle="tooltip"
+                                data-trigger="hover" [formControl]="myForm.controls['head']" formControlName="head"
+                                data-placement="top" data-title="Priority">
+                            <option disabled>Select Department Head</option>
+                            <option *ngFor="let d of heads" value="{{d.id}}">{{d.lastName}}</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="issueinput6">Site</label>
+                        <select id="issueinput6" name="priority" class="form-control" data-toggle="tooltip"
+                                data-trigger="hover" [formControl]="myForm.controls['site']" formControlName="site"
+                                data-placement="top" data-title="Priority">
+                            <option disabled>Select Site</option>
+                            <option *ngFor="let s of sites" value="{{s.id}}">{{s.nom}}</option>
+                        </select>
+                    </div>
+
+                </div>
+                <div class="form-actions">
+                    <button type="button" class="btn btn-raised btn-warning mr-1">
+                        <i class="ft-x"></i> Cancel
+                    </button>
+                    <button type="submit" class="btn btn-raised btn-primary" [disabled]="!myForm.valid">
+                        <i class="fa fa-check-square-o"></i> Save
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

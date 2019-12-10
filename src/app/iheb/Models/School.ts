@@ -1,4 +1,5 @@
 import {Site} from './Site';
+import {Admin} from './Admin';
 
 export class School {
     public id: number;
@@ -8,6 +9,7 @@ export class School {
     public email: string;
     public tel: string;
     public sites: Site[] = [];
+    public admin = new Admin() ;
 
     constructor() {}
 

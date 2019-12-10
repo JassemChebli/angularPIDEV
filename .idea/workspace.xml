@@ -1,40 +1,34 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="223c2336-cb07-407a-94d9-0c58a5cf2e4b" name="Default Changelist" comment="" />
+    <list default="true" id="46f4cf1d-7357-47e9-a624-46a3c2ca36cc" name="Default Changelist" comment="" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
-  <component name="FavoritesManager">
-    <favorites_list name="angularPIDEV" />
-  </component>
-  <component name="PackageJsonUpdateNotifier">
-    <dismissed value="$PROJECT_DIR$/package.json" />
-  </component>
-  <component name="ProjectId" id="1UIkKvngpKlkjdeGm5MI6EzMJmQ" />
+  <component name="ProjectId" id="1Un6n0Y146IeXScA6AIE7z6H4QL" />
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/src/app/iheb/site" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/src/app/iheb/school/departments/crud-modal-dep" />
     <property name="node.js.detected.package.tslint" value="true" />
     <property name="node.js.path.for.package.tslint" value="project" />
     <property name="node.js.selected.package.tslint" value="(autodetect)" />
     <property name="nodejs_package_manager_path" value="npm" />
-    <property name="settings.editor.selected.configurable" value="MTConfigurable" />
-    <property name="ts.external.directory.path" value="D:\Study\Esprit\4TWIN2\Projet intégration développement\angular\angularPIDEV\node_modules\typescript\lib" />
+    <property name="ts.external.directory.path" value="D:\Study\Esprit\4TWIN2\Projet intégration développement\phase angular\node_modules\typescript\lib" />
   </component>
   <component name="RecentsManager">
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="D:\Study\Esprit\4TWIN2\Projet intégration développement\angular\angularPIDEV\src\app\iheb" />
-      <recent name="D:\Study\Esprit\4TWIN2\Projet intégration développement\angular\angularPIDEV\src\app\iheb\site\all" />
-      <recent name="D:\Study\Esprit\4TWIN2\Projet intégration développement\angular\angularPIDEV\src\app\iheb\school" />
-      <recent name="D:\Study\Esprit\4TWIN2\Projet intégration développement\angular\angularPIDEV\src\app\iheb\Models" />
-    </key>
     <key name="CopyFile.RECENT_KEYS">
-      <recent name="D:\Study\Esprit\4TWIN2\Projet intégration développement\angular\angularPIDEV\src\app\iheb\site" />
-      <recent name="D:\Study\Esprit\4TWIN2\Projet intégration développement\angular\angularPIDEV\src\app\iheb\school\crud-modal" />
+      <recent name="D:\Study\Esprit\4TWIN2\Projet intégration développement\phase angular\src\app\iheb\school\departments\crud-modal-dep" />
+      <recent name="D:\Study\Esprit\4TWIN2\Projet intégration développement\phase angular\src\app\iheb\school\sites" />
+      <recent name="D:\Study\Esprit\4TWIN2\Projet intégration développement\phase angular\src\app\iheb\school\my-school" />
+      <recent name="D:\Study\Esprit\4TWIN2\Projet intégration développement\phase angular\src\app\iheb\school\crud-modal\modal-update" />
+      <recent name="D:\Study\Esprit\4TWIN2\Projet intégration développement\phase angular\src\app\iheb\school\crud-modal\modal-add" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="D:\Study\Esprit\4TWIN2\Projet intégration développement\phase angular\src\app\iheb\school" />
+      <recent name="D:\Study\Esprit\4TWIN2\Projet intégration développement\phase angular\src\app\iheb" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -83,17 +77,13 @@
   </component>
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-      <changelist id="223c2336-cb07-407a-94d9-0c58a5cf2e4b" name="Default Changelist" comment="" />
-      <created>1575051436427</created>
+      <changelist id="46f4cf1d-7357-47e9-a624-46a3c2ca36cc" name="Default Changelist" comment="" />
+      <created>1575980174932</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
-      <updated>1575051436427</updated>
-      <workItem from="1575051438463" duration="6150000" />
-      <workItem from="1575057647381" duration="7112000" />
-      <workItem from="1575201100814" duration="15101000" />
-      <workItem from="1575218049760" duration="2429000" />
-      <workItem from="1575297753774" duration="6086000" />
-      <workItem from="1575379171969" duration="5172000" />
+      <updated>1575980174932</updated>
+      <workItem from="1575980176148" duration="30393000" />
+      <workItem from="1576015040879" duration="4122000" />
     </task>
     <servers />
   </component>

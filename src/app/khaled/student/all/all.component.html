@@ -1,0 +1,44 @@
+<section id="minimal-statistics">
+  <div class="row text-left">
+    <div class="col-sm">
+      <div class="content-header font-medium-5 text-bold-700">Students list</div>
+    </div>
+    <div class="text-left">
+      <div class="col-sm">
+        <div class="card">
+          <div class="">
+            <div>
+              <tag-input [(ngModel)]="items" theme='dark' (onAdd)="onItemAdded($event)" (onRemove)="onItemRemoved($event)" [modelAsStrings]="true" placeholder="+ A year">
+              </tag-input>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <hr class="uk-divider-icon">
+  <div  class="row text-left" matchHeight="card">
+      <div class="col-xl-3 col-lg-6 col-md-12 hoverable" *ngFor="let student of students">
+        <div class="card">
+          <div class="card-content">
+            <div class="card-header">
+              <h4 class="card-title">{{ student?.firstName }} {{ student?.lastName }}</h4>
+              <h6 class="card-subtitle text-muted">{{ student?.classe?.label }}</h6>
+            </div>
+            <div class="card-content">
+              <div class="card-body">
+                <img class="img-fluid" src="../../../../assets/img/photos/09.jpg" alt="Card image cap">
+                <p class="card-text mt-1">Topping dessert marshmallow gummi bears chupa chups marzipan.</p>
+              </div>
+            </div>
+          </div>
+          <div class="card-footer" style="padding-top: 1.5em; padding-bottom: 0.5em;">
+            <button class="btn btn-round btn-outline-danger" (click)="delete(student.id)" [hidden] = "role !== 'admin'">Delete</button>
+            <button class="btn btn-round btn-outline-success" style="margin-left: 0.5rem;" [routerLink]="['/student/update', student.id]">Update</button>
+            <button class="btn btn-round btn-outline-secondary" style="margin-left: 0.5rem;" [routerLink]="['/student/details', student.id]">Details</button>
+          </div>
+        </div>
+      </div>
+  </div>
+</section>
+<hr class="uk-divider-icon">

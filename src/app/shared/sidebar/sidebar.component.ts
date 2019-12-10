@@ -1,14 +1,15 @@
 import { Component, OnInit, ViewChild, ElementRef, Renderer2, AfterViewInit } from "@angular/core";
 
-import { ROUTES } from './sidebar-routes.config';
-import { Router, ActivatedRoute } from "@angular/router";
+import {ROUTES, ROUTESADMIN, ROUTESSUPERADMIN, ROUTESSUTDENT} from './sidebar-routes.config';
+import { Router, ActivatedRoute } from '@angular/router';
 import { TranslateService } from '@ngx-translate/core';
-import { customAnimations } from "../animations/custom-animations";
+import { customAnimations } from '../animations/custom-animations';
 import { ConfigService } from '../services/config.service';
+import { AuthService } from '../auth/auth.service';
 
 @Component({
-  selector: "app-sidebar",
-  templateUrl: "./sidebar.component.html",
+  selector: 'app-sidebar',
+  templateUrl: './sidebar.component.html',
   animations: customAnimations
 })
 export class SidebarComponent implements OnInit, AfterViewInit {
@@ -22,6 +23,7 @@ export class SidebarComponent implements OnInit, AfterViewInit {
   nav_collapsed_open = false;
   logoUrl = 'assets/img/logo.png';
   public config: any = {};
+  role: any;
 
 
   constructor(
@@ -31,6 +33,7 @@ export class SidebarComponent implements OnInit, AfterViewInit {
     private route: ActivatedRoute,
     public translate: TranslateService,
     private configService: ConfigService,
+    private authService: AuthService
   ) {
     if (this.depth === undefined) {
       this.depth = 0;
@@ -41,14 +44,20 @@ export class SidebarComponent implements OnInit, AfterViewInit {
 
   ngOnInit() {
     this.config = this.configService.templateConf;
-    this.menuItems = ROUTES;
-
-
+    this.role = this.authService.getToken()['role'];
+    if (this.role === 'admin') {
+      this.menuItems = ROUTESADMIN;
+    }else if (this.role === 'student') {
+      this.menuItems = ROUTESSUTDENT;
+    }else if (this.role === 'int-dir') {
+      this.menuItems = ROUTES;
+    } else if (this.role === 'super-admin') {
+      this.menuItems = ROUTESSUPERADMIN;
+    }
 
     if (this.config.layout.sidebar.backgroundColor === 'white') {
       this.logoUrl = 'assets/img/logo-dark.png';
-    }
-    else {
+    }else {
       this.logoUrl = 'assets/img/logo.png';
     }
 

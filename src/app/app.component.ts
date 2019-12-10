@@ -1,7 +1,8 @@
 import { Component, ViewContainerRef, OnInit, OnDestroy } from '@angular/core';
 import { Subscription } from 'rxjs';
-import { Router, NavigationEnd } from '@angular/router';
+import {Router, NavigationEnd, ActivatedRoute} from '@angular/router';
 import { filter } from 'rxjs/operators';
+import {AuthService} from './shared/auth/auth.service';
 
 @Component({
     selector: 'app-root',
@@ -11,10 +12,13 @@ export class AppComponent implements OnInit, OnDestroy {
 
     subscription: Subscription;
 
-    constructor(private router: Router) {
+    constructor(private router: Router, private auth: AuthService) {
     }
 
     ngOnInit() {
+        if (this.auth.getToken() === null ) {
+            this.router.navigate(['pages/login']);
+        }
         this.subscription = this.router.events
             .pipe(
                 filter(event => event instanceof NavigationEnd)

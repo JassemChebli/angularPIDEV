@@ -1,0 +1,49 @@
+<section id="minimal-statistics">
+    <div class="row text-left">
+      <div class="col">
+        <div class="content-header font-medium-5 text-bold-900">Graduation Projects list</div>
+        <button class="btn btn-outline-dark float-left" (click)="nonTreated()">Non Treated Requests</button>
+        <div class="float-right">
+                <div class="col-sm">
+                  <div class="card">
+                    <div class="">
+                      <div>
+                        <tag-input [(ngModel)]="items" theme='dark' (onAdd)="onItemAdded($event)" (onRemove)="onItemRemoved($event)" [modelAsStrings]="true" placeholder="+ A year">
+                        </tag-input>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+        </div>
+      </div>  
+    </div>
+    <div class="row text-left" matchHeight="card">
+        <div class="col-xl-6 col-lg-6 col-md-6" *ngFor="let project of projects">
+          <div class="card">
+            <div class="card-header">
+              <div class="row">
+                <div class="col col-md-2 col-lg-2 col-sm-2">
+                    <img src="https://cdn.dodowallpaper.com/full/516/black-and-yellow-8.jpg" style="margin-left: 1em;" width="74px" height="74px" class="rounded-circle" alt="">
+                </div>
+                <div class="col offset-md-1 col-md-7 col-lg-7 col-sm-7 ">
+                    <h4 class="text-dark font-medium-5 text-bold-500">{{ project?.student?.firstName }} {{ project?.student?.lastName }}</h4>
+                    <h6 class="text-muted">{{ project?.student?.classe?.label }}/{{ project?.student?.classe?.scholarYear }}
+                      - {{ project?.entreprise?.country}}, {{ project?.entreprise?.address}}.</h6>
+                    <h6 class="text-muted">Mobile : (+216) 23375472</h6>
+                </div>  
+                <div class="col col-md-2 col-lg-2 col-sm-2">
+                    <h2 class="float-right font-medium-3" style="color: #EAEBEE !important; padding-left: 5em;"  ><a class="ft-x" style="cursor: pointer;" title="close" [routerLink]="['/pfe/all']"></a></h2>
+                    <span class="badge badge-pill float-right" style="margin-top: 1.8em; padding: 0.5rem 1.4rem; background-color: #FFC96C; color: #fff;">Pending</span>
+                </div>  
+              </div>
+            </div>
+            <div class="card-footer">
+              <h6 style="margin-bottom: 2em;" class="card-subtitle text-muted"> {{ project?.description }} </h6>
+              <button class="btn btn-round btn-outline-danger" (click)="deny(project.id)"> Deny</button>
+              <button style="margin-left: 0.5em;" class="btn btn-round btn-outline-success" (click)="approve(project.id)"> Approve</button>
+              <button style="margin-left: 0.5em;" class="btn btn-round btn-outline-secondary" [routerLink]="['/pfe/details', project.id]"> details</button>
+            </div>
+          </div>
+        </div>
+    </div>
+</section>

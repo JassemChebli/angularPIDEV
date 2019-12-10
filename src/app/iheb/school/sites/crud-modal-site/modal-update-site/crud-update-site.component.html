@@ -1,0 +1,78 @@
+<div class="modal-header">
+    <h4 class="modal-title">{{ModalTitle}}</h4>
+    <button type="button" class="close" aria-label="Close" (click)="activeModal.dismiss()">
+        x
+    </button>
+</div>
+
+<div class="card">
+    <div class="card-content">
+        <div class="px-3">
+            <form class="form" [formGroup]="myForm" (ngSubmit)="submitForm()">
+                <div class="form-body">
+                    <h4 class="form-section"><i class="ft-user"></i> Site Info</h4>
+                    <div class="form-group">
+                        <label for="siteName">Name</label>
+                        <input type="text" id="siteName" class="form-control" name="issuetitle"
+                               data-toggle="tooltip" [formControl]="myForm.controls['nom']" formControlName="nom"
+                               data-trigger="hover" data-placement="top" data-title="Issue Title">
+                        <small class="form-text text-muted danger"
+                               *ngIf="!myForm.get('nom').valid && (myForm.get('nom').dirty || myForm.get('nom').touched)">Please
+                            enter the site name!</small>
+                    </div>
+                    <div class="form-group">
+                        <label for="siteAdresse">Adresse</label>
+                        <input type="text" id="siteAdresse" class="form-control" name="openedby"
+                               data-toggle="tooltip" [formControl]="myForm.controls['address']"
+                               formControlName="address"
+                               data-trigger="hover" data-placement="top" data-title="Opened By">
+                        <small class="form-text text-muted danger"
+                               *ngIf="!myForm.get('address').valid && (myForm.get('address').dirty || myForm.get('address').touched)">Please
+                            enter the site address!</small>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label for="siteSessionStart">SESSION START</label>
+                                <input type="date" id="siteSessionStart" class="form-control" name="dateopened"
+                                       data-toggle="tooltip"
+                                       [formControl]="myForm.controls['dateOfSessionStarts']"
+                                       formControlName="dateOfSessionStarts"
+                                       data-trigger="hover" data-placement="top" data-title="Date Opened">
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label for="siteSessionEnd">Session end</label>
+                                <input type="date" id="siteSessionEnd" class="form-control" name="datefixed"
+                                       data-toggle="tooltip" [formControl]="myForm.controls['dateOfSessionEnds']"
+                                       formControlName="dateOfSessionEnds"
+                                       data-trigger="hover" data-placement="top" data-title="Date Fixed">
+                            </div>
+                        </div>
+                    </div>
+                    <h4 class="form-section"><i class="ft-user"></i> Department Head Info</h4>
+                    <div class="form-group">
+                        <label for="issueinput5">Department Head</label>
+                        <select id="issueinput5" name="priority" class="form-control" data-toggle="tooltip"
+                                data-trigger="hover" [formControl]="myForm.controls['head']" formControlName="head"
+                                data-placement="top" data-title="Priority">
+                            <option disabled selected>Select Department Head</option>
+                            <option value="{{head.id}}">{{head.lastName}}</option>
+                            <option *ngFor="let d of heads" value="{{d.id}}">{{d.lastName}}</option>
+                        </select>
+                    </div>
+
+                </div>
+                <div class="form-actions">
+                    <button type="button" class="btn btn-raised btn-warning mr-1">
+                        <i class="ft-x"></i> Cancel
+                    </button>
+                    <button type="submit" class="btn btn-raised btn-primary" [disabled]="!myForm.valid">
+                        <i class="fa fa-check-square-o"></i> Save
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

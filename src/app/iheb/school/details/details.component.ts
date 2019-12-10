@@ -1,11 +1,13 @@
-import {Component, OnInit, Input} from '@angular/core';
-import {RestApiService} from '../../rest-api.service';
+import {Component, OnInit, Input, ViewChild} from '@angular/core';
+import {RestApiService} from '../rest-api.service';
 import {ActivatedRoute, Router} from '@angular/router';
 import {School} from '../../Models/School';
-import {CrudModalComponent} from '../crud-modal/crud-modal.component';
 import {NgbModal} from '@ng-bootstrap/ng-bootstrap';
 import {ConfirmationDialogService} from '../crud-modal/confirmation-dialog/confirmation-dialog.service';
 import {Site} from '../../Models/Site';
+import {CrudUpdateComponent} from '../crud-modal/modal-update/crud-update.component';
+import {Admin} from '../../Models/Admin';
+import {AuthService} from '../../../shared/auth/auth.service';
 
 @Component({
     selector: 'app-details',
@@ -23,14 +25,14 @@ export class DetailsComponent implements OnInit {
         public actRoute: ActivatedRoute,
         public router: Router,
         private modalService: NgbModal,
-        private confirmationDialogService: ConfirmationDialogService
+        private confirmationDialogService: ConfirmationDialogService,
+        private auth: AuthService
     ) {
     }
 
     ngOnInit() {
         this.load(this.id);
         this.loadSites(this.id);
-
     }
 
     load(id: any) {
@@ -46,14 +48,15 @@ export class DetailsComponent implements OnInit {
     }
 
     editSchool(id: number) {
-        const modalRef = this.modalService.open(CrudModalComponent);
-        modalRef.componentInstance.id = id; // should be the id
+        const modalRef = this.modalService.open(CrudUpdateComponent);
+        modalRef.componentInstance.admin = this.school.admin;
         modalRef.componentInstance.data = {
             name: this.school.name,
             address: this.school.address,
             slogon: this.school.slogon,
             email: this.school.email,
-            tel: this.school.tel
+            tel: this.school.tel,
+            admin: this.school.admin
         }; // should be the data
 
         modalRef.result.then((result) => {
@@ -62,6 +65,7 @@ export class DetailsComponent implements OnInit {
             this.school.slogon = result.slogon;
             this.school.email = result.email;
             this.school.tel = result.tel;
+            this.school.admin.id = result.admin;
             this.restApi.updateSchool(this.school).subscribe(data => {
                 this.load(id);
             });
@@ -76,18 +80,11 @@ export class DetailsComponent implements OnInit {
             .then((confirmed) => {
                 if (confirmed) {
                     this.restApi.deleteSchool(id).subscribe(data => {
-                        this.load(id);
+                        this.router.navigate(['school/all']);
                     })
                 }
             })
             .catch(() => console.log('User dismissed the dialog (e.g., by using ESC, clicking the cross icon, or clicking outside the dialog)'));
     }
 
-    editSite(id: number) {
-        
-    }
-
-    deleteSite(id: number) {
-        
-    }
 }

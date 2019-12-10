@@ -1,10 +1,13 @@
 import {Component, OnInit} from '@angular/core';
-import {RestApiService} from '../../rest-api.service';
+import {RestApiService} from '../rest-api.service';
 import {Router} from '@angular/router';
 import {NgbModal} from '@ng-bootstrap/ng-bootstrap';
-import {CrudModalComponent} from '../crud-modal/crud-modal.component';
 import {School} from '../../Models/School';
 import {ConfirmationDialogService} from '../crud-modal/confirmation-dialog/confirmation-dialog.service';
+import {Admin} from '../../Models/Admin';
+import {CrudAddComponent} from '../crud-modal/modal-add/crud-add.component';
+import {CrudUpdateComponent} from '../crud-modal/modal-update/crud-update.component';
+import {AuthService} from '../../../shared/auth/auth.service';
 
 @Component({
     selector: 'app-all',
@@ -22,12 +25,13 @@ export class AllComponent implements OnInit {
     constructor(
         public restApi: RestApiService,
         private modalService: NgbModal,
-        private confirmationDialogService: ConfirmationDialogService
+        private confirmationDialogService: ConfirmationDialogService,
+        private auth: AuthService
     ) {
     }
 
     ngOnInit() {
-        this.loadAll()
+        this.loadAll();
     }
 
     loadAll() {
@@ -37,13 +41,12 @@ export class AllComponent implements OnInit {
     }
 
     addSchool() {
-        const modalRef = this.modalService.open(CrudModalComponent);
-        modalRef.componentInstance.id = 0; // should be the id
-        modalRef.componentInstance.data = {name: '', address: '', slogon: '', email: '', tel: '', logo: ''}; // should be the data
-
+        const modalRef = this.modalService.open(CrudAddComponent);
+        modalRef.componentInstance.data = {name: '', address: '', slogon: '', email: '', tel: '', admin: ''}; // should be the data
         modalRef.result.then((result) => {
-            console.log(result.logo);
-            this.restApi.addSchool(result.name, result.address, result.slogon, result.email, result.tel).subscribe(data => {
+            let admin = new Admin();
+            admin.id = result.admin;
+            this.restApi.addSchool(result.name, result.address, result.slogon, result.email, result.tel, admin).subscribe(data => {
                 this.loadAll();
             });
         }).catch((error) => {
@@ -54,15 +57,16 @@ export class AllComponent implements OnInit {
     editSchool(id: number) {
         let school = new School();
         school = this.all.find(x => x.id === id);
-        console.log(school);
-        const modalRef = this.modalService.open(CrudModalComponent);
-        modalRef.componentInstance.id = id; // should be the id
+        const modalRef = this.modalService.open(CrudUpdateComponent);
+        modalRef.componentInstance.admin = school.admin;
         modalRef.componentInstance.data = {
             name: school.name,
             address: school.address,
             slogon: school.slogon,
             email: school.email,
-            tel: school.tel
+            tel: school.tel,
+            admin: school.admin
+
         }; // should be the data
 
         modalRef.result.then((result) => {
@@ -71,6 +75,7 @@ export class AllComponent implements OnInit {
             school.slogon = result.slogon;
             school.email = result.email;
             school.tel = result.tel;
+            school.admin.id = result.admin;
             this.restApi.updateSchool(school).subscribe(data => {
                     this.loadAll();
                 },
