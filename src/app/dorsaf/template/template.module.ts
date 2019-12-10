@@ -7,13 +7,14 @@ import { DragDropModule } from '@angular/cdk/drag-drop';
 import { ConventionTemplateComponent } from './convention-template/convention-template.component';
 import { SearchComponent } from './search/search.component';
 import { FormsModule } from '@angular/forms';
-
+import { ChartsModule as Ng2Charts } from 'ng2-charts';
 @NgModule({
   declarations: [AddComponent, ConventionTemplateComponent, SearchComponent],
   imports: [
     CommonModule,
     TemplateRoutingModule,
-    DragDropModule, FormsModule
+    DragDropModule, FormsModule,
+    Ng2Charts
   ]
 })
 export class TemplateModule { }

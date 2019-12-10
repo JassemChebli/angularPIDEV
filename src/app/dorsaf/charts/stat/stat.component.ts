@@ -22,9 +22,15 @@ export class StatComponent implements OnInit {
   e:any
   htmlToAdd:any
   customerBarChartData=true;
+  dataCountry:any=[]
+  all2: any=[];
+  all4:any=[]
+  all3:any=[]
+  countryName:string
+  name:string
   constructor(public restApi: RestApiService) { }
-
-  
+  years:any=['2009', '2010', '2011', '2012', '2013', '2014', '2015','2016','2017','2018']
+  tabVal:any[]
 
   public pieChartLabels =  this.categoryValye
   public pieChartData =  this.categoryName;
@@ -33,6 +39,18 @@ export class StatComponent implements OnInit {
   public pieChartOptions = chartsData.pieChartOptions;
 
 
+
+  public lineChartData =  [{}];
+  public lineChartLabels = this.years;
+  public lineChartOptions = chartsData.lineChartOptions;
+  public lineChartColors = chartsData.lineChartColors;
+  public lineChartLegend = chartsData.lineChartLegend;
+  public lineChartType = chartsData.lineChartType;
+
+
+
+
+  
   public barChartOptions = [
     { data: [] }
   ];
@@ -52,8 +70,41 @@ export class StatComponent implements OnInit {
   ngOnInit() {
    
     this.loadAll();
+  //  this.getValue()
     
   }
+
+create(country){
+
+  this.countryName=country;
+  this.lineChartData =  [{}];
+  this.all3=[]
+
+
+for(var i in this.years){
+
+  
+    this.dataCountry=this.restApi.Countrypercent(country,this.years[i]).subscribe((data: {}) => {
+     
+      this.all2=data;
+      for (var key in this.all2) {
+        if(this.all2[key]=="NaN"){
+          this.all3.push(0)
+        }else{
+        this.all3.push(this.all2[key])
+      }}
+      
+      
+  })
+
+  
+ 
+}
+
+this.lineChartData= [{ data: this.all3, label: this.countryName }];
+
+
+}
 
   loadAll() {
     return this.restApi.getAll().subscribe((data: {}) => {
@@ -88,4 +139,5 @@ export class StatComponent implements OnInit {
     
   }
 
+ 
 }

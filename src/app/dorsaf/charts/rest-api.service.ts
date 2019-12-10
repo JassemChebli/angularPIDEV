@@ -7,11 +7,14 @@ import { retry, catchError } from 'rxjs/operators';
   providedIn: 'root'
 })
 export class RestApiService {
+ 
+ 
 
   
     // Define API
     apiURL = '/api/stat/Categorie';
     apiURL2 = '/api/stat/evolution/';
+    apiURL3 = '/api';
     // Http Options
     httpOptions = {
         headers: new HttpHeaders({
@@ -43,7 +46,13 @@ export class RestApiService {
             )
     }
 
-
+    Countrypercent(country: any, i: string) :Observable<Object> {
+        return this.http.get<Object>(this.apiURL3+'/stat?country='+country+'&year='+i)
+            .pipe(
+                retry(1),
+                catchError(this.handleError)
+            )
+      }
     // Error handling
     handleError(error) {
         let errorMessage = '';

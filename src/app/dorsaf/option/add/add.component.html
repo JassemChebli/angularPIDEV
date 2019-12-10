@@ -7,7 +7,7 @@
       <div class="card-content">
         <div class="px-3">
 
-          <form class="form" [formGroup]="optionForm" (ngSubmit)="onSubmit()">
+          <form class="form" [formGroup]="optionForm" (ngSubmit)="onSubmit(val.value)">
             {{optionForm.value| json}}
             <div class="form-body">
               <h4 class="form-section"><i class="ft-info"></i> Option </h4>
@@ -16,6 +16,15 @@
                   <div class="form-group">
                     <label for="userinput1">label</label>
                     <input type="text" id="userinput1" class="form-control border-primary" name="oname" formControlName="label">
+                 
+                    <div class="form-group">
+                      <label > Department </label>
+                      <select id="projectinput5" name="interested" class="form-control" #val >
+                        
+                        <option *ngFor="let item of all"  value={{item.id}} >{{item.label}}</option>
+                        
+                      </select>
+                    </div>
                   </div>
                 </div>
                 

@@ -7,6 +7,7 @@ import { throwError, Observable } from 'rxjs';
   providedIn: 'root'
 })
 export class RestApiService {
+ 
   // Define API
   apiURL = '/api';
 
@@ -18,7 +19,13 @@ export class RestApiService {
       })
   }
   constructor(private http: HttpClient) { }
-
+  getAllDepartment()  :Observable<Object> {
+    return this.http.get<Object>(this.apiURL+'/option/department')
+        .pipe(
+            retry(1),
+            catchError(this.handleError)
+        )
+  } 
   deleteOption(id:number){
 
     return this.http.delete<any>(this.apiURL + '/option/delete/' + id)
@@ -30,8 +37,8 @@ export class RestApiService {
 
   }
 
-  createOption(option: any) {
-    return this.http.post<any>(this.apiURL + '/option/add', JSON.stringify(option), this.httpOptions)
+  createOption(option: any,id:number) {
+    return this.http.put<any>(this.apiURL + '/option/affect/'+id, JSON.stringify(option), this.httpOptions)
         .pipe(
             retry(1),
             catchError(this.handleError)

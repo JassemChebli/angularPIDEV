@@ -1,7 +1,8 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, ViewChild } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { RestApiService } from '../rest-api.service';
 import { Router, ActivatedRoute } from '@angular/router';
+import { getHostElement } from '@angular/core/src/render3';
 
 
 @Component({
@@ -18,16 +19,24 @@ export class AddComponent implements OnInit {
     responsibleName: new FormControl('', Validators.required),
     responsibleEmail: new FormControl('', Validators.required),
     responsibleTel: new FormControl('', Validators.required),
-  
-  });
-
-  ngOnInit() {
-  }
-
-  onSubmit() {
     
-    console.log(this.optionForm.value);
-    this.api.createOption(this.optionForm.value).subscribe();
+  });
+all:any=[]
+idDep:any
+  ngOnInit() {
+    this.loadAll();
+  }
+  loadAll() {
+    return this.api.getAllDepartment().subscribe((data: {}) => {
+      this.all = data;
+    })
+  }
+  
+  
+   onSubmit(id) {
+    
+    console.log(id);
+    this.api.createOption(this.optionForm.value,id).subscribe();
     this.optionForm.reset();
     this.router.navigate(['option/all']);
   }
