@@ -10,7 +10,7 @@ const routes: Routes = [
      component: ContentLayoutPageComponent,
     data: {
       title: 'Content Layout page'
-    },    
+    },
   }
 ];
 

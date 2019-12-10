@@ -2,6 +2,8 @@ import { Component, ViewChild } from '@angular/core';
 import { NgForm, FormGroup, FormControl, Validators } from '@angular/forms';
 import { Router, ActivatedRoute } from '@angular/router';
 import { AuthService } from '../../../shared/auth/auth.service';
+import Swal from 'sweetalert2'
+
 
 @Component({
   selector: 'app-login',
@@ -28,8 +30,22 @@ export class LoginComponent {
     this.auth.signinUser(this.loginForm.value.userName, this.loginForm.value.password).subscribe((data) => {
       if (data != null) {
         console.log(this.auth.getToken())
-        this.router.navigate(['full-layout']);
-        this.loginForm.reset();
+        if (this.auth.getToken()['role'] === 'student') {
+          if ( data.status === true ) {
+            this.router.navigate(['full-layout']);
+            this.loginForm.reset();
+          }else {
+            this.auth.logout();
+            Swal.fire({
+              icon: 'error',
+              title: 'Oops...',
+              text: 'You don\'t have access to the platform',
+            })
+          }
+        }else {
+          this.router.navigate(['full-layout']);
+          this.loginForm.reset();
+        }
       }else {
         this.logged = false;
         console.log('not working');

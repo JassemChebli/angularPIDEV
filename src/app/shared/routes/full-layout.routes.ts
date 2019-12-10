@@ -35,6 +35,18 @@ export const Full_ROUTES: Routes = [
     loadChildren: './wassim/categorie/all/all.module#AllModule'
   },
   {
+    path: 'student',
+    loadChildren: './khaled/student/student.module#StudentModule'
+  },
+  {
+    path: 'director',
+    loadChildren: './khaled/director/director.module#DirectorModule'
+  },
+  {
+    path: 'pfe',
+    loadChildren: './khaled/pfefile/pfefile.module#PfefileModule'
+  },
+  {
     path: 'supervisor/change/request',
     loadChildren: './jassem/requestSupervisorChange/add/add.module#AddModule'
   }

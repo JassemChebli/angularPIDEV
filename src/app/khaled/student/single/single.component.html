@@ -1,0 +1,82 @@
+<section id="minimal-statistics">
+    <div class="row text-left">
+      <div class="col-sm">
+        <div style="margin-bottom: 1.5em; margin-top: 1.2em; font-size: 1.8em; font-weight: 400; color:#4C4B65;">Students List</div>
+      </div>  
+    </div>  
+  </section>
+  <div class="shadow-sm bg-white" style=" padding-bottom: 1.4rem;">
+    <h4 style="margin-left: 1.5em; padding-top: 1.2em; font-weight: 500; color:#4C4B65;">Student Details</h4>
+    <div class="card-block">
+      <div class="card-header" style="margin-left: 0.5em; margin-right: 0.5em; border: 1.5px solid whitesmoke;">
+        <div class="row">
+          <div class="col col-lg-2 col-sm-2">
+              <img src="https://cdn.dodowallpaper.com/full/516/black-and-yellow-8.jpg" style="margin-left: 2.2em;" width="74px" height="74px" class="rounded-circle" alt="">
+          </div>
+          <div class="col col-lg-8 col-sm-8">
+              <h4 class="text-dark font-medium-5 text-bold-500">{{ student?.firstName }} {{ student?.lastName }}</h4>
+              <h6 class="text-muted">{{ student?.classe?.label }}/{{ student?.classe?.scholarYear }}.</h6>
+              <h6 class="text-muted">Mobile : (+216) {{ student?.tel }}</h6>
+          </div>  
+          <div class="col col-lg-2 col-sm-2">
+              <h2 class="float-right font-medium-3" style="color: #EAEBEE !important; padding-left: 5em;"  ><a id="heffect" class="ft-x text-muted" title="close" [routerLink]="['/student/all']"></a></h2>
+              <span class="text-muted float-left" style="margin-top: 4em;">Status:</span> 
+              <span class="badge badge-pill float-right" 
+              [ngStyle]="{'background-color': color}"
+              style="margin-top: 1.8em; padding: 0.5rem 1.4rem; color: #fff;"
+              [innerHTML]="student?.status ? 'Access' : 'Suspended'"></span>
+          </div>  
+        </div>
+      </div>
+      <div class="card-body" style="margin-left: 0.5em; margin-right: 0.5em; border: 1.5px solid whitesmoke;">
+        <div class="row justify-content-around">
+          <div class="col-sm-5 col-md-5 col-lg-5 shadow-sm">
+            <i class="ft-file-text float-left font-medium-5" style="padding-top: 1rem;"></i>
+            <h4 class="text-dark font-medium-3 text-bold-400 offset-1" style="padding-top: 1rem;">Personal Info</h4>
+            <hr  style="border: 0.7px solid #EAEBEE; margin-left: 1rem; margin-right: 1rem;">
+            <table>
+                <tr>
+                  <td>First Name :</td>
+                  <td class="text-dark font-medium-1"> {{ student?.firstName }}</td>
+                </tr>
+                <tr>
+                  <td>Last Name :</td>
+                  <td class="text-dark font-medium-1">{{ student?.lastName }}</td>
+                </tr>
+                <tr>
+                  <td>Birth Date :</td>
+                  <td class="text-dark font-medium-1">{{ student?.birthDate }}</td>
+                </tr>
+                <tr>
+                  <td>Email :</td>
+                  <td class="text-dark font-medium-1">{{ student?.email }}</td>
+                </tr>
+                <tr>
+                  <td>Gender :</td>
+                  <td class="text-dark font-medium-1">{{ student?.sexe }}</td>
+                </tr>
+              </table>
+          </div>
+          <div class="col-sm-5 col-md-5 col-lg-5 shadow-sm">
+            <i class="ft-user float-left font-medium-5" style="padding-top: 1rem;"></i>
+            <h4 class="text-dark font-medium-3 text-bold-400 offset-1" style="padding-top: 1rem;">Administrative Info</h4>
+            <hr  style="border: 0.7px solid #EAEBEE; margin-left: 1rem; margin-right: 1rem;">
+            <table>
+                <tr>
+                  <td>Class :</td>
+                  <td class="text-dark font-medium-1"> {{ student?.classe?.label }} </td>
+                </tr>
+                <tr>
+                  <td>Academic Year :</td>
+                  <td class="text-dark font-medium-1">{{ student?.classe?.scholarYear }}</td>
+                </tr>
+                <tr>
+                  <td>Password :</td>
+                  <td class="text-dark font-medium-1">{{ student?.password }}</td>
+                </tr>
+              </table>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>

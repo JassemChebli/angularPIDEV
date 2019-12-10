@@ -1,0 +1,158 @@
+<section id="basic-form-layouts">
+  <div class="row">
+    <div class="col-sm-12">
+      <div class="content-header">Adding Student Form</div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-12">
+      <div class="card">
+        <div class="card-header">
+          <h4 class="card-title" id="bordered-layout-basic-form">Project Info</h4>
+        </div>
+        <div class="card-body">
+          <div class="px-3">
+            <form class="form form-horizontal form-bordered" [formGroup]="studentForm" (ngSubmit)="onSubmit()">
+                {{ studentForm.value | json}}
+              <div class="form-body">
+                <input formControlName="id" value="{{ student?.id }}" hidden>
+                <h4 class="form-section"><i class="ft-user"></i> Personal Info</h4>
+                <div class="form-group row">
+                  <label class="col-md-3 label-control" for="projectinput1">First Name</label>
+                  <div class="col-md-9">
+                    <input type="text" id="projectinput1" class="form-control" placeholder="First Name" name="fname" value="{{ student?.firstName }}" formControlName="firstName">
+                    <div class="form-control-feedback" *ngIf="studentForm.get('firstName').errors && (studentForm.get('firstName').dirty || studentForm.get('firstName').touched)">
+                        <p *ngIf="studentForm.get('firstName').errors.required" class="text-danger">First Name is required</p>
+                        <p *ngIf="studentForm.get('firstName').errors.minlength" class="text-danger">First Name must be 2 characters long, we need another {{studentForm.get('firstName').errors.minlength.requiredLength - studentForm.get('firstName').errors.minlength.actualLength}} characters</p>
+                    </div>
+                  </div>
+                </div>
+                <div class="form-group row has-icon-right">
+                  <label class="col-md-3 label-control" for="projectinput2">Last Name</label>
+                  <div class="col-md-9">
+                    <input type="text" id="projectinput2" class="form-control" placeholder="Last Name" name="lname" value="{{ student?.lastName }}" formControlName="lastName">
+                    <div class="form-control-feedback" *ngIf="studentForm.get('lastName').errors && (studentForm.get('lastName').dirty || studentForm.get('lastName').touched)">
+                        <p *ngIf="studentForm.get('lastName').errors.required" class="text-danger">Last Name is required</p>
+                        <p *ngIf="studentForm.get('lastName').errors.minlength" class="text-danger">Last Name must be 2 characters long, we need another {{studentForm.get('lastName').errors.minlength.requiredLength - studentForm.get('lastName').errors.minlength.actualLength}} characters</p>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="form-group row">
+                  <label class="col-md-3 label-control" for="projectinput3">E-mail</label>
+                  <div class="col-md-9">
+                    <input type="text" id="projectinput3" class="form-control" placeholder="E-mail" name="email" value="{{ student?.email }}" formControlName="email">
+                    <div class="form-control-feedback" *ngIf="studentForm.get('email').errors && (studentForm.get('email').dirty || studentForm.get('email').touched)">
+                        <p *ngIf="studentForm.get('email').errors.required" class="text-danger">Email is required</p>
+                        <p *ngIf="studentForm.get('email').errors.pattern" class="text-danger">Please enter a correct email</p>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="form-group row">
+                  <label class="col-md-3 label-control" for="projectinput4">Contact Number</label>
+                  <div class="col-md-9">
+                    <input type="number" id="projectinput4" class="form-control" placeholder="Phone" name="phone" value="{{ student?.tel }}" formControlName="tel">
+                    <div class="form-control-feedback" *ngIf="studentForm.get('tel').errors && (studentForm.get('tel').dirty || studentForm.get('tel').touched)">
+                        <p *ngIf="studentForm.get('tel').errors.required" class="text-danger">Phone Number is required</p>
+                        <p *ngIf="studentForm.get('tel').errors.pattern" class="text-danger">Please enter only digits</p>
+                        <p *ngIf="!studentForm.get('tel').errors.pattern && studentForm.get('tel').errors.minlength" class="text-danger">Phone Number must be 8 digits long, we need another {{studentForm.get('tel').errors.minlength.requiredLength - studentForm.get('tel').errors.minlength.actualLength}} digits</p>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="form-group row">
+                  <label class="col-md-3 label-control" for="timesheetinput3">BirthDay Date</label>
+                  <div class="col-md-9">
+                    <div class="position-relative has-icon-left">
+                      <input type="date" id="projectinput4" class="form-control" value="{{ student?.birthDate }}" name="date" formControlName="birthDate">
+                      <div class="form-control-position">
+                        <i class="ft-message-square"></i>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="form-group row last">
+                    <label class="col-md-3 label-control">Gender: </label>
+                    <div class="col-md-9">
+                      <div class="input-group col-md-9">
+                        <div class="custom-control custom-radio d-inline-block ml-1">
+                          <input type="radio" id="customRadioInline3" name="customRadioInline1" class="custom-control-input" name="sexe" value="Female" formControlName="sexe">
+                          <label class="custom-control-label" for="customRadioInline1">Female</label>
+                        </div>
+                        <div class="custom-control custom-radio d-inline-block ml-2">
+                          <input type="radio" id="customRadioInline4" checked name="customRadioInline1" class="custom-control-input" name="sexe" value="Male" formControlName="sexe">
+                          <label class="custom-control-label" for="customRadioInline2">Male</label>
+                        </div>
+                      </div>
+                    </div>
+                </div>
+
+                <h4 class="form-section"><i class="ft-file-text"></i> Administration</h4>
+                <!--For Classes // (change)="changeClass($event)"-->
+                <div class="form-group row" formGroupName = "classe">
+                  <label class="col-md-3 label-control" for="projectinput6">Enrolled in</label>
+                  <div class="col-md-9" >
+                    <select id="projectinput6" name="interested"  class="form-control"  formControlName="id"> 
+                        <option value="" disabled>{{ student?.classe?.label }}</option>
+                      <option *ngFor="let classe of classes"  value="{{ classe?.id }}"  >{{ classe?.label }}</option>
+                    </select>
+                    <div class="form-control-feedback" *ngIf="studentForm.get('classe').get('id').errors && (studentForm.get('classe').get('id').dirty || studentForm.get('classe').get('id').touched)">
+                        <p *ngIf="studentForm.get('classe').get('id').errors.required" class="text-danger">Class is required</p>
+                    </div>
+                  </div>
+                </div>
+                <!--For Classes-->
+               <div class="form-group row">
+                  <label class="col-md-3 label-control">Select File</label>
+                  <div class="col-md-9">
+                    <label id="projectinput8" class="file">
+                      <input type="file" id="file">
+                      <span class="file-custom"></span>
+                    </label>
+                  </div>
+                </div>
+                
+                <div class="form-group row last" [hidden] = "role === 'admin'">
+                    <label class="col-md-3 label-control">Give Access: </label>
+                    <div class="col-md-9">
+                      <div class="input-group col-md-9">
+                        <div class="custom-control custom-radio d-inline-block ml-1">
+                          <input type="radio" id="customRadioInline1" name="customRadioInline1" class="custom-control-input" name="status" value="true" formControlName="status">
+                          <label class="custom-control-label" for="customRadioInline1">Yes</label>
+                        </div>
+                        <div class="custom-control custom-radio d-inline-block ml-2">
+                          <input type="radio" id="customRadioInline2" checked name="customRadioInline1" class="custom-control-input" name="status" value="false" formControlName="status">
+                          <label class="custom-control-label" for="customRadioInline2">No</label>
+                        </div>
+                      </div>
+                    </div>
+                </div>
+                <div class="form-group row" [ngClass]="style" [hidden] = "role !== 'admin'">
+                    <label class="col-md-3 label-control" for="projectinput2">Password</label>
+                    <div class="col-md-9">
+                      <input type="password" id="projectinput2" class="form-control" placeholder="Password" name="lname" formControlName="password">
+                      <div class="form-control-feedback" *ngIf="studentForm.get('password').errors && (studentForm.get('password').dirty || studentForm.get('password').touched)">
+                          <p *ngIf="studentForm.get('password').errors.required" class="text-danger">Password is required</p>
+                          <p *ngIf="studentForm.get('password').errors.minlength" class="text-danger">Password must be 8 characters long, we need another {{studentForm.get('password').errors.minlength.requiredLength - studentForm.get('password').errors.minlength.actualLength}} characters</p>
+                      </div>
+                    </div>
+                </div>
+              </div>
+
+              <div class="form-actions">
+                <button type="button" class="btn btn-raised btn-warning mr-1" [routerLink]="['/student/all']">
+                  <i class="ft-x"></i> Cancel
+                </button>
+                <button type="submit" class="btn btn-raised btn-primary">
+                  <i class="fa fa-check-square-o"></i> Save
+                </button>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
