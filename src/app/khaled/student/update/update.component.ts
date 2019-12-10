@@ -16,17 +16,19 @@ export class UpdateComponent implements OnInit {
   style: string;
   studentForm = new FormGroup({
     id: new FormControl(''),
-    firstName: new FormControl('', Validators.required),
-    lastName: new FormControl('', Validators.required),
-    email: new FormControl('', Validators.required),
-    tel: new FormControl(''),
+    firstName: new FormControl('', [Validators.required, Validators.minLength(2)]),
+    lastName: new FormControl('', [Validators.required, Validators.minLength(2)]),
+    email: new FormControl('', [Validators.required, Validators.pattern('[^ @]*@[^ @]*')]),
+    password: new FormControl('', [Validators.required, Validators.minLength(8)]),
+    tel: new FormControl('', [Validators.required, Validators.minLength(8), Validators.maxLength(11), Validators.pattern('[0-9]+')]),
     status: new FormControl('false'),
-    birthDate: new FormControl(''),
+    sexe: new FormControl('Female'),
+    birthDate: new FormControl('', [Validators.required]),
     classe: new FormGroup({
-      id: new FormControl(''),
+      id: new FormControl('', [Validators.required]),
     })
   });
-  constructor(private router: Router,private route: ActivatedRoute, private api: RestApiService, private auth: AuthService) { }
+  constructor(private router: Router, private route: ActivatedRoute, private api: RestApiService, private auth: AuthService) { }
   // tslint:disable-next-line: member-ordering
   role = this.auth.getToken()['role'];
 
@@ -46,8 +48,10 @@ export class UpdateComponent implements OnInit {
           this.studentForm.get('firstName').setValue(this.student.firstName);
           this.studentForm.get('lastName').setValue(this.student.lastName);
           this.studentForm.get('email').setValue(this.student.email);
+          this.studentForm.get('password').setValue(this.student.email);
           this.studentForm.get('birthDate').setValue(this.student.birthDate);
           this.studentForm.get('tel').setValue(this.student.tel);
+          this.studentForm.get('sexe').setValue(this.student.sexe);
           this.studentForm.get('status').setValue(this.student.status.toString());
           this.studentForm.get('classe').get('id').setValue(this.student.classe.id);
       })
@@ -68,9 +72,25 @@ export class UpdateComponent implements OnInit {
   }
 
   onSubmit() {
-    this.api.updateStudent(this.studentForm.value).subscribe();
-    this.studentForm.reset();
-    this.router.navigate(['student/all']);
+    if (this.studentForm.valid) {
+      this.api.updateStudent(this.studentForm.value).subscribe();
+      // this.studentForm.reset();
+      // this.router.navigate(['student/all']);
+    }else {
+      this.validateAllFormFields(this.studentForm);
+    }
+
+  }
+
+  validateAllFormFields(formGroup: FormGroup) {
+    Object.keys(formGroup.controls).forEach(field => {
+      const control = formGroup.get(field);
+      if (control instanceof FormControl) {
+        control.markAsTouched({ onlySelf: true });
+      } else if (control instanceof FormGroup) {
+        this.validateAllFormFields(control);
+      }
+    });
   }
 
 }

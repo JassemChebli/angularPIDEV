@@ -36,6 +36,27 @@
                       <input type="text" id="projectinput3" class="form-control" placeholder="E-mail" name="email" value="{{ student?.email }}" formControlName="email">
                     </div>
                   </div>
+
+                  <div class="form-group row">
+                      <label class="col-md-3 label-control" for="projectinput3">Address</label>
+                      <div class="col-md-9">
+                        <input type="text" id="projectinput3" class="form-control" placeholder="Enter director's address" name="email" formControlName="address">
+                      </div>
+                    </div>
+
+                  <div class="form-group row">
+                      <label class="col-md-3 label-control" for="projectinput3">Username</label>
+                      <div class="col-md-9">
+                        <input type="text" id="projectinput3" class="form-control" placeholder="Username" name="email" formControlName="username">
+                      </div>
+                    </div>
+  
+                    <div class="form-group row last">
+                      <label class="col-md-3 label-control" for="projectinput3">Password</label>
+                      <div class="col-md-9">
+                        <input type="text" id="projectinput3" class="form-control" placeholder="Password" name="email" formControlName="password">
+                      </div>
+                    </div>
   
                   <!--For Classes // (change)="changeClass($event)"
                   <div class="form-group row" formGroupName = "classe">
@@ -51,7 +72,7 @@
                    Classes-->
                 </div>  
                 <div class="form-actions">
-                  <button type="button" class="btn btn-raised btn-warning mr-1">
+                  <button type="button" class="btn btn-raised btn-warning mr-1" [routerLink]="['/director/all']">
                     <i class="ft-x"></i> Cancel
                   </button>
                   <button type="submit" class="btn btn-raised btn-primary">

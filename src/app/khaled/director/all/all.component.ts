@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { RestApiService } from '../rest-api.service';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-all',
@@ -22,11 +23,34 @@ export class AllComponent implements OnInit {
   }
 
   delete (id: number) {
-    const clicked = confirm('Would you delete the record for ' + id);
-    if ( clicked === true ) {
-      this.api.deleteDirector(id).subscribe();
-      setTimeout( () => {this.loadDirectors()}, 100);
-    }else {
-    }
+    // const clicked = confirm('Would you delete the record for ' + id);
+    Swal.fire({
+      title: 'Are you sure?',
+      text: 'You won\'t be able to revert this!',
+      icon: 'warning',
+      showCancelButton: true,
+      confirmButtonText: 'Yes, delete it!',
+      cancelButtonText: 'No, cancel!',
+      reverseButtons: true
+    }).then((result) => {
+      if (result.value) {
+        this.api.deleteDirector(id).subscribe();
+        Swal.fire(
+          'Deleted!',
+          'Your director record has been deleted.',
+          'success'
+        )
+        setTimeout( () => {this.loadDirectors()}, 5);
+      } else if (
+        /* Read more about handling dismissals below */
+        result.dismiss === Swal.DismissReason.cancel
+      ) {
+        Swal.fire(
+          'Cancelled',
+          'The director record is safe :)',
+          'error'
+        )
+      }
+    })
   }
 }

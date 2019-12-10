@@ -50,6 +50,13 @@ export class RestApiService {
                 catchError(this.handleError)
             )
     }
+    getSites() {
+        return this.http.get<any>(this.apiURL + '/admin/site')
+            .pipe(
+                retry(1),
+                catchError(this.handleError)
+            )
+    }
 
     // HttpClient API post() method => Create employee
     createDirector(director: any) {

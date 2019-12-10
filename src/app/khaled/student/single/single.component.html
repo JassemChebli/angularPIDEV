@@ -16,10 +16,10 @@
           <div class="col col-lg-8 col-sm-8">
               <h4 class="text-dark font-medium-5 text-bold-500">{{ student?.firstName }} {{ student?.lastName }}</h4>
               <h6 class="text-muted">{{ student?.classe?.label }}/{{ student?.classe?.scholarYear }}.</h6>
-              <h6 class="text-muted">Mobile : (+216) 23375472</h6>
+              <h6 class="text-muted">Mobile : (+216) {{ student?.tel }}</h6>
           </div>  
           <div class="col col-lg-2 col-sm-2">
-              <h2 class="float-right font-medium-3" style="color: #EAEBEE !important; padding-left: 5em;"  ><a class="ft-x" style="cursor: pointer;" title="close" [routerLink]="['/student/all']"></a></h2>
+              <h2 class="float-right font-medium-3" style="color: #EAEBEE !important; padding-left: 5em;"  ><a id="heffect" class="ft-x text-muted" title="close" [routerLink]="['/student/all']"></a></h2>
               <span class="badge badge-pill float-right" style="margin-top: 1.8em; padding: 0.5rem 1.4rem; background-color: #FFC96C; color: #fff;">Pending</span>
           </div>  
         </div>
@@ -27,70 +27,48 @@
       <div class="card-body" style="margin-left: 0.5em; margin-right: 0.5em; border: 1.5px solid whitesmoke;">
         <div class="row justify-content-around">
           <div class="col-sm-5 col-md-5 col-lg-5 shadow-sm">
-            <h4 class="text-dark font-medium-3 text-bold-400">Internship Details</h4>
+            <i class="ft-file-text float-left font-medium-5" style="padding-top: 1rem;"></i>
+            <h4 class="text-dark font-medium-3 text-bold-400 offset-1" style="padding-top: 1rem;">Personal Info</h4>
             <hr  style="border: 0.7px solid #EAEBEE; margin-left: 1rem; margin-right: 1rem;">
             <table>
                 <tr>
-                  <td>Title</td>
-                  <td></td>
+                  <td>First Name :</td>
+                  <td class="text-dark font-medium-1"> {{ student?.firstName }}</td>
                 </tr>
                 <tr>
-                  <td>Description</td>
-                  <td></td>
+                  <td>Last Name :</td>
+                  <td class="text-dark font-medium-1">{{ student?.lastName }}</td>
                 </tr>
                 <tr>
-                  <td>Problamtic</td>
-                  <td></td>
+                  <td>Birth Date :</td>
+                  <td class="text-dark font-medium-1">{{ student?.birthDate }}</td>
                 </tr>
                 <tr>
-                  <td>Functionalities</td>
-                  <td></td>
+                  <td>Email :</td>
+                  <td class="text-dark font-medium-1">{{ student?.email }}</td>
                 </tr>
                 <tr>
-                  <td>Category</td>
-                  <td></td>
-                </tr>
-                <tr>
-                  <td>Tags</td>
-                  <td></td>
-                </tr>
-                <tr>
-                  <td>Entreprise</td>
-                  <td></td>
+                  <td>Gender :</td>
+                  <td class="text-dark font-medium-1">{{ student?.sexe }}</td>
                 </tr>
               </table>
           </div>
-          <div class="col-sm-4 col-md-4 col-lg-4 shadow-sm">
-            <h4 class="text-dark font-medium-3 text-bold-400">Entreprise Details</h4>
+          <div class="col-sm-5 col-md-5 col-lg-5 shadow-sm">
+            <i class="ft-user float-left font-medium-5" style="padding-top: 1rem;"></i>
+            <h4 class="text-dark font-medium-3 text-bold-400 offset-1" style="padding-top: 1rem;">Administrative Info</h4>
             <hr  style="border: 0.7px solid #EAEBEE; margin-left: 1rem; margin-right: 1rem;">
             <table>
                 <tr>
-                  <td>Website</td>
-                  <td></td>
+                  <td>Class :</td>
+                  <td class="text-dark font-medium-1"> {{ student?.classe?.label }} </td>
                 </tr>
                 <tr>
-                  <td>Address</td>
-                  <td></td>
+                  <td>Academic Year :</td>
+                  <td class="text-dark font-medium-1">{{ student?.classe?.scholarYear }}</td>
                 </tr>
                 <tr>
-                  <td>Country</td>
-                  <td></td>
-                </tr>
-                <tr>
-                  <td>Responsable Name</td>
-                  <td></td>
-                </tr>
-                <tr>
-                  <td>Responsable Email</td>
-                  <td></td>
-                </tr>
-                <tr>
-                  <td>Supervisor Email</td>
-                  <td></td>
-                </tr>
-                <tr>
-                  <td>Phone Number</td>
-                  <td></td>
+                  <td>Password :</td>
+                  <td class="text-dark font-medium-1">{{ student?.password }}</td>
                 </tr>
               </table>
           </div>

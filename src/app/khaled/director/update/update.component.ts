@@ -9,13 +9,16 @@ import { FormControl, Validators, FormGroup } from '@angular/forms';
   styleUrls: ['./update.component.scss']
 })
 export class UpdateComponent implements OnInit {
-  
+
   director: any;
   dirForm = new FormGroup({
     id: new FormControl(''),
     firstName: new FormControl('', Validators.required),
     lastName: new FormControl('', Validators.required),
-    email: new FormControl('', Validators.required)
+    email: new FormControl('', Validators.required),
+    address: new FormControl('', Validators.required),
+    username: new FormControl('', Validators.required),
+    password: new FormControl('', Validators.required),
   });
   constructor(private router: Router,private route: ActivatedRoute, private api: RestApiService) { }
 
@@ -33,6 +36,9 @@ export class UpdateComponent implements OnInit {
           this.dirForm.get('firstName').setValue(this.director.firstName);
           this.dirForm.get('lastName').setValue(this.director.lastName);
           this.dirForm.get('email').setValue(this.director.email);
+          this.dirForm.get('address').setValue(this.director.address);
+          this.dirForm.get('username').setValue(this.director.username);
+          this.dirForm.get('password').setValue(this.director.password);
       })
       }else {
         alert('Item not found!!');
