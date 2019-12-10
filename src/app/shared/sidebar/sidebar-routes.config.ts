@@ -59,6 +59,6 @@ import { RouteInfo } from './sidebar.metadata';
         path: '/student/project', title: 'My Graduation Project', icon: 'icon-notebook', class: '', badge: '', badgeClass: '', isExternalLink: false, submenu: []
         },
  ]
-export const ROUTES: RouteInfo[] =  directorRoutes;
+export const ROUTESDIRECTOR: RouteInfo[] =  directorRoutes;
 export const ROUTESADMIN: RouteInfo[] = adminRoutes;
 export const ROUTESSUTDENT: RouteInfo[] = studentRoutes;

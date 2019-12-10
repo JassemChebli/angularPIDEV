@@ -1,6 +1,6 @@
 import { Component, OnInit, ViewChild, ElementRef, Renderer2, AfterViewInit } from '@angular/core';
 
-import { ROUTES, ROUTESADMIN, ROUTESSUTDENT } from './sidebar-routes.config';
+import { ROUTESDIRECTOR, ROUTESADMIN, ROUTESSUTDENT } from './sidebar-routes.config';
 import { Router, ActivatedRoute } from '@angular/router';
 import { TranslateService } from '@ngx-translate/core';
 import { customAnimations } from '../animations/custom-animations';
@@ -50,7 +50,7 @@ export class SidebarComponent implements OnInit, AfterViewInit {
     }else if (this.role === 'student') {
       this.menuItems = ROUTESSUTDENT;
     }else if (this.role === 'int-dir') {
-      this.menuItems = ROUTES;
+      this.menuItems = ROUTESDIRECTOR;
     }
 
     if (this.config.layout.sidebar.backgroundColor === 'white') {
