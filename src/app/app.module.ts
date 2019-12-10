@@ -34,7 +34,9 @@ export function createTranslateLoader(http: HttpClient) {
 
 
 @NgModule({
+  
   declarations: [AppComponent, FullLayoutComponent, ContentLayoutComponent, ErrorPageComponent],
+
   imports: [
     BrowserAnimationsModule,
     AppRoutingModule,

@@ -1,3 +1,4 @@
+import { ChangeSupervisorRequest } from './ChangeSupervisorRequest';
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable, throwError } from 'rxjs';
@@ -9,7 +10,7 @@ import { retry, catchError } from 'rxjs/operators';
 export class RestApiService {
 
     // Define API
-    apiURL = '/api/categorie';
+    apiURL = '/api/supervisor';
 
     // Http Options
     httpOptions = {
@@ -25,9 +26,11 @@ export class RestApiService {
     =========================================*/
 
 
-    // HttpClient API get() method => Fetch accepted pfe file list
-    getAll(): Observable<Object> {
-        return this.http.get<Object>(this.apiURL)
+
+    // HttpClient API post() method => Add SUpervisor request change
+    createEmployee(changeSupervisorRequest): Observable<ChangeSupervisorRequest> {
+        // tslint:disable-next-line: max-line-length
+        return this.http.post<ChangeSupervisorRequest>(this.apiURL + '/change/request/2', JSON.stringify(changeSupervisorRequest), this.httpOptions)
             .pipe(
                 retry(1),
                 catchError(this.handleError)

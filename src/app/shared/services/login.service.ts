@@ -44,7 +44,6 @@ export class LoginService {
             )
     }
 
-    // Error handling
     handleError(error) {
         let errorMessage = '';
         if (error.error instanceof ErrorEvent) {
