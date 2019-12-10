@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { RestApiService } from '../rest-api.service';
 import { FormGroup, FormControl } from '@angular/forms';
 import Swal from 'sweetalert2';
+
 @Component({
   selector: 'app-all',
   templateUrl: './all.component.html',
@@ -11,6 +12,7 @@ export class AllComponent implements OnInit {
 
   items = [];
   projects = [];
+  color: string;
   constructor( private api: RestApiService) { }
 
   ngOnInit() {
@@ -77,6 +79,7 @@ export class AllComponent implements OnInit {
                 icon: 'success',
                 title: 'Graduation Project declined Succefully'
               })
+              setTimeout( () => {this.loadProjects()}, 300);
             }else {
               Swal.insertQueueStep({
                 icon: 'error',
@@ -93,6 +96,22 @@ export class AllComponent implements OnInit {
 
   approve(id: number) {
     this.api.approveProject(id).subscribe();
+    const Toast = Swal.mixin({
+      toast: true,
+      position: 'top-end',
+      showConfirmButton: false,
+      timer: 3000,
+      timerProgressBar: true,
+      onOpen: (toast) => {
+        toast.addEventListener('mouseenter', Swal.stopTimer)
+        toast.addEventListener('mouseleave', Swal.resumeTimer)
+      }
+    })
+    Toast.fire({
+      icon: 'success',
+      title: 'Project approcved'
+    })
+    setTimeout( () => {this.loadProjects()}, 300);
   }
 
 }
