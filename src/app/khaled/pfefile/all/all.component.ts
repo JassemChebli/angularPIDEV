@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { RestApiService } from '../rest-api.service';
 import { FormGroup, FormControl } from '@angular/forms';
-import Swal from 'sweetalert2';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-all',
@@ -32,7 +32,7 @@ export class AllComponent implements OnInit {
     })
   }
 
-  // Search by Years 
+  // Search by Years
 
   onItemAdded(event) {
     console.log(this.items)
@@ -51,67 +51,4 @@ export class AllComponent implements OnInit {
       this.loadProjects();
     }
   }
-
-  // Deny a GP
-  deny(id: number) {
-    Swal.mixin({
-      input: 'text',
-      confirmButtonText: 'Next &rarr;',
-      showCancelButton: true,
-    }).queue([
-      {
-        title: 'Denial Reason',
-        text: 'Please give you reason for this action delow:'
-      }
-    ]).then((result) => {
-      if (result.value) {
-        const message: string = result.value.toString();
-        Swal.queue([{
-          title: 'Graduation Project Denial',
-          confirmButtonText: 'Send E-mail',
-          text:
-            'Email Content: ' + message,
-          showLoaderOnConfirm: true,
-          preConfirm: () => {
-            if(message != '') {
-              this.api.denyProject({id: id, message: message}).subscribe();
-              Swal.insertQueueStep({
-                icon: 'success',
-                title: 'Graduation Project declined Succefully'
-              })
-              setTimeout( () => {this.loadProjects()}, 300);
-            }else {
-              Swal.insertQueueStep({
-                icon: 'error',
-                title: 'Empty emails can not be sent!'
-              })
-            }
-          }
-        }])
-      }
-    })
-  }
-
-  // Aprove a GP project
-
-  approve(id: number) {
-    this.api.approveProject(id).subscribe();
-    const Toast = Swal.mixin({
-      toast: true,
-      position: 'top-end',
-      showConfirmButton: false,
-      timer: 3000,
-      timerProgressBar: true,
-      onOpen: (toast) => {
-        toast.addEventListener('mouseenter', Swal.stopTimer)
-        toast.addEventListener('mouseleave', Swal.resumeTimer)
-      }
-    })
-    Toast.fire({
-      icon: 'success',
-      title: 'Project approcved'
-    })
-    setTimeout( () => {this.loadProjects()}, 300);
-  }
-
 }

@@ -6,7 +6,7 @@ import { HttpClient } from '@angular/common/http';
 })
 export class LocationService {
 
-  key = 'pk.eyJ1IjoibWF0dGZpY2tlIiwiYSI6ImNqNnM2YmFoNzAwcTMzM214NTB1NHdwbnoifQ.Or19S7KmYPHW8YjRz82v6g'
+  // key = 'pk.eyJ1IjoibWF0dGZpY2tlIiwiYSI6ImNqNnM2YmFoNzAwcTMzM214NTB1NHdwbnoifQ.Or19S7KmYPHW8YjRz82v6g'
   locations: any[];
   constructor(private http: HttpClient) { }
 

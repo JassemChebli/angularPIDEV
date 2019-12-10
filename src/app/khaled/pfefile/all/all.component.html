@@ -27,7 +27,7 @@
                 </div>
                 <div class="col offset-md-1 col-md-7 col-lg-7 col-sm-7 ">
                     <h4 class="text-dark font-medium-5 text-bold-500">{{ project?.title }}</h4>
-                    <h6 class="text-muted">{{ project?.student?.firstName }} {{ project?.student?.lastName }} - {{ project?.student?.classe?.label }}</h6>
+                    <h6 class="text-muted">{{ project?.student?.firstName }} {{ project?.student?.lastName }} - {{ project?.student?.classe?.label }}/{{ project?.student?.classe?.scholarYear }}</h6>
                     <h6 class="text-muted">Mobile : (+216) {{ project?.student?.tel }}</h6>
                 </div>  
                 <div class="col col-md-2 col-lg-2 col-sm-2">
@@ -40,9 +40,8 @@
               </div>
             </div>
             <div class="card-footer" style="padding: 0;">
-              <button style="margin-left: 2em; margin-top: 0.8em;" class="btn btn-round btn-outline-danger" (click)="deny(project.id)"> Deny</button>
-              <button style="margin-left: 1em; margin-top: 0.8em;" class="btn btn-round btn-outline-success" (click)="approve(project.id)"> Approve</button>
-              <button style="margin-left: 20em; margin-top: 0.8em;" class="btn btn-round btn-outline-secondary" [routerLink]="['/pfe/details', project.id]"> details</button>
+              <span style="margin-left: 2em;" class="text-muted"> Created at : {{ project?.createdAt }}</span>
+              <button style="margin-left: 15.4em; margin-top: 0.8em;" class="btn btn-round btn-outline-secondary" [routerLink]="['/pfe/details', project.id]"> details</button>
             </div>
           </div>
         </div>

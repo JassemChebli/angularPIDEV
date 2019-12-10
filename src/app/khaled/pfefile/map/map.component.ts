@@ -17,6 +17,7 @@ const iconDefault = L.icon({
   shadowSize: [41, 41]
 });
 L.Marker.prototype.options.icon = iconDefault;
+
 @Component({
   selector: 'app-map',
   templateUrl: './map.component.html',
@@ -30,7 +31,7 @@ export class MapComponent implements  AfterViewInit {
 
   ngAfterViewInit(): void {
     this.initMap();
-    this.markerService.makeCapitalMarkers(this.map);
+    // this.markerService.makeCapitalMarkers(this.map);
     this.markerService.makeCapitalCircleMarkers(this.map);
     console.log(this.locations)
   }
