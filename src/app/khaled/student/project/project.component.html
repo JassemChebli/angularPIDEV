@@ -20,7 +20,7 @@
             <h6 class="text-muted">Mobile : (+216) 23375472</h6>
         </div>  
         <div class="col col-lg-2 col-sm-2">
-            <h2 class="float-right font-medium-3" style="color: #EAEBEE !important; padding-left: 5em;"  ><a class="ft-x" style="cursor: pointer;" title="close" [routerLink]="['/pfe/all']"></a></h2>
+            <h2 class="float-right font-medium-3" style="color: #EAEBEE !important; padding-left: 5em;"  ><a class="ft-x" style="cursor: pointer;" title="close" [routerLink]="['/full-layout']"></a></h2>
             <span class="text-muted float-left" style="margin-top: 4em;">Status:</span> 
             <span class="badge badge-pill float-right" 
             [ngStyle]="{'background-color': color2}"
@@ -36,32 +36,36 @@
           <hr  style="border: 0.7px solid #EAEBEE; margin-left: 1rem; margin-right: 1rem;">
           <table>
               <tr>
-                <td>Title</td>
-                <td></td>
+                <td>Title :</td>
+                <td class="text-dark font-medium-1">{{ project?.title }}</td>
               </tr>
               <tr>
-                <td>Description</td>
-                <td></td>
+                <td>Description :</td>
+                <td class="text-dark font-medium-1">{{ project?.description }}</td>
               </tr>
               <tr>
-                <td>Problamtic</td>
-                <td></td>
+                <td>Problamtic :</td>
+                <td class="text-dark font-medium-1">{{ project?.problematic }}</td>
               </tr>
               <tr>
-                <td>Functionalities</td>
-                <td></td>
+                <td>Functionalities :</td>
+                <td class="text-dark font-medium-1">{{ project?.functionnalities }}</td>
               </tr>
               <tr>
-                <td>Category</td>
-                <td></td>
+                <td>Category :</td>
+                <td class="text-dark font-medium-1">{{ project?.categorie?.label }}</td>
               </tr>
               <tr>
-                <td>Tags</td>
-                <td></td>
+                <td>Tags :</td>
+                <td class="text-dark font-medium-1">{{ project?.keywords }}</td>
               </tr>
               <tr>
-                <td>Entreprise</td>
-                <td></td>
+                <td>Personel Email :</td>
+                <td class="text-dark font-medium-1">{{ project?.emailPersonel }}</td>
+              </tr>
+              <tr>
+                <td>Professional Email :</td>
+                <td class="text-dark font-medium-1">{{ project?.emailProfessionel }}</td>
               </tr>
             </table>
         </div>
@@ -70,32 +74,28 @@
           <hr  style="border: 0.7px solid #EAEBEE; margin-left: 1rem; margin-right: 1rem;">
           <table>
               <tr>
-                <td>Website</td>
-                <td></td>
+                <td>Website :</td>
+                <td class="text-dark font-medium-1">{{ project?.entreprise?.website }}</td>
               </tr>
               <tr>
-                <td>Address</td>
-                <td></td>
+                <td>Address :</td>
+                <td class="text-dark font-medium-1">{{ project?.entreprise?.address }}</td>
               </tr>
               <tr>
-                <td>Country</td>
-                <td></td>
+                <td>Country :</td>
+                <td class="text-dark font-medium-1">{{ project?.entreprise?.country }}</td>
               </tr>
               <tr>
-                <td>Responsable Name</td>
-                <td></td>
+                <td>Responsable Name :</td>
+                <td class="text-dark font-medium-1">{{ project?.entreprise?.nameResponsable }}</td>
               </tr>
               <tr>
-                <td>Responsable Email</td>
-                <td></td>
+                <td>Responsable Email :</td>
+                <td class="text-dark font-medium-1">{{ project?.entreprise?.emailResponsable }}</td>
               </tr>
               <tr>
-                <td>Supervisor Email</td>
-                <td></td>
-              </tr>
-              <tr>
-                <td>Phone Number</td>
-                <td></td>
+                <td>Supervisor Email :</td>
+                <td class="text-dark font-medium-1">{{ project?.entreprise?.emailEncadrent }}</td>
               </tr>
             </table>
         </div>

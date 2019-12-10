@@ -3,6 +3,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { RestApiService } from '../rest-api.service';
 import { FormGroup, Validators, FormControl } from '@angular/forms';
 import { AuthService } from '../../../shared/auth/auth.service'
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-update',
@@ -74,10 +75,40 @@ export class UpdateComponent implements OnInit {
   onSubmit() {
     if (this.studentForm.valid) {
       this.api.updateStudent(this.studentForm.value).subscribe();
-      // this.studentForm.reset();
-      // this.router.navigate(['student/all']);
+      this.studentForm.reset();
+      const Toast = Swal.mixin({
+        toast: true,
+        position: 'top-end',
+        showConfirmButton: false,
+        timer: 3000,
+        timerProgressBar: true,
+        onOpen: (toast) => {
+          toast.addEventListener('mouseenter', Swal.stopTimer)
+          toast.addEventListener('mouseleave', Swal.resumeTimer)
+        }
+      })
+      Toast.fire({
+        icon: 'success',
+        title: 'Updated successfully'
+      })
+      this.router.navigate(['student/all']);
     }else {
       this.validateAllFormFields(this.studentForm);
+      const Toast = Swal.mixin({
+        toast: true,
+        position: 'bottom-end',
+        showConfirmButton: false,
+        timer: 3000,
+        timerProgressBar: true,
+        onOpen: (toast) => {
+          toast.addEventListener('mouseenter', Swal.stopTimer)
+          toast.addEventListener('mouseleave', Swal.resumeTimer)
+        }
+      })
+      Toast.fire({
+        icon: 'error',
+        title: 'Please verify the form'
+      })
     }
 
   }
