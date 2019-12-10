@@ -8,3 +8,4 @@ export const CONTENT_ROUTES: Routes = [
     loadChildren: './pages/content-pages/content-pages.module#ContentPagesModule'
   },
 ];
+

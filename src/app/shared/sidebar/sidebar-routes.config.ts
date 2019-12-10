@@ -1,6 +1,6 @@
 import { RouteInfo } from './sidebar.metadata';
 
-    const   directorRoutes = [
+    const  directorRoutes = [
             {
                 // tslint:disable-next-line: max-line-length
                 path: '', title: 'Students', icon: 'icon-graduation', class: 'has-sub', badge: '', badgeClass: 'badge badge-pill badge-danger float-right mr-1 mt-1', isExternalLink: false,
@@ -40,7 +40,6 @@ import { RouteInfo } from './sidebar.metadata';
             // tslint:disable-next-line: max-line-length
             path: '', title: 'Directors', icon: 'icon-briefcase', class: 'has-sub', badge: '', badgeClass: 'badge badge-pill badge-danger float-right mr-1 mt-1', isExternalLink: false,
             submenu: [
-
                 {
                     // tslint:disable-next-line: max-line-length
                     path: '/director/all', title: 'All', icon: 'ft-users', class: '', badge: '', badgeClass: '', isExternalLink: false, submenu: []
@@ -59,6 +58,6 @@ import { RouteInfo } from './sidebar.metadata';
         path: '/student/project', title: 'My Graduation Project', icon: 'icon-notebook', class: '', badge: '', badgeClass: '', isExternalLink: false, submenu: []
         },
  ]
-export const ROUTES: RouteInfo[] =  directorRoutes;
+export const ROUTESDIRECTOR: RouteInfo[] =  directorRoutes;
 export const ROUTESADMIN: RouteInfo[] = adminRoutes;
 export const ROUTESSUTDENT: RouteInfo[] = studentRoutes;

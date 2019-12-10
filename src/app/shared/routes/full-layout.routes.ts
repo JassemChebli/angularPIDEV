@@ -46,5 +46,9 @@ export const Full_ROUTES: Routes = [
     path: 'pfe',
     loadChildren: './khaled/pfefile/pfefile.module#PfefileModule'
   },
+  {
+    path: 'supervisor/change/request',
+    loadChildren: './jassem/requestSupervisorChange/add/add.module#AddModule'
+  }
 
 ];
