@@ -1,5 +1,5 @@
 import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
-import * as jsPDF from 'jsPDF';
+import jsPDF from 'jspdf';
 import *as html2pdf from 'html2pdf.js';
 import html2canvas from 'html2canvas';
 import { element } from 'protractor';
@@ -52,7 +52,34 @@ all :any=[]
     
     
   }
+  bExporting=false
+ print(){
+   
+const data=document.getElementById('container');
+html2canvas(data).then(canvas=>{
+this.bExporting=true;
+const imgWidth=208;
+const pageHight=295
+const imgheight=canvas.height*imgWidth/canvas.width
+const heightleft=imgheight
+const contentUrldata =canvas.toDataURL('image/png')
 
+const pdf=new jsPDF('p','mm','a4')
+const position=0
+pdf.addImage(contentUrldata,'PNG',0,position,imgWidth,imgheight)
+pdf.save('pfeFile.pdf');
+this.bExporting=false
+
+
+
+})}
+
+
+
+
+
+
+  
   load(){
     this.route.params.subscribe(params => {
       const id = +params['id'];

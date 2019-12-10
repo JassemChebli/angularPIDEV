@@ -8,15 +8,19 @@
         <div class="px-3">
 
           <form class="form" [formGroup]="optionForm" (ngSubmit)="onSubmit(val.value)">
-            {{optionForm.value| json}}
+        
             <div class="form-body">
               <h4 class="form-section"><i class="ft-info"></i> Option </h4>
               <div class="row">
                 <div class="col-md-6">
                   <div class="form-group">
                     <label for="userinput1">label</label>
-                    <input type="text" id="userinput1" class="form-control border-primary" name="oname" formControlName="label">
-                 
+                    <input type="text" id="userinput1" required class="form-control border-primary" name="oname" formControlName="label">
+                    <div *ngIf="label.touched && label.errors">
+                        
+                            fill the label
+                       
+                      </div>
                     <div class="form-group">
                       <label > Department </label>
                       <select id="projectinput5" name="interested" class="form-control" #val >
@@ -34,19 +38,36 @@
               <h4 class="form-section"><i class="ft-mail"></i> Contact Responsible option </h4>
               <div class="form-group">
                 <label for="userinput6">Responsible Name</label>
-                <input class="form-control border-primary" type="url" id="userinput6" name="Rname" formControlName="responsibleName">
+                <input class="form-control border-primary" type="url" id="userinput6" nrequired ame="Rname" formControlName="responsibleName">
+              
+                <div *ngIf="responsibleName.touched && responsibleName.errors">
+                        
+                    fill the label
+               
+              </div>
               </div>
 
               <div class="form-group">
                 <label for="userinput5" >Responsible Email</label>
-                <input class="form-control border-primary" name="Remail" formControlName="responsibleEmail" type="email" id="userinput5">
+                <input class="form-control border-primary" name="Remail" required formControlName="responsibleEmail" type="email" id="userinput5">
+                <div *ngIf="responsibleTel.touched && responsibleName.errors">
+                        
+                   verify 
+               
+              </div>
+              
               </div>
 
              
 
               <div class="form-group">
                 <label>Responsible Number</label>
-                <input class="form-control border-primary" id="userinput7" type="number" name="Rtel" formControlName="responsibleTel">
+                <input class="form-control border-primary" id="userinput7"  required type="number" name="Rtel" formControlName="responsibleTel">
+                <div *ngIf="responsibleTel.touched && responsibleName.errors">
+                        
+                    fill the label
+               
+              </div>
               </div>
 
               
@@ -57,7 +78,7 @@
               <button type="button" class="btn btn-raised btn-warning mr-1" [routerLink]="['/option/all']">
                 <i class="ft-x" ></i> Cancel
               </button>
-              <button type="submit" class="btn btn-raised btn-primary">
+              <button [disabled]="optionForm.invalid"  type="submit" class="btn btn-raised btn-primary">
                 <i class="fa fa-check-square-o"></i> Save
               </button>
             </div>

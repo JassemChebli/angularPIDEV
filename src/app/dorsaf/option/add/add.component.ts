@@ -17,10 +17,31 @@ export class AddComponent implements OnInit {
   optionForm = new FormGroup({
     label: new FormControl('', Validators.required),
     responsibleName: new FormControl('', Validators.required),
-    responsibleEmail: new FormControl('', Validators.required),
+    responsibleEmail: new FormControl('', [Validators.pattern("^[a-zA-Z0-9_.+-]+@[a-zA-Z]{4}.[a-zA-Z]+"),Validators.required]),
     responsibleTel: new FormControl('', Validators.required),
     
   });
+
+  get label(){
+    return this.optionForm.get('label');
+  }
+  get responsibleName(){
+    return this.optionForm.get('responsibleName');
+
+  }
+
+  get responsibleEmail(){
+    return this.optionForm.get('responsibleEmail');
+    
+  }
+  get responsibleTel(){
+    return this.optionForm.get('responsibleTel');
+    
+  }
+
+
+
+
 all:any=[]
 idDep:any
   ngOnInit() {

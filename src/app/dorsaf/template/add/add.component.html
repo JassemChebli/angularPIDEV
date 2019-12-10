@@ -3,45 +3,42 @@
 
   
 
-
-<div  class="card example-boundary" #pdf style="width:1000px;height:500px;" id="container"  *ngFor="let item of all">
-
-
-  <div class="row ">
-  <div  class="col-sm-4" id="img">
-    <img src="../../../../assets/img/logo.png" style="z-index: 1;" cdkDragBoundary=".example-boundary" cdkDrag (cdkDropListDropped)="drop($event)"   />
+<div  class="card example-boundary" #pdf style="width:1000px;height:600;" id="container" *ngFor="let item of all" >
+    <div class="col-lg-4 col-md-6 col-sm-12 container " >
+      <div class="card">
+          <div class="col-sm-4" id="img">
+              <img src="../../../../assets/img/logo.png" style="z-index: 1;" cdkDragBoundary=".example-boundary" cdkDrag
+               />
+            </div>
+        
+  
+        <div class="card-header">
+          <h4  class="text-bold-500 "style="z-index: 1;" cdkDragBoundary=".example-boundary" cdkDrag>Internship Convention</h4>
+        </div>
+        <div class="card-content">
+        
+          <div class="card-body" style="z-index: 1;" cdkDragBoundary=".example-boundary" cdkDrag>
+            <p class="card-text">FirstName : {{item.firstName}}</p>
+          </div>
+          <div class="card-body" style="z-index: 1;" cdkDragBoundary=".example-boundary" cdkDrag>
+            <p class="card-text">LastName : {{item.lastName}}</p>
+          </div>
+         
+          <div class="card-body" style="z-index: 1;" cdkDragBoundary=".example-boundary" cdkDrag>
+            <p class="card-text">Start Date : ...............</p>
+          </div>
+          <div class="card-body" style="z-index: 1;" cdkDragBoundary=".example-boundary" cdkDrag>
+              <p class="card-text">End Date : ............... </p>
+            </div>
+        </div>
+  
+      </div>
+    </div>
+  
   </div>
   
-    <div style="z-index: 1;" cdkDragBoundary=".example-boundary" cdkDrag>
-      <h1 class="card-title" >internship Convention </h1>
-    </div>
-    <div  class="col-sm-2 ">
-      <h4 class="card-title"style="z-index: 1;" cdkDragBoundary=".example-boundary" cdkDrag >Nom :</h4>
-    </div>
-    <div  class="col-sm-2 ">
-      <h4 class="card-title"style="z-index: 1;" cdkDragBoundary=".example-boundary" cdkDrag >{{item.lastName}}</h4>
-     </div> 
-      <div  class="col-sm-2">
-      <h4 class="card-title" style="z-index: 1;" cdkDragBoundary=".example-boundary" cdkDrag >Prenom : </h4>
-    </div>
-      <div  class="col-sm-2">
-        <h4 class="card-title"style="z-index: 1;" cdkDragBoundary=".example-boundary" cdkDrag >{{item.lastName}}</h4>
-    </div>
-    
-    <div  class="col-sm-2">
-      <h4 class="card-title"style="z-index: 1;" cdkDragBoundary=".example-boundary" cdkDrag >Start Date : </h4>
-    </div>
-    <div  class="col-sm-2">
-      <h4 class="card-title"style="z-index: 1;" cdkDragBoundary=".example-boundary" cdkDrag >End Date : </h4>
-    </div>
   
-</div>
-
-
-</div>
-
-
-
+  
 
 <button type="button" class="btn btn-outline-primary" (click)="getElement()">Save</button>
 

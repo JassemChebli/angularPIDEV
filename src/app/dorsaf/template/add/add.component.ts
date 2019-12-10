@@ -44,7 +44,7 @@ all :any=[]
       html2canvas:  { },
       jsPDF:        { orientation: 'landscape' }
     };
-    const content:Element=document.getElementById('create')
+    const content:Element=document.getElementById('container')
 
     html2pdf().from(content).set(opt).save();
     

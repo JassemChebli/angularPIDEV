@@ -24,7 +24,7 @@ export class RestApiService {
     constructor(private http: HttpClient) { }
     
     getAllStudents() : Observable<Object> {
-        return this.http.get<Object>(this.apiURL+'/student/all')
+        return this.http.get<Object>(this.apiURL+'/student/Pfe')
             .pipe(
                 retry(1),
                 catchError(this.handleError)

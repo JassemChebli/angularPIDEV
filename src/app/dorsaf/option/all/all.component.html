@@ -23,11 +23,15 @@
                         <i class="ft-trash-2 cursor-pointer danger" (click)="delete(item.id)" ></i>
                     </div>
                     <br>
-                    <a routerLink="/school/details/{{item.id}}"><h5
+                    <a><h5
                             class="text-bold-500 primary float-left">{{item.label}}</h5></a>
                 </div>
-                Name:<p>{{item.id}}</p>
-                <p>{{item.label}}</p>
+               
+               <ul class="list-inline">
+                    <li class="list-inline-item">Responsible:</li>
+                    <li class="list-inline-item">{{item.responsibleName}}</li>
+                   
+                  </ul>
                 
             </div>
         </div>

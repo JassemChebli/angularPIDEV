@@ -36,12 +36,9 @@ export class SearchComponent implements OnInit {
     if (this.keyword != null && this.keyword != '') {
       this.searching = true;
       console.log(this.all)
-     if(this.all.filter(x => x.firstName.toUpperCase().includes(this.keyword.toUpperCase()))) {
-      this.searched = this.all.filter(x => x.firstName.toUpperCase().includes(this.keyword.toUpperCase()))
-     }
-    if(this.searched= this.all.filter(x => x.classe.option.label.toUpperCase().includes(this.keyword.toUpperCase()))){ 
-    this.searched= this.all.filter(x => x.classe.option.label.toUpperCase().includes(this.keyword.toUpperCase()))}
-    
+      this.searched=this.all.filter(x => x.student.firstName.toUpperCase().includes(this.keyword.toUpperCase()))
+      
+      
     console.log(this.searched)
       console.log(this.searched);
     } else {
