@@ -38,7 +38,7 @@ export class LoginComponent {
             Swal.fire({
               icon: 'error',
               title: 'Oops...',
-              text: 'You don\' have access to the platform',
+              text: 'You don\'t have access to the platform',
             })
           }
         }else {

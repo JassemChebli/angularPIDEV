@@ -38,7 +38,6 @@
     "ngx-chips": "^2.1.0",
     "ngx-cookie-service": "^2.2.0",
     "ngx-perfect-scrollbar": "5.3.5",
-    "ngx-ui-switch": "^8.3.0",
     "node-sass": "4.9.4",
     "prismjs": "1.15.0",
     "resize-observer-polyfill": "1.5.0",

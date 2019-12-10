@@ -1,4 +1,4 @@
-import { Component, OnInit, ViewChild, ElementRef, Renderer2, AfterViewInit } from "@angular/core";
+import { Component, OnInit, ViewChild, ElementRef, Renderer2, AfterViewInit } from '@angular/core';
 
 import { ROUTES, ROUTESADMIN, ROUTESSUTDENT } from './sidebar-routes.config';
 import { Router, ActivatedRoute } from '@angular/router';

@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable, throwError } from 'rxjs';
 import { retry, catchError } from 'rxjs/operators';
+import Swal from 'sweetalert2';
 
 @Injectable({
     providedIn: 'root'
@@ -42,36 +43,8 @@ export class LoginService {
                 catchError(this.handleError)
             )
     }
-    /*
-    // HttpClient API post() method => Create employee
-    createEmployee(employee): Observable<Employee> {
-        return this.http.post<Employee>(this.apiURL + '/employees', JSON.stringify(employee), this.httpOptions)
-            .pipe(
-                retry(1),
-                catchError(this.handleError)
-            )
-    }
 
-    // HttpClient API put() method => Update employee
-    updateEmployee(id, employee): Observable<Employee> {
-        return this.http.put<Employee>(this.apiURL + '/employees/' + id, JSON.stringify(employee), this.httpOptions)
-            .pipe(
-                retry(1),
-                catchError(this.handleError)
-            )
-    }
-
-    // HttpClient API delete() method => Delete employee
-    deleteEmployee(id) {
-        return this.http.delete<Employee>(this.apiURL + '/employees/' + id, this.httpOptions)
-            .pipe(
-                retry(1),
-                catchError(this.handleError)
-            )
-    }
-
-    */
-    // Error handling 
+    // Error handling
     handleError(error) {
         let errorMessage = '';
         if (error.error instanceof ErrorEvent) {
@@ -81,7 +54,11 @@ export class LoginService {
             // Get server-side error
             errorMessage = `Error Code: ${error.status}\nMessage: ${error.message}`;
         }
-        window.alert(errorMessage);
+        Swal.fire(
+            'The Internet?',
+            errorMessage,
+            'question'
+          )
         return throwError(errorMessage);
     }
 
