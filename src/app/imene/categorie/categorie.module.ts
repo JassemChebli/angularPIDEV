@@ -11,11 +11,12 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { Ng2SearchPipeModule } from 'ng2-search-filter';
 import { PrevalidateComponent } from './prevalidate/prevalidate.component';
 import { GradeComponent } from './grade/grade.component';
-
+import {ChartsModule as Ng2Charts} from 'ng2-charts';
+import { StatComponent } from './stat/stat.component'
 
 
 @NgModule({
-  declarations: [AllComponent, OneComponent, ConfirmationDialogCategorieComponent, CrudComponent, PrevalidateComponent, GradeComponent],
+  declarations: [AllComponent, OneComponent, ConfirmationDialogCategorieComponent, CrudComponent, PrevalidateComponent, GradeComponent, StatComponent],
   imports: [
     CommonModule,
     CategorieRoutingModule, 
@@ -23,6 +24,7 @@ import { GradeComponent } from './grade/grade.component';
     ReactiveFormsModule,
     NgbModule,
    Ng2SearchPipeModule,
+   Ng2Charts
  
   ],
   entryComponents: [

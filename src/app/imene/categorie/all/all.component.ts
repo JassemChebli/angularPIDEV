@@ -9,13 +9,19 @@ import { forEach } from '@angular/router/src/utils/collection';
 import { PfeFile } from 'app/imene/Models/PfeFile';
 import { PrevalidateComponent } from '../prevalidate/prevalidate.component';
 import { GradeComponent } from '../grade/grade.component';
+import { T } from 'app/imene/Models/T';
+const globalid=2;
+
 @Component({
   selector: 'app-all',
   templateUrl: './all.component.html',
   styleUrls: ['./all.component.scss']
 })
+
 export class AllComponent implements OnInit {
 
+
+  
     all: Categorie[] = [];
     searched: Categorie[] = [];
     items: Categorie[] = [];
@@ -24,12 +30,23 @@ export class AllComponent implements OnInit {
     currentPage: string = "About"
     pf: PfeFile[] = [];
     prevpfefile:PfeFile[] = [];
-    id:number;;
+    id:number;
+    t: T;
+    j:number=0;
+    
     year:number;
     role:string;
     mssg:string;
     s:string;
     grade:number;
+    teacher:any=[];
+
+
+
+  
+
+
+
   constructor(public restApi: RestApiService,private modalService: NgbModal,
     private confirmationDialogService: ConfirmationDialogCategorieService,) { }
 
@@ -39,6 +56,9 @@ export class AllComponent implements OnInit {
     this.getnames();
     console.log(this.items);
     this.loadAllprevpfiles();
+
+    this.getg(globalid);
+    this.gettt(globalid);
    
   }
  /////////////////////////// CRUD CATEGORY ///////////////////////////
@@ -51,6 +71,7 @@ getnames(){
  this.all.forEach(x=>this.items.push(x));
  
 }
+
 
 
   addC(){
@@ -123,6 +144,32 @@ showPage(page: string) {
   this.currentPage = page;
 }
 
+Chosec(idt:number,idc:number){
+  this.restApi.chose(idt,idc).subscribe(data => {
+    this.loadAll();
+    console.log("success");
+    alert('category chosen');
+    this.getg(idt);
+})
+
+
+}
+
+getg(id:number){
+  this.restApi.gettg(id).subscribe(data => {
+    this.teacher=data.categories;
+    console.log(this.teacher);
+
+})
+}
+gettt(id:number){
+  this.restApi.gett(id).subscribe(data => {
+    
+    this.t=data;
+    console.log(this.t);
+})
+}
+
 ////////////////////////////////////PFE FILE ///////////////////
 
 
@@ -160,16 +207,22 @@ Prevalidate(id:number){
 loadAllprevpfiles() {
   return this.restApi.getAllprevfiles().subscribe((data) => {
       this.prevpfefile = data;
+      for(let i in this.prevpfefile){
+        this.j=this.j+1;
+      }
   })
 }
 
 loadbyyearrole(id:number,year:number,role:string) {
 
-  // if ( id != null) {
+ 
      return this.restApi.getFilebyyearandrole(id,year,role).subscribe((data) => {
        this.pf=data;
 
        console.log(this.pf);
+       if(this.pf==null){
+        alert(' not found!!');
+       }
      })
   // }else {
     // alert(' not found!!');

@@ -35,6 +35,10 @@ export const Full_ROUTES: Routes = [
     loadChildren: './imene/categorie/categorie.module#CategorieModule'
   },
   {
+    path: 'payement',
+    loadChildren: './imene/checkout/checkout.module#CheckoutModule'
+  },
+  {
     path: 'supervisor/change/request',
     loadChildren: './jassem/requestSupervisorChange/add/add.module#AddModule'
   }

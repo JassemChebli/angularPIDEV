@@ -34,13 +34,13 @@
                     </div>
 
                     <div class="form-group row">
-                        <label class="col-md-3 label-control" for="msg">Message</label>
+                        <label class="col-md-3 label-control" for="msg">Note</label>
                         <div class="col-md-9">
                             <input type="text" id="siteAddress" class="form-control" placeholder="msg"
                                    name="m" [formControl]="myForm.controls['msg']" formControlName="msg">
                             <small class="form-text text-muted danger"
                                    *ngIf="!myForm.get('msg').valid && (myForm.get('msg').dirty || myForm.get('msg').touched)">Please
-                                enter the site address!</small>
+                                enter the Note</small>
                         </div>
                     </div>
                 </div>

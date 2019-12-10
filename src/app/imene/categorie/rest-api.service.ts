@@ -4,6 +4,7 @@ import { Observable, throwError } from 'rxjs';
 import { retry, catchError } from 'rxjs/operators';
 import { Categorie } from '../Models/Categorie';
 import { PfeFile } from '../Models/PfeFile';
+import { T } from '../Models/T';
 
 
 @Injectable({
@@ -14,7 +15,7 @@ export class RestApiService {
     // Define API
     apiURL = '/api/categorie';
     apiURLp = '/api/pfefichier';
-
+    apiURLt = '/api/teacher';
     // Http Options
     httpOptions = {
         headers: new HttpHeaders({
@@ -38,8 +39,32 @@ export class RestApiService {
             )
     }
 
+    chose(idt:number,idc:number) {
+
+        return this.http.put<any>(this.apiURLt + '/pick?id=' + idt +'&ids='+idc,this.httpOptions)
+        .pipe(
+            retry(1),
+            catchError(this.handleError)
+        )
+    }
+
     get(id: number): Observable<Categorie> {
-        return this.http.get<Categorie>(this.apiURL + '/' + id)
+        return this.http.get<Categorie>(this.apiURL + '/' + id )
+            .pipe(
+                retry(1),
+                catchError(this.handleError)
+            )
+    }
+
+    gettg(id: number): Observable<any> {
+        return this.http.get<any>(this.apiURLt + '/getg/' + id )
+            .pipe(
+                retry(1),
+                catchError(this.handleError)
+            )
+    }
+    gett(id: number): Observable<T> {
+        return this.http.get<T>(this.apiURLt + '/getg/' + id )
             .pipe(
                 retry(1),
                 catchError(this.handleError)
