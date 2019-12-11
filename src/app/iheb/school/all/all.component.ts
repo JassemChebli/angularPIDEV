@@ -8,6 +8,7 @@ import {Admin} from '../../Models/Admin';
 import {CrudAddComponent} from '../crud-modal/modal-add/crud-add.component';
 import {CrudUpdateComponent} from '../crud-modal/modal-update/crud-update.component';
 import {AuthService} from '../../../shared/auth/auth.service';
+import Swal from 'sweetalert2';
 
 @Component({
     selector: 'app-all',
@@ -47,6 +48,11 @@ export class AllComponent implements OnInit {
             let admin = new Admin();
             admin.id = result.admin;
             this.restApi.addSchool(result.name, result.address, result.slogon, result.email, result.tel, admin).subscribe(data => {
+                Swal.fire(
+                    'School',
+                    'Added',
+                    'success'
+                );
                 this.loadAll();
             });
         }).catch((error) => {
@@ -65,7 +71,7 @@ export class AllComponent implements OnInit {
             slogon: school.slogon,
             email: school.email,
             tel: school.tel,
-            admin: school.admin
+            admin: school.admin.id
 
         }; // should be the data
 
@@ -77,6 +83,11 @@ export class AllComponent implements OnInit {
             school.tel = result.tel;
             school.admin.id = result.admin;
             this.restApi.updateSchool(school).subscribe(data => {
+                    Swal.fire(
+                        'School',
+                        'UPDATED',
+                        'success'
+                    );
                     this.loadAll();
                 },
                 error => {

@@ -8,6 +8,7 @@ import {Site} from '../../Models/Site';
 import {CrudUpdateComponent} from '../crud-modal/modal-update/crud-update.component';
 import {Admin} from '../../Models/Admin';
 import {AuthService} from '../../../shared/auth/auth.service';
+import Swal from "sweetalert2";
 
 @Component({
     selector: 'app-details',
@@ -67,6 +68,11 @@ export class DetailsComponent implements OnInit {
             this.school.tel = result.tel;
             this.school.admin.id = result.admin;
             this.restApi.updateSchool(this.school).subscribe(data => {
+                Swal.fire(
+                    'School',
+                    'updated',
+                    'success'
+                );
                 this.load(id);
             });
 

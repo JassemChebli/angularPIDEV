@@ -57,15 +57,15 @@
                             </div>
                         </div>
                     </div>
-                    <h4 class="form-section"><i class="ft-user"></i> Department Head Info</h4>
+                    <h4 class="form-section"><i class="ft-user"></i> Internship Director Info</h4>
                     <div class="form-group">
-                        <label for="issueinput5">Department Head</label>
+                        <label for="issueinput5">Internship Director</label>
                         <select id="issueinput5" name="priority" class="form-control" data-toggle="tooltip"
                                 data-trigger="hover" [formControl]="myForm.controls['head']" formControlName="head"
                                 data-placement="top" data-title="Priority">
                             <option disabled selected>Select Department Head</option>
                             <option value="{{head.id}}">{{head.lastName}}</option>
-                            <option *ngFor="let d of heads" value="{{d.id}}">{{d.lastName}}</option>
+                            <option *ngFor="let d of heads" value="{{d.id}}">{{d.lastName}} {{d.firstName}}</option>
                         </select>
                         <small class="form-text text-muted danger"
                                *ngIf="!myForm.get('head').valid && (myForm.get('head').dirty || myForm.get('head').touched)">Please

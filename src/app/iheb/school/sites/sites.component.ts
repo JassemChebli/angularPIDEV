@@ -8,6 +8,7 @@ import {CrudAddSiteComponent} from './crud-modal-site/modal-add-site/crud-add-si
 import {School} from '../../Models/School';
 import {HeadDepartment} from '../../Models/HeadDepartment';
 import {CrudUpdateSiteComponent} from './crud-modal-site/modal-update-site/crud-update-site.component';
+import Swal from "sweetalert2";
 
 @Component({
     selector: 'app-sites',
@@ -81,6 +82,11 @@ export class SitesComponent implements OnInit {
             head.id = result.head;
             site.internshipDirector = head;
             this.restApi.updateSite(site).subscribe(data => {
+                    Swal.fire(
+                        'Site',
+                        'Updated',
+                        'success'
+                    );
                     this.loadAll();
                 },
                 error => {
@@ -120,6 +126,11 @@ export class SitesComponent implements OnInit {
             site.internshipDirector = head;
             console.log(site);
             this.restApi.addSite(site).subscribe(data => {
+                Swal.fire(
+                    'Site',
+                    'Added',
+                    'success'
+                );
                 this.loadAll()
             });
         }).catch((error) => {

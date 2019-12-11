@@ -72,7 +72,7 @@
                             <div class="custom-file mx-auto d-block">
                                 <select id="schoolAdmin" class="form-control"  [formControl]="myForm.controls['admin']">
                                     <option *ngFor="let a of admins" value="{{a.id}}">
-                                        {{a.lastName}}
+                                        {{a.lastName}} {{a.firstName}}
                                     </option>
                                 </select>
                                 <small class="form-text text-muted danger"

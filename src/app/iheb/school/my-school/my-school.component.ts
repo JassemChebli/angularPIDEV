@@ -5,6 +5,7 @@ import {AuthService} from '../../../shared/auth/auth.service';
 import {Site} from '../../Models/Site';
 import {NgbModal} from '@ng-bootstrap/ng-bootstrap';
 import {CrudUpdateMyschoolComponent} from './modal-update-myschool/crud-update-myschool.component';
+import Swal from "sweetalert2";
 
 @Component({
     selector: 'app-my-school',
@@ -51,6 +52,11 @@ export class MySchoolComponent implements OnInit {
       this.school.email = result.email;
       this.school.tel = result.tel;
       this.restApi.updateSchool(this.school).subscribe(data => {
+        Swal.fire(
+            'School',
+            'Updated',
+            'success'
+        );
         //this.load(id);
       });
 
