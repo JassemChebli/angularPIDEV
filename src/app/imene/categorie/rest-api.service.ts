@@ -119,6 +119,13 @@ export class RestApiService {
     ////////////////////////CRUD CATEGORIE//////////////////////////
 
 
+    updateteacher(index: number,t: T): Observable<T> {
+        return this.http.put<T>(this.apiURLt+ '/update/'+ index,t)
+            .pipe(
+                catchError(this.handleError)
+            )
+    }
+
     updateSite(index: number,categorie: Categorie): Observable<Categorie> {
         return this.http.put<Categorie>(this.apiURL+ '/modify/'+ index, categorie)
             .pipe(

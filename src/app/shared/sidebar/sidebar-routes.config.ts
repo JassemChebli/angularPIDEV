@@ -37,11 +37,11 @@ export const ROUTES: RouteInfo[] = [
         ]
     },
     {
-        path: '', title: 'Statistics', icon: 'ft-align-left', class: 'has-sub', badge: '', badgeClass: 'badge badge-pill badge-danger float-right mr-1 mt-1', isExternalLink: false,
+        path: '', title: 'Payement', icon: 'ft-align-left', class: 'has-sub', badge: '', badgeClass: 'badge badge-pill badge-danger float-right mr-1 mt-1', isExternalLink: false,
         submenu: [
 
             {
-                path: '/categorie/stat', title: 'files statistics', icon: '', class: '', badge: '', badgeClass: '', isExternalLink: false, submenu: []
+                path: '/categorie/paying', title: 'files statistics', icon: '', class: '', badge: '', badgeClass: '', isExternalLink: false, submenu: []
             }
         ]
     },

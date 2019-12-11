@@ -12,11 +12,12 @@ import { Ng2SearchPipeModule } from 'ng2-search-filter';
 import { PrevalidateComponent } from './prevalidate/prevalidate.component';
 import { GradeComponent } from './grade/grade.component';
 import {ChartsModule as Ng2Charts} from 'ng2-charts';
-import { StatComponent } from './stat/stat.component'
-
+import { StatComponent } from './stat/stat.component';
+import { PaymentComponent } from './payment/payment.component'
+import { NgxQRCodeModule } from 'ngx-qrcode2';
 
 @NgModule({
-  declarations: [AllComponent, OneComponent, ConfirmationDialogCategorieComponent, CrudComponent, PrevalidateComponent, GradeComponent, StatComponent],
+  declarations: [AllComponent, OneComponent, ConfirmationDialogCategorieComponent, CrudComponent, PrevalidateComponent, GradeComponent, StatComponent, PaymentComponent],
   imports: [
     CommonModule,
     CategorieRoutingModule, 
@@ -24,8 +25,8 @@ import { StatComponent } from './stat/stat.component'
     ReactiveFormsModule,
     NgbModule,
    Ng2SearchPipeModule,
-   Ng2Charts
- 
+   Ng2Charts,
+   NgxQRCodeModule
   ],
   entryComponents: [
     CrudComponent,

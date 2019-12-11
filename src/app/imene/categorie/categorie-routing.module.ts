@@ -3,6 +3,7 @@ import { Routes, RouterModule } from '@angular/router';
 import { AllComponent } from './all/all.component';
 import { OneComponent } from './one/one.component';
 import { StatComponent } from './stat/stat.component';
+import { PaymentComponent } from './payment/payment.component';
 
 
 const routes: Routes = [
@@ -21,6 +22,13 @@ const routes: Routes = [
         component: StatComponent,
         data: {
           title: 'All Categories'
+        },
+      },
+      {
+        path: 'paying',
+        component: PaymentComponent,
+        data: {
+          title: 'AppStripeTestComponent'
         },
       },
       {

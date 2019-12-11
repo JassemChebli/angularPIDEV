@@ -21,7 +21,7 @@ export class CrudComponent implements OnInit {
   ngOnInit() {
     this.buildItemForm(this.data);
     if (this.id === 0) {
-      this.ModalTitle = 'Add Categorie';
+      this.ModalTitle = 'Propose Categorie';
     } else {
       this.ModalTitle = 'Edit Categorie';
     }
