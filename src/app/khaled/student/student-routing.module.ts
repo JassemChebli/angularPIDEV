@@ -5,6 +5,7 @@ import { SingleComponent } from './single/single.component';
 import { AddComponent } from './add/add.component';
 import { UpdateComponent } from './update/update.component';
 import { ProjectComponent } from './project/project.component';
+import { StudentGuard } from 'app/shared/auth/student-guard.service';
 
 const routes: Routes = [
   {
@@ -27,6 +28,7 @@ const routes: Routes = [
       {
         path: 'project',
         component: ProjectComponent,
+        canActivate: [StudentGuard],
         data: {
           title: 'Student GP'
         }
