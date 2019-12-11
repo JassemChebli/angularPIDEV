@@ -3,7 +3,6 @@ import { CommonModule } from '@angular/common';
 import { ReactiveFormsModule } from '@angular/forms';
 import { TagInputModule } from 'ngx-chips';
 import { FormsModule } from '@angular/forms';
-import { UiSwitchModule } from 'ngx-ui-switch';
 
 import { StudentRoutingModule } from './student-routing.module';
 import { AllComponent } from './all/all.component';
@@ -20,7 +19,6 @@ import { ProjectComponent } from './project/project.component';
     ReactiveFormsModule,
     TagInputModule,
     FormsModule,
-    UiSwitchModule
   ]
 })
 export class StudentModule { }

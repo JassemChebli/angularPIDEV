@@ -21,6 +21,7 @@ import { ErrorPageComponent } from './pages/content-pages/error/error-page.compo
 
 import { AuthService } from './shared/auth/auth.service';
 import { AuthGuard } from './shared/auth/auth-guard.service';
+import { StudentGuard } from './shared/auth/student-guard.service';
 import { CookieService } from 'ngx-cookie-service';
 
 const DEFAULT_PERFECT_SCROLLBAR_CONFIG: PerfectScrollbarConfigInterface = {
@@ -55,6 +56,7 @@ export function createTranslateLoader(http: HttpClient) {
   providers: [
     AuthService,
     AuthGuard,
+    StudentGuard,
     CookieService,
     {
       provide: PERFECT_SCROLLBAR_CONFIG,

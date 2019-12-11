@@ -49,7 +49,7 @@ export class UpdateComponent implements OnInit {
           this.studentForm.get('firstName').setValue(this.student.firstName);
           this.studentForm.get('lastName').setValue(this.student.lastName);
           this.studentForm.get('email').setValue(this.student.email);
-          this.studentForm.get('password').setValue(this.student.email);
+          this.studentForm.get('password').setValue(this.student.password);
           this.studentForm.get('birthDate').setValue(this.student.birthDate);
           this.studentForm.get('tel').setValue(this.student.tel);
           this.studentForm.get('sexe').setValue(this.student.sexe);
