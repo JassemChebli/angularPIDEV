@@ -21,7 +21,7 @@ export class SitesComponent implements OnInit {
     searching = false;
     keyword: string;
     school = new School();
-
+    p: number = 1;
 
     constructor(
         public restApi: RestApiService,

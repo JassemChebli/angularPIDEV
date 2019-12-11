@@ -1,6 +1,6 @@
 <div class="row mt-3">
     <div class="col-7">
-        <div class="content-header text-left col-6">Sites Board
+        <div class="content-header text-left col-6">Departments Board
         </div>
     </div>
     <div class="col-4">
@@ -16,7 +16,7 @@
 </div>
 
 <div class="row" [hidden]="searching">
-    <div class="col-md-4 col-4" *ngFor="let item of depatments">
+    <div class="col-md-4 col-4" *ngFor="let item of depatments | paginate: { itemsPerPage: 6, currentPage: p }">
         <div class="card">
             <div class="card-body pt-3 text-left">
                 <div class="clearfix">
@@ -34,6 +34,8 @@
         </div>
     </div>
 </div>
+
+<pagination-controls (pageChange)="p = $event"></pagination-controls>
 
 <div class="row" [hidden]="!searching">
     <div class="col-md-3 col-3" *ngFor="let item of searched">
@@ -57,10 +59,10 @@
 
 <div *ngIf='!depatments.length > 0 && !searching'>
     <br><br>
-    <p class="text-muted text-center text-uppercase font-large-1">There is no sites to show ... </p>
+    <p class="text-muted text-center text-uppercase font-large-1">There is no departments to show ... </p>
 </div>
 <div *ngIf='!searched.length > 0 && searching'>
     <br><br>
-    <p class="text-muted text-center text-uppercase font-large-1">There is no sites to show ... </p>
+    <p class="text-muted text-center text-uppercase font-large-1">There is no departments to show ... </p>
 </div>
 

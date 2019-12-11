@@ -39,6 +39,9 @@
                                        [formControl]="myForm.controls['dateOfSessionStarts']"
                                        formControlName="dateOfSessionStarts"
                                        data-trigger="hover" data-placement="top" data-title="Date Opened">
+                                <small class="form-text text-muted danger"
+                                       *ngIf="!myForm.get('dateOfSessionStarts').valid && (myForm.get('dateOfSessionStarts').dirty || myForm.get('dateOfSessionStarts').touched)">Please
+                                    enter the session start date!</small>
                             </div>
                         </div>
                         <div class="col-md-6">
@@ -48,6 +51,9 @@
                                        data-toggle="tooltip" [formControl]="myForm.controls['dateOfSessionEnds']"
                                        formControlName="dateOfSessionEnds"
                                        data-trigger="hover" data-placement="top" data-title="Date Fixed">
+                                <small class="form-text text-muted danger"
+                                       *ngIf="!myForm.get('dateOfSessionEnds').valid && (myForm.get('dateOfSessionEnds').dirty || myForm.get('dateOfSessionEnds').touched)">Please
+                                    enter the session end date!</small>
                             </div>
                         </div>
                     </div>
@@ -60,6 +66,9 @@
                             <option disabled>Select Internship Director</option>
                             <option *ngFor="let d of heads" value="{{d.id}}">{{d.lastName}}</option>
                         </select>
+                        <small class="form-text text-muted danger"
+                               *ngIf="!myForm.get('head').valid && (myForm.get('head').dirty || myForm.get('head').touched)">Please
+                            select the head of the department!</small>
                     </div>
 
                 </div>

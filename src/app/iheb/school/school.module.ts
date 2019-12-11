@@ -23,6 +23,9 @@ import {CrudAddDepComponent} from './departments/crud-modal-dep/modal-add-dep/cr
 import {CrudUpdateDepComponent} from './departments/crud-modal-dep/modal-update-dep/crud-update-dep.component';
 import {ConfirmationDialogDepService} from './departments/crud-modal-dep/confirmation-dialog-dep/confirmation-dialog-dep.service';
 import {ConfirmationDialogDepComponent} from './departments/crud-modal-dep/confirmation-dialog-dep/confirmation-dialog-dep.component';
+import { MySiteComponent } from './my-site/my-site.component';
+import { MyDepartmentsComponent } from './my-departments/my-departments.component';
+import {NgxPaginationModule} from 'ngx-pagination';
 
 @NgModule({
     declarations: [
@@ -40,7 +43,9 @@ import {ConfirmationDialogDepComponent} from './departments/crud-modal-dep/confi
         CrudUpdateSiteComponent,
         CrudAddDepComponent,
         CrudUpdateDepComponent,
-        ConfirmationDialogDepComponent
+        ConfirmationDialogDepComponent,
+        MySiteComponent,
+        MyDepartmentsComponent,
     ],
     imports: [
         CommonModule,
@@ -49,6 +54,7 @@ import {ConfirmationDialogDepComponent} from './departments/crud-modal-dep/confi
         ReactiveFormsModule,
         NgbModule,
         NgSelectModule,
+        NgxPaginationModule,
     ],
     entryComponents: [
         ConfirmationDialogComponent,
@@ -65,7 +71,7 @@ import {ConfirmationDialogDepComponent} from './departments/crud-modal-dep/confi
     providers: [
         ConfirmationDialogService,
         ConfirmationDialogSiteService,
-        ConfirmationDialogDepService
+        ConfirmationDialogDepService,
     ]
 })
 export class SchoolModule {

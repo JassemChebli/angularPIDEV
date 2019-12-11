@@ -7,6 +7,7 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { HttpClientModule, HttpClient } from '@angular/common/http';
 import { TranslateModule, TranslateLoader } from '@ngx-translate/core';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
+import {NgxPaginationModule} from 'ngx-pagination';
 
 import {
   PerfectScrollbarModule,
@@ -35,21 +36,22 @@ export function createTranslateLoader(http: HttpClient) {
 
 @NgModule({
   declarations: [AppComponent, FullLayoutComponent, ContentLayoutComponent, ErrorPageComponent],
-  imports: [
-    BrowserAnimationsModule,
-    AppRoutingModule,
-    SharedModule,
-    HttpClientModule,
-    NgbModule.forRoot(),
-    TranslateModule.forRoot({
-      loader: {
-        provide: TranslateLoader,
-        useFactory: createTranslateLoader,
-        deps: [HttpClient]
-      }
-    }),
-    PerfectScrollbarModule
-  ],
+    imports: [
+        NgxPaginationModule,
+        BrowserAnimationsModule,
+        AppRoutingModule,
+        SharedModule,
+        HttpClientModule,
+        NgbModule.forRoot(),
+        TranslateModule.forRoot({
+            loader: {
+                provide: TranslateLoader,
+                useFactory: createTranslateLoader,
+                deps: [HttpClient]
+            }
+        }),
+        PerfectScrollbarModule
+    ],
   providers: [
     AuthService,
     AuthGuard,

@@ -1,0 +1,37 @@
+<div class="row mt-3">
+    <div class="col-7">
+        <div class="content-header text-left col-6">Departments Board
+        </div>
+    </div>
+    <div class="col-1 text-right">
+        <!-- <button type="button" class="btn btn-raised btn-danger" (click)="addDepatment()">
+           <i class="fa fa-plus-square d-lg-none d-block"></i>
+           <span class="d-lg-block d-none">Create</span>
+         </button> -->
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-md-4 col-4" *ngFor="let item of deps">
+        <div class="card">
+            <div class="card-body pt-3 text-left">
+                <div class="clearfix">
+                    <div class="actions float-right">
+                        <!-- <i class="ft-edit cursor-pointer mr-1 info" (click)="editDepatment(item.id);"></i>
+                         <i class="ft-trash-2 cursor-pointer danger" (click)="deleteDepatment(item.id);"></i> -->
+                    </div>
+                    <br>
+                    <!-- <a routerLink="/school/details/{{item.id}}"><h5
+                             class="text-bold-500 primary float-left">{{item.name}}</h5></a> -->
+                </div>
+                <p><b>Name :</b> {{item.label}}</p>
+                <p><b>Site :</b> {{item.site.nom}}</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div *ngIf='!deps.length > 0 '>
+    <br><br>
+    <p class="text-muted text-center text-uppercase font-large-1">There is no departments to show ... </p>
+</div>

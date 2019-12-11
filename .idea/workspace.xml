@@ -11,7 +11,7 @@
   <component name="ProjectId" id="1Un6n0Y146IeXScA6AIE7z6H4QL" />
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/src/app/iheb/school/departments/crud-modal-dep" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/src/app/iheb" />
     <property name="node.js.detected.package.tslint" value="true" />
     <property name="node.js.path.for.package.tslint" value="project" />
     <property name="node.js.selected.package.tslint" value="(autodetect)" />
@@ -20,11 +20,11 @@
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\Study\Esprit\4TWIN2\Projet intégration développement\phase angular\src\app\iheb" />
+      <recent name="D:\Study\Esprit\4TWIN2\Projet intégration développement\phase angular\src\app\iheb\calender" />
       <recent name="D:\Study\Esprit\4TWIN2\Projet intégration développement\phase angular\src\app\iheb\school\departments\crud-modal-dep" />
       <recent name="D:\Study\Esprit\4TWIN2\Projet intégration développement\phase angular\src\app\iheb\school\sites" />
       <recent name="D:\Study\Esprit\4TWIN2\Projet intégration développement\phase angular\src\app\iheb\school\my-school" />
-      <recent name="D:\Study\Esprit\4TWIN2\Projet intégration développement\phase angular\src\app\iheb\school\crud-modal\modal-update" />
-      <recent name="D:\Study\Esprit\4TWIN2\Projet intégration développement\phase angular\src\app\iheb\school\crud-modal\modal-add" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="D:\Study\Esprit\4TWIN2\Projet intégration développement\phase angular\src\app\iheb\school" />
@@ -83,7 +83,7 @@
       <option name="presentableId" value="Default" />
       <updated>1575980174932</updated>
       <workItem from="1575980176148" duration="30393000" />
-      <workItem from="1576015040879" duration="4122000" />
+      <workItem from="1576015040879" duration="15904000" />
     </task>
     <servers />
   </component>

@@ -26,7 +26,7 @@ export class AllComponent implements OnInit {
         public restApi: RestApiService,
         private modalService: NgbModal,
         private confirmationDialogService: ConfirmationDialogService,
-        private auth: AuthService
+        private auth: AuthService,
     ) {
     }
 

@@ -24,6 +24,7 @@ export class DepartmentsComponent implements OnInit {
   searched: Departement[] = [];
   searching= false;
   keyword: string;
+  p: number = 1;
 
   constructor(
       public restApi: RestApiService,

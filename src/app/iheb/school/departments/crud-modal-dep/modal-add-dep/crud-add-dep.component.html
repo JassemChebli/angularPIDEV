@@ -28,6 +28,9 @@
                             <option disabled>Select Department Head</option>
                             <option *ngFor="let d of heads" value="{{d.id}}">{{d.lastName}}</option>
                         </select>
+                        <small class="form-text text-muted danger"
+                               *ngIf="!myForm.get('head').valid && (myForm.get('head').dirty || myForm.get('head').touched)">Please
+                            select a head of department!</small>
                     </div>
 
                     <div class="form-group">
@@ -38,6 +41,9 @@
                             <option disabled>Select Site</option>
                             <option *ngFor="let s of sites" value="{{s.id}}">{{s.nom}}</option>
                         </select>
+                        <small class="form-text text-muted danger"
+                               *ngIf="!myForm.get('site').valid && (myForm.get('site').dirty || myForm.get('site').touched)">Please
+                            select a site!</small>
                     </div>
 
                 </div>

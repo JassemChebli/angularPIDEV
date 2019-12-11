@@ -46,6 +46,31 @@ const directorRoutes = [
         isExternalLink: false,
         submenu: []
     },
+    {
+        // tslint:disable-next-line: max-line-length
+        path: '/school/mySite',
+        title: 'My Site',
+        icon: 'icon-book-open',
+        class: '',
+        badge: '',
+        badgeClass: '',
+        isExternalLink: false,
+        submenu: []
+    },
+    {
+        // tslint:disable-next-line: max-line-length
+        path: '/school/myDepartments',
+        title: 'My Departments',
+        icon: 'icon-briefcase',
+        class: '',
+        badge: '',
+        badgeClass: '',
+        isExternalLink: false,
+        submenu: []
+    }
+
+
+
 ];
 
 const adminRoutes = [
@@ -177,6 +202,8 @@ const superAdminRoutes = [
         submenu: []
     },
 ];
+
+
 export const ROUTES: RouteInfo[] = directorRoutes;
 export const ROUTESADMIN: RouteInfo[] = adminRoutes;
 export const ROUTESSUTDENT: RouteInfo[] = studentRoutes;

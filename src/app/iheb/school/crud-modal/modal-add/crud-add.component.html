@@ -75,7 +75,9 @@
                                         {{a.lastName}}
                                     </option>
                                 </select>
-
+                                <small class="form-text text-muted danger"
+                                       *ngIf="!myForm.get('admin').valid && (myForm.get('admin').dirty || myForm.get('admin').touched)">Please
+                                    select an admin!</small>
                             </div>
                         </div>
                     </div>

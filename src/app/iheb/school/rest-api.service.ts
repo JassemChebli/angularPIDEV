@@ -177,6 +177,22 @@ export class RestApiService {
             )
     }
 
+    getsitebydirector(email: string): Observable<Site> {
+        return this.http.get<Site>('/api/site/mySite/'+email)
+            .pipe(
+                retry(1),
+                catchError(this.handleError)
+            )
+    }
+
+    getDepbydirector(email: string): Observable<Departement[]> {
+        return this.http.get<Departement[]>('/api/site/myDeps/'+email)
+            .pipe(
+                retry(1),
+                catchError(this.handleError)
+            )
+    }
+
     getInternDir(): Observable<HeadDepartment[]> {
         return this.http.get<HeadDepartment[]>('/api/intern-dir/available')
             .pipe(

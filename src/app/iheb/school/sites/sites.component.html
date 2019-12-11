@@ -16,7 +16,7 @@
 </div>
 
 <div class="row" [hidden]="searching">
-    <div class="col-md-4 col-4" *ngFor="let item of sites">
+    <div class="col-md-4 col-4" *ngFor="let item of sites | paginate: { itemsPerPage: 6, currentPage: p }">
         <div class="card">
             <div class="card-body pt-3 text-left">
                 <div class="clearfix">
@@ -35,6 +35,9 @@
             </div>
         </div>
     </div>
+</div>
+<div class="text-center">
+<pagination-controls (pageChange)="p = $event"></pagination-controls>
 </div>
 
 <div class="row" [hidden]="!searching">
