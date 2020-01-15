@@ -1,8 +1,8 @@
 <div class="row text-left" _ngcontent-c7="">
     <input class="form-control has-icon-left" type="text" name="search" [(ngModel)]="searchText" autocomplete="on" placeholder="&#61442;  Start searching ">
    
-  <div class="col-lg-4 col-md-12" _ngcontent-c7="" *ngFor=" let x of mods | filter:searchText">
-    <div class="card" _ngcontent-c7="">
+  <div class="col-lg-4 col-md-12" _ngcontent-c7="" *ngFor=" let x of mods  | filter:searchText ; let i = index">
+    <div class="card" _ngcontent-c7=""    >
       <div class="card-header" _ngcontent-c7="">
         <h4 class="card-title info" _ngcontent-c7="">
           <div *ngIf=" x.pfeFile != null">{{x.pfeFile.title}} </div>
@@ -23,15 +23,22 @@
          
         </div>
         <div class="card-body">
-            <div ngbDropdown #myDrop1="ngbDropdown">
-              <button class="btn btn-outline-primary mr-1" id="dropdownMenu2" ngbDropdownToggle>Toggle dropdown</button>
+
+            
+
+            
+             <div ngbDropdown #myDrop1="ngbDropdown">
+              <button class="btn btn-outline-primary mr-1" id="dropdownMenu2" ngbDropdownToggle>Action</button>
               <div ngbDropdownMenu class="dropdown-menu" aria-labelledby="dropdownMenu2">
                 <button class="dropdown-item" (click)="show(x)">Show the Pfe File</button>
-                <button class="dropdown-item">Validate</button>
-                <button class="dropdown-item">Refuse</button>
+                <button class="dropdown-item" (click)="validate(x)" [disabled]="x.status === 'VALID' || x.status === 'REFUSED'">Validate</button>
+                <button class="dropdown-item" (click)="refuse(x )" [disabled]="x.status === 'VALID' || x.status === 'REFUSED'">Refuse</button>
+                <button type="button" (click)="delete(x,i)"  class="btn btn-raised btn-danger mr-1">
+                    <i class="ft-x"></i> Delete
+                  </button>
               </div>
             
-            </div>
+             </div>
       </div>
     </div>
   </div>
@@ -55,3 +62,4 @@
 
 
 </div>
+<ng-snotify></ng-snotify>

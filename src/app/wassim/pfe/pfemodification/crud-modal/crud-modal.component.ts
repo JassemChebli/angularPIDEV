@@ -33,7 +33,7 @@ export class CrudModalChangeValidationComponent implements OnInit{
   }
 
   private buildItemForm(item) {
-    this.pfe=item;
+    this.pfe = item;
     this.myForm = this.formBuilder.group({
       title: [item.title || '', Validators.required],
       description: [item.description || ''],
@@ -51,6 +51,7 @@ export class CrudModalChangeValidationComponent implements OnInit{
   submitForm() {
     this.activeModal.close(this.myForm.value);
   }
+
 
 }
 

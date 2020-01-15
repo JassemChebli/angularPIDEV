@@ -4,6 +4,7 @@ import { Thesis } from './Thesis';
 import { Entreprise } from './Entreprise';
 import { PfeFileChange } from './PfeFileChange';
 import { Categorie } from './Categorie';
+import { ArchivePfeFile } from './ArchivePfeFile';
 
 export class PfeFile {
     public id: Number;
@@ -14,7 +15,7 @@ export class PfeFile {
     public entreprise:  Entreprise ;
     public changes: PfeFileChange[];
     public categories: Categorie[];
-
+public archivePfeFile : ArchivePfeFile[];
 
     public  title: string ;
 	public  description: string;

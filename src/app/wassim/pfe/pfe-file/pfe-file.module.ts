@@ -22,10 +22,10 @@ import { CrudModalChangeValidationComponent } from '../pfemodification/crud-moda
 import { Ng2SearchPipeModule } from 'ng2-search-filter';
 import { BrowserModule } from '@angular/platform-browser';
 @NgModule({
-  declarations: [PfeFileComponent , CrudModalComponent, MyPfeComponent, CrudModalChangeComponent, 
-    PfemodificationComponent,CrudModalChangeValidationComponent],
+  declarations: [PfeFileComponent , CrudModalComponent, MyPfeComponent, CrudModalChangeComponent,
+    PfemodificationComponent, CrudModalChangeValidationComponent],
   imports: [Ng2SearchPipeModule
-,HttpClientModule,
+, HttpClientModule,
     Ng2SmartTableModule,
     CommonModule,
     PfeFileRoutingModule,
@@ -39,7 +39,8 @@ import { BrowserModule } from '@angular/platform-browser';
         NgSelectModule
   ],
 providers:  [{ provide: 'SnotifyToastConfig', useValue: ToastDefaults },
-SnotifyService, CategorieService , PfeService , PfeModificationService],
+SnotifyService,
+ , PfeService , PfeModificationService],
 
 entryComponents: [
   CrudModalComponent,

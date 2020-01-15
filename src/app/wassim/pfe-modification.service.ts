@@ -39,6 +39,20 @@ createPfeMod(pfec): Observable<PfeFileChange > {
     catchError(this.handleError)
   )
 }
+validate(id): Observable<PfeFileChange> {
+  return this.http.put<PfeFileChange>(this.pfeUrl  + '/' + 'validate/' + id , this.httpOptions)
+  .pipe(
+    retry(1),
+    catchError(this.handleError)
+  )
+}
+refuse(id): Observable<PfeFileChange> {
+  return this.http.put<PfeFileChange>(this.pfeUrl  + '/' + 'refuse/' + id , this.httpOptions)
+  .pipe(
+    retry(1),
+    catchError(this.handleError)
+  )
+}
 
 
 getPfeModification(): Observable<PfeFileChange[] > {
@@ -47,5 +61,13 @@ getPfeModification(): Observable<PfeFileChange[] > {
           retry(1),
           catchError(this.handleError)
       )
+}
+
+delete(id){
+  return this.http.delete<PfeFileChange>(this.pfeUrl  + '/' +  id, this.httpOptions)
+  .pipe(
+    retry(1),
+    catchError(this.handleError)
+  )
 }
 }

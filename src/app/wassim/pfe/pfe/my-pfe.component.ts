@@ -9,6 +9,8 @@ import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { PfeFileChange } from 'app/modals/PfeFileChange';
 import { CrudModalChangeComponent } from './crud-modal/crud-modal.component';
 import { PfeModificationService } from 'app/wassim/pfe-modification.service';
+import { Categorie } from 'app/modals/Categorie';
+import { CategorieService } from 'app/wassim/categorie.service';
 
 @Component({
   selector: 'app-my-pfe',
@@ -19,6 +21,8 @@ export class MyPfeComponent implements OnInit {
   public idd: any;
   public pfe= new PfeFile ;
   public state= true  ;
+  selected: Categorie[];
+  categories: Categorie[];
   myFormx = new FormGroup({
     title: new FormControl('', Validators.required),
     description: new FormControl('', Validators.required),
@@ -34,10 +38,13 @@ export class MyPfeComponent implements OnInit {
   constructor(private snotifyService: SnotifyService, private route: ActivatedRoute, private pfeService: PfeService,
     private router: Router, private dragulaService: DragulaService,
     private elRef: ElementRef, private modalService: NgbModal,
-    private pfeChange: PfeModificationService) { }
+    private pfeChange: PfeModificationService ,
+    private categorieService: CategorieService) { }
     // tslint:disable-next-line:member-ordering
     status = false ;
   ngOnInit() {
+
+
 if (this.pfe.status === 'WAITING'){
   this.status = true;
 
@@ -62,11 +69,39 @@ if (this.pfe.status === 'WAITING'){
         ,
         () => {
 
-
+          this.selected = this.pfe.categories;
+          console.log('hellllloooooo' + this.selected);
+          console.log('helll7535' + this.pfe.categories);
 
         });
 
+
+
+
     }
+
+ this.categorieService.getCategories().subscribe(a => {
+      this.categories = a;
+      console.log(this.categories);
+    },
+      err => {
+        this.snotifyService.error('Error in load the categories', {
+          timeout: 3000,
+          showProgressBar: false,
+          closeOnClick: false,
+          pauseOnHover: true
+        });
+
+      }
+      ,
+      () => {
+
+
+
+      });
+
+
+
 
   }
 
@@ -80,8 +115,8 @@ this.state = ! this.state;
 }
 // tslint:disable-next-line:member-ordering
 change: PfeFileChange;
-
 addTask() {
+
   const modalRef = this.modalService.open(CrudModalChangeComponent);
   modalRef.componentInstance.id = 0;  // should be the id
   modalRef.componentInstance.data = {
@@ -89,9 +124,10 @@ addTask() {
   }; // should be the dat'
 
   modalRef.result.then((result) => {
+    this.pfe.categories = this.selected;
+
     this.change = new PfeFileChange();
     this.change.content = result.content;
-
     this.change.field = result.field;
      this.change.pfeFile = this.pfe;
 
@@ -131,13 +167,16 @@ addTask() {
 
 }
 save(){
+
+  this.pfe.categories = this.selected;
 this.pfeService.updatePfe(this.pfe.id, this.pfe).subscribe(arts => {
 
   console.log(this.pfe);
 
+
 },
   err => {
-    this.snotifyService.error('Error while loading your pfe', {
+    this.snotifyService.error('Error while updating your pfe', {
       timeout: 3000,
       showProgressBar: false,
       closeOnClick: false,

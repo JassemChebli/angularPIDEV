@@ -14,7 +14,7 @@
         <!--- <p class="mb-0">Add <code>.form-bordered</code> to form tag to add striped rows. In this example icons are
             used with form controls to show the bordered form functionality.</p> -->
       </div>
-      <div class="card-content">
+       <div class="card-content">
           <div class="form-actions top clearfix" _ngcontent-c9="">
             <div class="buttons-group float-left" _ngcontent-c9="">
            </div><div class="buttons-group float-right" _ngcontent-c9="">
@@ -131,7 +131,17 @@
                   </div>
                 </div>
               </div>
+              <div class="form-group row last">
+                  <label class="col-md-3 label-control" for="timesheetinput7">Categories</label>
+                  <div class="col-md-9">
+                    <div class="position-relative has-icon-left">
+                      <ng-select [items]="categories" bindLabel="label" placeholder="Select item" appendTo="body"
+                        multiple="true" [(ngModel)]="selected" [ngModelOptions]="{standalone: true}">
+                      </ng-select>
               
+                    </div>
+                  </div>
+                </div>
               
             </div>
            
