@@ -4,6 +4,7 @@ import { AllComponent } from './all/all.component';
 import { SingleComponent } from './single/single.component';
 import { AddComponent } from './add/add.component';
 import { UpdateComponent } from './update/update.component';
+import { EmpGuard } from 'app/shared/auth/emp-guard.service';
 
 const routes: Routes = [
   {
@@ -38,7 +39,7 @@ const routes: Routes = [
           }
         },
       ]
-  }    
+  }
 ];
 
 @NgModule({

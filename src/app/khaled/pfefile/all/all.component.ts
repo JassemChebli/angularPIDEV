@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, OnChanges } from '@angular/core';
 import { RestApiService } from '../rest-api.service';
 import { FormGroup, FormControl } from '@angular/forms';
 import { Router } from '@angular/router';
@@ -8,15 +8,21 @@ import { Router } from '@angular/router';
   templateUrl: './all.component.html',
   styleUrls: ['./all.component.scss']
 })
-export class AllComponent implements OnInit {
+export class AllComponent implements OnInit, OnChanges {
+  
 
   items = [];
   projects = [];
   color: string;
+  myVar1 = false;
   constructor( private api: RestApiService) { }
 
   ngOnInit() {
     this.loadProjects();
+  }
+  ngOnChanges(changes: import('@angular/core').SimpleChanges): void {
+    
+    throw new Error("Method not implemented.");
   }
 
   // Fetch Data
@@ -49,6 +55,16 @@ export class AllComponent implements OnInit {
       })
     }else {
       this.loadProjects();
+    }
+  }
+
+  fireChange() {
+    if (!this.myVar1) {
+      this.nonTreated()
+      this.myVar1 = ! this.myVar1;
+    }else {
+      this.loadProjects();
+      this.myVar1 = ! this.myVar1;
     }
   }
 }

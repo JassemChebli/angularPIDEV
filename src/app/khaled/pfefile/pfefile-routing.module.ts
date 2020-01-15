@@ -3,6 +3,8 @@ import { Routes, RouterModule } from '@angular/router';
 import { AllComponent } from './all/all.component';
 import { SingleComponent } from './single/single.component';
 import { MapComponent } from './map/map.component';
+import { EmpGuard } from 'app/shared/auth/emp-guard.service';
+
 
 const routes: Routes = [
   {
@@ -11,6 +13,7 @@ const routes: Routes = [
       {
         path: 'all',
         component: AllComponent,
+        canActivate: [EmpGuard],
         data: {
           title: 'GPs List'
         }
@@ -18,6 +21,7 @@ const routes: Routes = [
       {
         path: 'details/:id',
         component: SingleComponent,
+        canActivate: [EmpGuard],
         data: {
           title: 'GP details'
         }
@@ -25,6 +29,7 @@ const routes: Routes = [
       {
         path: 'map',
         component: MapComponent,
+        canActivate: [EmpGuard],
         data: {
           title: 'GPs Location'
         }

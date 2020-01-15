@@ -2,19 +2,24 @@
     <div class="row text-left">
       <div class="col">
         <div class="content-header font-medium-5 text-bold-900">Graduation Projects list</div>
-        <button class="btn btn-outline-dark float-left" (click)="nonTreated()">Non Treated Requests</button>
-        <div class="float-right">
-                <div class="col-sm">
-                  <div class="card">
-                    <div class="">
-                      <div>
-                        <tag-input [(ngModel)]="items" theme='dark' (onAdd)="onItemAdded($event)" (onRemove)="onItemRemoved($event)" [modelAsStrings]="true" placeholder="+ A year">
-                        </tag-input>
-                      </div>
-                    </div>
-                  </div>
-                </div>
+        <div class="row">
+        <div class="col-sm" style="padding-top: 1rem;">
+          <ul class="ks-cboxtags">
+              <li>
+                <input id="checkboxOne" class=" float-left" type="checkbox" [checked]="myVar1" (change)="fireChange()" />
+                <label for="checkboxOne">Non Treated</label>
+              </li>  
+          </ul>
         </div>
+        <div class="col-sm float-right">
+            <div class="card">
+                <div>
+                  <tag-input [(ngModel)]="items" theme='dark' (onAdd)="onItemAdded($event)" (onRemove)="onItemRemoved($event)" [modelAsStrings]="true" placeholder="+ A year">
+                  </tag-input>
+                </div>
+            </div>
+        </div>
+      </div>
       </div>  
     </div>
     <div class="row text-left" matchHeight="card">
@@ -23,7 +28,7 @@
             <div class="card-header">
               <div class="row">
                 <div class="col col-md-2 col-lg-2 col-sm-2">
-                    <img src="https://cdn.dodowallpaper.com/full/516/black-and-yellow-8.jpg" style="margin-left: 1em;" width="74px" height="74px" class="rounded-circle" alt="">
+                    <img src="https://i.pinimg.com/564x/54/e9/d3/54e9d33d12adc4e7ee3123953a3fa9c3.jpg" style="margin-left: 1em;" width="74px" height="74px" class="rounded-circle" alt="">
                 </div>
                 <div class="col offset-md-1 col-md-7 col-lg-7 col-sm-7 ">
                     <h4 class="text-dark font-medium-5 text-bold-500">{{ project?.title }}</h4>

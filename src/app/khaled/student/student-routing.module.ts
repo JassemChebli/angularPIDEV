@@ -6,6 +6,7 @@ import { AddComponent } from './add/add.component';
 import { UpdateComponent } from './update/update.component';
 import { ProjectComponent } from './project/project.component';
 import { StudentGuard } from 'app/shared/auth/student-guard.service';
+import { EmpGuard } from 'app/shared/auth/emp-guard.service';
 
 const routes: Routes = [
   {
@@ -14,6 +15,7 @@ const routes: Routes = [
       {
         path: 'all',
         component: AllComponent,
+        
         data: {
           title: 'Students List'
         }
@@ -21,6 +23,7 @@ const routes: Routes = [
       {
         path: 'details/:id',
         component: SingleComponent,
+        
         data: {
           title: 'Student Detail'
         }
@@ -36,6 +39,7 @@ const routes: Routes = [
       {
         path: 'add',
         component: AddComponent,
+        
         data: {
           title: 'Student Info'
         }
@@ -43,6 +47,7 @@ const routes: Routes = [
       {
         path: 'update/:id',
         component: UpdateComponent,
+        
         data: {
           title: 'Student Detail Modifitcation'
         }
