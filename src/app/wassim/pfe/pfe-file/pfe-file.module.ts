@@ -17,15 +17,17 @@ import { CategorieService } from 'app/wassim/categorie.service';
 import { MyPfeComponent } from '../pfe/my-pfe.component';
 import { CrudModalChangeComponent } from '../pfe/crud-modal/crud-modal.component';
 import { PfeModificationService } from 'app/wassim/pfe-modification.service';
-import { PfemodificationComponent } from '../pfemodification/pfemodification.component';
-import { CrudModalChangeValidationComponent } from '../pfemodification/crud-modal/crud-modal.component';
-import { Ng2SearchPipeModule } from 'ng2-search-filter';
-import { BrowserModule } from '@angular/platform-browser';
 @NgModule({
+<<<<<<< HEAD
   declarations: [PfeFileComponent , CrudModalComponent, MyPfeComponent, CrudModalChangeComponent,
     PfemodificationComponent, CrudModalChangeValidationComponent],
   imports: [Ng2SearchPipeModule
 , HttpClientModule,
+=======
+  declarations: [PfeFileComponent , CrudModalComponent, MyPfeComponent, CrudModalChangeComponent],
+  imports: [
+HttpClientModule,
+>>>>>>> parent of 807be7c... PfeModification
     Ng2SmartTableModule,
     CommonModule,
     PfeFileRoutingModule,
@@ -44,8 +46,7 @@ SnotifyService,
 
 entryComponents: [
   CrudModalComponent,
-  CrudModalChangeComponent,
-  CrudModalChangeValidationComponent
+  CrudModalChangeComponent
 ]
 } )
 export class PfeFileModule { }

@@ -26,7 +26,6 @@ import { SnotifyModule, SnotifyService, ToastDefaults } from 'ng-snotify';
 import { Ng2SmartTableModule } from 'ng2-smart-table';
 import { Http } from '@angular/http';
 import { MyPfeComponent } from './wassim/pfe/pfe/my-pfe.component';
-import { PfemodificationComponent } from './wassim/pfe/pfemodification/pfemodification.component';
 
 const DEFAULT_PERFECT_SCROLLBAR_CONFIG: PerfectScrollbarConfigInterface = {
   suppressScrollX: true,
@@ -39,7 +38,7 @@ export function createTranslateLoader(http: HttpClient) {
 
 
 @NgModule({
-  declarations: [AppComponent, FullLayoutComponent, ContentLayoutComponent],
+  declarations: [AppComponent, FullLayoutComponent, ContentLayoutComponent ],
   imports: [
     Ng2SmartTableModule,
     BrowserAnimationsModule,

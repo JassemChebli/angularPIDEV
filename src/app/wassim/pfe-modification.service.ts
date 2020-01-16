@@ -38,6 +38,7 @@ createPfeMod(pfec): Observable<PfeFileChange > {
     retry(1),
     catchError(this.handleError)
   )
+<<<<<<< HEAD
 }
 validate(id): Observable<PfeFileChange> {
   return this.http.put<PfeFileChange>(this.pfeUrl  + '/' + 'validate/' + id , this.httpOptions)
@@ -71,3 +72,6 @@ delete(id){
   )
 }
 }
+=======
+}}
+>>>>>>> parent of 807be7c... PfeModification
