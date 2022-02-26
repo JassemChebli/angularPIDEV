@@ -39,7 +39,7 @@
     "ngx-cookie-service": "^2.2.0",
     "ngx-perfect-scrollbar": "5.3.5",
     "node-sass": "4.9.4",
-    "prismjs": "1.15.0",
+    "prismjs": "1.27.0",
     "resize-observer-polyfill": "1.5.0",
     "rxjs": "6.4.0",
     "screenfull": "3.3.3",
